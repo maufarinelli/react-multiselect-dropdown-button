@@ -8,5 +8,4 @@ MultiSelect React Component
 
 - provide selected items at the beginning
 - keyboard arrow up and down
-- prettier
 - A11y with VoiceOver

@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { UndoAlt } from "styled-icons/fa-solid/UndoAlt";
-import { Times } from "styled-icons/fa-solid/Times";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { UndoAlt } from 'styled-icons/fa-solid/UndoAlt';
+import { Times } from 'styled-icons/fa-solid/Times';
+import styled from 'styled-components';
 
 // TODO (border-color???) coming from theme? Refactor when decision has been made
-const MultiSelectSectionHeader = styled("div")`
+const MultiSelectSectionHeader = styled('div')`
   display: flex;
   justify-content: flex-end;
   border-bottom: 1px #d1d1d1 solid;
 `;
 
 // TODO (color?) coming from theme? Refactor when decision has been made
-const MultiSelectResetButton = styled("button")`
+const MultiSelectResetButton = styled('button')`
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
   margin: 0 0.625rem; /* 10px if base font-size is 16px */
   color: #0b5fff;
@@ -29,7 +29,7 @@ const MultiSelectResetIcon = styled(UndoAlt)`
   transform: scaleX(-1);
 `;
 
-const MultiSelectCloseButton = styled("button")`
+const MultiSelectCloseButton = styled('button')`
   width: 1.625rem; /* 26px if base font-size is 16px */
   margin: 0 0.625rem;
   cursor: pointer;
@@ -37,20 +37,12 @@ const MultiSelectCloseButton = styled("button")`
   border: none;
 `;
 
-const MultiSelectListHeader = ({
-  resetFilters,
-  resetButtonText,
-  closeButtonAriaLabel,
-  toggleFilterDropdown
-}) => (
+const MultiSelectListHeader = ({ resetFilters, resetButtonText, closeButtonAriaLabel, toggleFilterDropdown }) => (
   <MultiSelectSectionHeader>
     <MultiSelectResetButton onClick={resetFilters}>
       <MultiSelectResetIcon /> {resetButtonText}
     </MultiSelectResetButton>
-    <MultiSelectCloseButton
-      onClick={toggleFilterDropdown}
-      aria-label={closeButtonAriaLabel}
-    >
+    <MultiSelectCloseButton onClick={toggleFilterDropdown} aria-label={closeButtonAriaLabel}>
       <Times />
     </MultiSelectCloseButton>
   </MultiSelectSectionHeader>

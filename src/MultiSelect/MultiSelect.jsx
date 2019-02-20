@@ -1,22 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import MultiSelectDropdown from "./MultiSelectDropdown";
-import MultiSelectListHeader from "./MultiSelectListHeader";
-import MultiSelectListItem from "./MultiSelectListItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import MultiSelectDropdown from './MultiSelectDropdown';
+import MultiSelectListHeader from './MultiSelectListHeader';
+import MultiSelectListItem from './MultiSelectListItem';
 
-const MultiSelectWrapper = styled("div")`
+const MultiSelectWrapper = styled('div')`
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 `;
 
-const MultiSelectList = styled("ul")`
+const MultiSelectList = styled('ul')`
   padding-left: 0;
   list-style: none;
 `;
 
 // TODO: Rethink Padder, to avoid end up overriding styles?
-const MultiSelectApplyButton = styled("button")`
+const MultiSelectApplyButton = styled('button')`
   display: block;
   width: 100%;
   height: 55px;
@@ -56,10 +56,9 @@ class MultiSelect extends React.PureComponent {
 
   handleInputChange = event => {
     const tag = event.target.tagName;
-    const { name, checked } =
-      tag === "INPUT" ? event.target : event.target.children[0];
+    const { name, checked } = tag === 'INPUT' ? event.target : event.target.children[0];
     // If user used the keyboard to select the label, we need to programatically check the checkbox child
-    const checkedValue = tag === "INPUT" ? checked : !checked;
+    const checkedValue = tag === 'INPUT' ? checked : !checked;
 
     this.setState(prevState => ({
       checkedItems: { ...prevState.checkedItems, [name]: checkedValue }
@@ -68,13 +67,10 @@ class MultiSelect extends React.PureComponent {
 
   resetFilters = () => {
     this.setState(prevState => ({
-      checkedItems: Object.keys(prevState.checkedItems).reduce(
-        (acc, listItemName) => {
-          acc[listItemName] = false;
-          return acc;
-        },
-        {}
-      )
+      checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemName) => {
+        acc[listItemName] = false;
+        return acc;
+      }, {})
     }));
   };
 
@@ -87,17 +83,9 @@ class MultiSelect extends React.PureComponent {
 
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
-    const {
-      list,
-      dropdownButtonText,
-      resetButtonText,
-      closeButtonAriaLabel,
-      applyButtonText
-    } = this.props;
+    const { list, dropdownButtonText, resetButtonText, closeButtonAriaLabel, applyButtonText } = this.props;
     const { handleInputChange, handleApplyFiltersClick } = this;
-    const checkedItemsQuantity = Object.keys(checkedItems).filter(
-      itemName => checkedItems[itemName]
-    ).length;
+    const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
     return (
       <>
@@ -134,10 +122,7 @@ class MultiSelect extends React.PureComponent {
                 );
               })}
             </MultiSelectList>
-            <MultiSelectApplyButton
-              className="multiselect-apply-button"
-              onClick={handleApplyFiltersClick}
-            >
+            <MultiSelectApplyButton className="multiselect-apply-button" onClick={handleApplyFiltersClick}>
               {applyButtonText}
             </MultiSelectApplyButton>
           </MultiSelectWrapper>

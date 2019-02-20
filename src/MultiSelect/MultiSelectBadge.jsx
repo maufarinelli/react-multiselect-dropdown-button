@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // TODO: theming for colors
-const Badge = styled("span")`
+const Badge = styled('span')`
   padding: 0.1875rem 0.5rem; /* 3px 8px if base font-size is 16px */
   margin-left: 0.3125rem;
   font-size: 0.85rem;
