@@ -6,6 +6,8 @@ import MultiSelectListHeader from './MultiSelectListHeader';
 import MultiSelectListItem from './MultiSelectListItem';
 
 const MultiSelectWrapper = styled('div')`
+  position: absolute;
+  min-width: 150px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 `;
@@ -42,13 +44,13 @@ class MultiSelect extends React.PureComponent {
 
     this.setState({
       checkedItems: list.reduce((acc, listItem) => {
-        acc[listItem.name] = false;
+        acc[listItem.name] = listItem.checked;
         return acc;
       }, {})
     });
   }
 
-  toggleFilterDropdown = () => {
+  toggleDropdown = () => {
     const { isDropdownOpened } = this.state;
 
     this.setState({ isDropdownOpened: !isDropdownOpened });
@@ -65,7 +67,7 @@ class MultiSelect extends React.PureComponent {
     }));
   };
 
-  resetFilters = () => {
+  resetSelections = () => {
     this.setState(prevState => ({
       checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemName) => {
         acc[listItemName] = false;
@@ -74,17 +76,17 @@ class MultiSelect extends React.PureComponent {
     }));
   };
 
-  handleApplyFiltersClick = () => {
-    const { onSelectApplied } = this.props;
+  handleApplyClick = () => {
+    const { onSelectionApplied } = this.props;
     const { checkedItems } = this.state;
 
-    onSelectApplied(checkedItems);
+    onSelectionApplied(checkedItems);
   };
 
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
     const { list, dropdownButtonText, resetButtonText, closeButtonAriaLabel, applyButtonText } = this.props;
-    const { handleInputChange, handleApplyFiltersClick } = this;
+    const { handleInputChange, handleApplyClick } = this;
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
     return (
@@ -93,17 +95,17 @@ class MultiSelect extends React.PureComponent {
           className="multiselect-section-wrapper"
           text={dropdownButtonText}
           quantity={checkedItemsQuantity}
-          toggleFilterDropdown={this.toggleFilterDropdown}
+          toggleDropdown={this.toggleDropdown}
           isOpened={isDropdownOpened}
         />
         {isDropdownOpened && (
           <MultiSelectWrapper className="multiselect-section-wrapper">
             <MultiSelectListHeader
               className="multiselect-list-header"
-              resetFilters={this.resetFilters}
+              resetSelections={this.resetSelections}
               resetButtonText={resetButtonText}
               closeButtonAriaLabel={closeButtonAriaLabel}
-              toggleFilterDropdown={this.toggleFilterDropdown}
+              toggleDropdown={this.toggleDropdown}
             />
             <MultiSelectList className="multiselect-list">
               {list.map(listItem => {
@@ -114,6 +116,7 @@ class MultiSelect extends React.PureComponent {
                   <MultiSelectListItem
                     className="multiselect-list-item"
                     label={label}
+                    key={id}
                     id={id}
                     name={name}
                     handleInputChange={handleInputChange}
@@ -122,7 +125,7 @@ class MultiSelect extends React.PureComponent {
                 );
               })}
             </MultiSelectList>
-            <MultiSelectApplyButton className="multiselect-apply-button" onClick={handleApplyFiltersClick}>
+            <MultiSelectApplyButton className="multiselect-apply-button" onClick={handleApplyClick}>
               {applyButtonText}
             </MultiSelectApplyButton>
           </MultiSelectWrapper>
@@ -137,11 +140,12 @@ MultiSelect.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
+      checked: PropTypes.bool.isRequired
     })
   ).isRequired,
   dropdownButtonText: PropTypes.string.isRequired,
-  onSelectApplied: PropTypes.func.isRequired,
+  onSelectionApplied: PropTypes.func.isRequired,
   resetButtonText: PropTypes.string.isRequired,
   closeButtonAriaLabel: PropTypes.string.isRequired,
   applyButtonText: PropTypes.string.isRequired

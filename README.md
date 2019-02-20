@@ -6,6 +6,6 @@ MultiSelect React Component
 
 // TODO:
 
-- provide selected items at the beginning
 - keyboard arrow up and down
 - A11y with VoiceOver
+- fix tests

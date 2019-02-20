@@ -4,7 +4,7 @@ import { Check } from 'styled-icons/fa-solid/Check';
 import styled from 'styled-components';
 
 // TODO (hover background-color) coming from theme? Refactor when decision has been made
-const StyledFilterListItem = styled('li', 'filter-list-item')`
+const MultiSelectListItemLi = styled('li', 'multiselect-list-item')`
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
 
   :hover {
@@ -12,33 +12,39 @@ const StyledFilterListItem = styled('li', 'filter-list-item')`
   }
 `;
 
-const StyledFilterCheckbox = styled('input', 'filter-list-item-checkbox')`
+const MultiSelectCheckbox = styled('input', 'multiselect-list-item-checkbox')`
   visibility: hidden;
 `;
 
-const StyledLisItemLabel = styled('label', 'filter-list-item-label')`
+const MultiSelectLisItemLabel = styled('label', 'multiselect-list-item-label')`
   display: flex;
   justify-content: space-between;
   line-height: 1;
   cursor: pointer;
 `;
 
-const StyledCheckIcon = styled(Check, 'filter-list-item-check-icon')`
-  display: ${props => (props.checked ? 'block' : 'none')};
+const MultiSelectCheckIcon = styled(Check, 'multiselect-list-item-check-icon')`
+  visibility: ${props => (props.checked ? 'visible' : 'hidden')};
   height: 1rem;
 `;
 
-const FilterListItem = ({ label, name, id, handleInputChange, checked }) => (
-  <StyledFilterListItem key={id}>
-    <StyledLisItemLabel role="checkbox" aria-checked={checked} tabIndex="0" htmlFor={id} onKeyPress={handleInputChange}>
+const MultiSelectListItem = ({ label, name, id, handleInputChange, checked }) => (
+  <MultiSelectListItemLi>
+    <MultiSelectLisItemLabel
+      role="checkbox"
+      aria-checked={checked}
+      tabIndex="0"
+      htmlFor={id}
+      onKeyPress={handleInputChange}
+    >
       {label}
-      <StyledFilterCheckbox type="checkbox" name={name} id={id} onChange={handleInputChange} checked={checked} />
-      <StyledCheckIcon checked={checked} />
-    </StyledLisItemLabel>
-  </StyledFilterListItem>
+      <MultiSelectCheckbox type="checkbox" name={name} id={id} onChange={handleInputChange} checked={checked} />
+      <MultiSelectCheckIcon checked={checked} />
+    </MultiSelectLisItemLabel>
+  </MultiSelectListItemLi>
 );
 
-FilterListItem.propTypes = {
+MultiSelectListItem.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -46,4 +52,4 @@ FilterListItem.propTypes = {
   checked: PropTypes.bool.isRequired
 };
 
-export default FilterListItem;
+export default MultiSelectListItem;

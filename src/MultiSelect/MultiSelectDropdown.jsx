@@ -14,6 +14,10 @@ const MultiSelectButton = styled('button')`
   cursor: pointer;
   background-color: transparent;
   border: 1px #000 solid;
+
+  &&.is-opened {
+    border-bottom: 0;
+  }
 `;
 
 const angleStyle = css`
@@ -30,15 +34,18 @@ const StyledAngleUp = styled(AngleUp)`
   ${angleStyle}
 `;
 
-const MultiSelectDropdown = ({ text, toggleFilterDropdown, quantity, isOpened }) => (
-  <MultiSelectButton className="multiselect-button-dropdown" onClick={toggleFilterDropdown}>
+const MultiSelectDropdown = ({ text, toggleDropdown, quantity, isOpened }) => (
+  <MultiSelectButton
+    className={isOpened ? 'multiselect-button-dropdown is-opened' : 'multiselect-button-dropdown'}
+    onClick={toggleDropdown}
+  >
     <MultiSelectBadge className="multiselect-badge" text={text} quantity={quantity} />
     {isOpened ? <StyledAngleUp /> : <StyledAngleDown />}
   </MultiSelectButton>
 );
 
 MultiSelectDropdown.propTypes = {
-  toggleFilterDropdown: PropTypes.func.isRequired,
+  toggleDropdown: PropTypes.func.isRequired,
   quantity: PropTypes.number.isRequired
 };
 

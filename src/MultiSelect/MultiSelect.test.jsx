@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Filter from './Filter';
+import MultiSelect from './MultiSelect';
 
-describe('<Filter />', () => {
+describe('<MultiSelect />', () => {
   const props = {
     title: 'Filter',
     resetButtonText: 'Reset filters',
@@ -29,7 +29,7 @@ describe('<Filter />', () => {
   };
 
   test('should match snapshot - dropdown closed', () => {
-    const wrapper = mount(<Filter {...props} />)
+    const wrapper = mount(<MultiSelect {...props} />)
       .find('.sls-filter')
       .getDOMNode();
 
@@ -37,7 +37,7 @@ describe('<Filter />', () => {
   });
 
   test('should match snapshot - dropdown opened', () => {
-    const wrapper = mount(<Filter {...props} />);
+    const wrapper = mount(<MultiSelect {...props} />);
     wrapper.find('.sls-filter-button').simulate('click');
 
     expect(wrapper.find('.sls-filter').getDOMNode()).toMatchSnapshot();

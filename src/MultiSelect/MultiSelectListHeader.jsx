@@ -22,7 +22,7 @@ const MultiSelectResetButton = styled('button')`
 `;
 
 const MultiSelectResetIcon = styled(UndoAlt)`
-  width: 0.75rem; /* 10px if base font-size is 16px */
+  width: 0.75rem; /* 12px if base font-size is 16px */
   margin: 0 0.625rem; /* 10px if base font-size is 16px */
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
   vertical-align: middle;
@@ -31,30 +31,28 @@ const MultiSelectResetIcon = styled(UndoAlt)`
 
 const MultiSelectCloseButton = styled('button')`
   width: 1.625rem; /* 26px if base font-size is 16px */
-  margin: 0 0.625rem;
+  margin: 0 0 0 0.625rem; /* 10px if base font-size is 16px */
   cursor: pointer;
   background-color: transparent;
   border: none;
 `;
 
-const MultiSelectListHeader = ({ resetFilters, resetButtonText, closeButtonAriaLabel, toggleFilterDropdown }) => (
+const MultiSelectListHeader = ({ resetSelections, resetButtonText, closeButtonAriaLabel, toggleDropdown }) => (
   <MultiSelectSectionHeader>
-    <MultiSelectResetButton onClick={resetFilters}>
+    <MultiSelectResetButton onClick={resetSelections}>
       <MultiSelectResetIcon /> {resetButtonText}
     </MultiSelectResetButton>
-    <MultiSelectCloseButton onClick={toggleFilterDropdown} aria-label={closeButtonAriaLabel}>
+    <MultiSelectCloseButton onClick={toggleDropdown} aria-label={closeButtonAriaLabel}>
       <Times />
     </MultiSelectCloseButton>
   </MultiSelectSectionHeader>
 );
 
 MultiSelectListHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired,
-  resetFilters: PropTypes.func.isRequired,
+  resetSelections: PropTypes.func.isRequired,
   resetButtonText: PropTypes.string.isRequired,
   closeButtonAriaLabel: PropTypes.string.isRequired,
-  toggleFilterDropdown: PropTypes.func.isRequired
+  toggleDropdown: PropTypes.func.isRequired
 };
 
 export default MultiSelectListHeader;

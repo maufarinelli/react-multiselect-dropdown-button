@@ -22,7 +22,7 @@ const MultiSelectBadge = ({ text, quantity }) => (
 );
 
 MultiSelectBadge.propTypes = {
-  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   quantity: PropTypes.number.isRequired
 };
 

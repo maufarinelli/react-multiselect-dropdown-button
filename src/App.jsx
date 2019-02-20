@@ -1,38 +1,41 @@
-import React, { Component } from "react";
-import MultiSelect from "./MultiSelect/MultiSelect";
+import React, { Component } from 'react';
+import MultiSelect from './MultiSelect/MultiSelect';
 
 class App extends Component {
   render() {
-    const filterProps = {
+    const multiSelectProps = {
       list: [
         {
-          label: "Filter 1",
-          name: "filter-1",
-          id: "filter-1"
+          label: 'Filter 1 aSAsa asaS as',
+          name: 'filter-1',
+          id: 'filter-1',
+          checked: true
         },
         {
-          label: "Filter 2",
-          name: "filter-2",
-          id: "filter-2"
+          label: 'Filter 2',
+          name: 'filter-2',
+          id: 'filter-2',
+          checked: false
         },
         {
-          label: "Filter 3",
-          name: "filter-3",
-          id: "filter-3"
+          label: 'Filter 3',
+          name: 'filter-3',
+          id: 'filter-3',
+          checked: false
         }
       ],
-      onSelectApplied: selection => {
-        console.log("Selected : ", selection);
+      onSelectionApplied: selection => {
+        console.log('Selected : ', selection);
       },
-      dropdownButtonText: "Selected",
-      resetButtonText: "Reset",
-      closeButtonAriaLabel: "Close button",
-      applyButtonText: "Apply"
+      dropdownButtonText: 'Selected',
+      resetButtonText: 'Reset',
+      closeButtonAriaLabel: 'Close button',
+      applyButtonText: 'Apply'
     };
 
     return (
       <div className="App">
-        <MultiSelect {...filterProps} />
+        <MultiSelect {...multiSelectProps} />
       </div>
     );
   }
