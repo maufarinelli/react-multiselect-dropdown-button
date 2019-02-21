@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MultiSelectDropdown from './MultiSelectDropdown';
-import MultiSelectListHeader from './MultiSelectListHeader';
 import MultiSelectListItem from './MultiSelectListItem';
+import MultiSelectFooter from './MultiSelectFooter';
 
 const MultiSelectWrapper = styled('div')`
   position: absolute;
-  min-width: 150px;
+  min-width: 170px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 `;
@@ -15,22 +15,6 @@ const MultiSelectWrapper = styled('div')`
 const MultiSelectList = styled('ul')`
   padding-left: 0;
   list-style: none;
-`;
-
-// TODO: Rethink Padder, to avoid end up overriding styles?
-const MultiSelectApplyButton = styled('button')`
-  display: block;
-  width: 100%;
-  height: 55px;
-  padding: 0 1.875rem;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: 55px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 0;
 `;
 
 class MultiSelect extends React.PureComponent {
@@ -85,7 +69,7 @@ class MultiSelect extends React.PureComponent {
 
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
-    const { list, dropdownButtonText, resetButtonText, closeButtonAriaLabel, applyButtonText } = this.props;
+    const { list, dropdownButtonText, resetButtonText, applyButtonText } = this.props;
     const { handleInputChange, handleApplyClick } = this;
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
@@ -100,14 +84,7 @@ class MultiSelect extends React.PureComponent {
         />
         {isDropdownOpened && (
           <MultiSelectWrapper className="multiselect-section-wrapper">
-            <MultiSelectListHeader
-              className="multiselect-list-header"
-              resetSelections={this.resetSelections}
-              resetButtonText={resetButtonText}
-              closeButtonAriaLabel={closeButtonAriaLabel}
-              toggleDropdown={this.toggleDropdown}
-            />
-            <MultiSelectList className="multiselect-list">
+            <MultiSelectList role="listbox" className="multiselect-list">
               {list.map(listItem => {
                 const { label, id, name } = listItem;
                 const checked = checkedItems[name];
@@ -125,9 +102,12 @@ class MultiSelect extends React.PureComponent {
                 );
               })}
             </MultiSelectList>
-            <MultiSelectApplyButton className="multiselect-apply-button" onClick={handleApplyClick}>
-              {applyButtonText}
-            </MultiSelectApplyButton>
+            <MultiSelectFooter
+              resetSelections={this.resetSelections}
+              resetButtonText={resetButtonText}
+              applyButtonText={applyButtonText}
+              handleApplyClick={handleApplyClick}
+            />
           </MultiSelectWrapper>
         )}
       </>
@@ -147,7 +127,6 @@ MultiSelect.propTypes = {
   dropdownButtonText: PropTypes.string.isRequired,
   onSelectionApplied: PropTypes.func.isRequired,
   resetButtonText: PropTypes.string.isRequired,
-  closeButtonAriaLabel: PropTypes.string.isRequired,
   applyButtonText: PropTypes.string.isRequired
 };
 

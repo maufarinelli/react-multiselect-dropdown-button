@@ -6,21 +6,21 @@ class App extends Component {
     const multiSelectProps = {
       list: [
         {
-          label: 'Filter 1 aSAsa asaS as',
-          name: 'filter-1',
-          id: 'filter-1',
+          label: 'First option',
+          name: 'first-option',
+          id: 'first-option',
           checked: true
         },
         {
-          label: 'Filter 2',
-          name: 'filter-2',
-          id: 'filter-2',
+          label: 'Second option',
+          name: 'second-option',
+          id: 'second-option',
           checked: false
         },
         {
-          label: 'Filter 3',
-          name: 'filter-3',
-          id: 'filter-3',
+          label: 'Third option',
+          name: 'third-option',
+          id: 'third-option',
           checked: false
         }
       ],
@@ -29,7 +29,6 @@ class App extends Component {
       },
       dropdownButtonText: 'Selected',
       resetButtonText: 'Reset',
-      closeButtonAriaLabel: 'Close button',
       applyButtonText: 'Apply'
     };
 

@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 // TODO (hover background-color) coming from theme? Refactor when decision has been made
 const MultiSelectListItemLi = styled('li', 'multiselect-list-item')`
-  padding: 0.625rem 0; /* 10px if base font-size is 16px */
-
   :hover {
     background-color: #f0f0f0;
   }
@@ -19,6 +17,7 @@ const MultiSelectCheckbox = styled('input', 'multiselect-list-item-checkbox')`
 const MultiSelectLisItemLabel = styled('label', 'multiselect-list-item-label')`
   display: flex;
   justify-content: space-between;
+  padding: 0.625rem 0; /* 10px if base font-size is 16px */
   line-height: 1;
   cursor: pointer;
 `;
@@ -29,7 +28,7 @@ const MultiSelectCheckIcon = styled(Check, 'multiselect-list-item-check-icon')`
 `;
 
 const MultiSelectListItem = ({ label, name, id, handleInputChange, checked }) => (
-  <MultiSelectListItemLi>
+  <MultiSelectListItemLi role="option">
     <MultiSelectLisItemLabel
       role="checkbox"
       aria-checked={checked}
