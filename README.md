@@ -7,7 +7,7 @@ React MultiSelect Button Dropdown
 // TODO:
 
 - keyboard Optional Home and End keys (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role)
-- A11y with VoiceOver
+- fix A11y with VoiceOver (inversed aria-checked state)
 - fix tests
 
 A11y notes
