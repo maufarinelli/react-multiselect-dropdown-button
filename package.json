@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "arrow-keys-react": "^1.0.6",
     "enzyme": "^3.9.0",
     "prettier": "^1.16.4",
     "react": "^16.8.2",

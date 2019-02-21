@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import ArrowKeysReact from 'arrow-keys-react';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
@@ -23,6 +24,27 @@ class MultiSelect extends React.PureComponent {
     checkedItems: {}
   };
 
+  constructor(props) {
+    super(props);
+    this.listElement = React.createRef();
+    this.listItems = [];
+
+    ArrowKeysReact.config({
+      up: () => {
+        const activeElementIndex = this.listItems.findIndex(item => {
+          return item === document.activeElement;
+        });
+        this.listItems[activeElementIndex - 1] && this.listItems[activeElementIndex - 1].focus();
+      },
+      down: () => {
+        const activeElementIndex = this.listItems.findIndex(item => {
+          return item === document.activeElement;
+        });
+        this.listItems[activeElementIndex + 1] && this.listItems[activeElementIndex + 1].focus();
+      }
+    });
+  }
+
   componentDidMount() {
     const { list } = this.props;
 
@@ -37,7 +59,11 @@ class MultiSelect extends React.PureComponent {
   toggleDropdown = () => {
     const { isDropdownOpened } = this.state;
 
-    this.setState({ isDropdownOpened: !isDropdownOpened });
+    this.setState({ isDropdownOpened: !isDropdownOpened }, () => {
+      if (this.state.isDropdownOpened) {
+        this.listItems[0].focus();
+      }
+    });
   };
 
   handleInputChange = event => {
@@ -84,8 +110,13 @@ class MultiSelect extends React.PureComponent {
         />
         {isDropdownOpened && (
           <MultiSelectWrapper className="multiselect-section-wrapper">
-            <MultiSelectList role="listbox" className="multiselect-list">
-              {list.map(listItem => {
+            <MultiSelectList
+              ref={this.listElement}
+              role="listbox"
+              {...ArrowKeysReact.events}
+              className="multiselect-list"
+            >
+              {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
                 const checked = checkedItems[name];
 
@@ -98,6 +129,10 @@ class MultiSelect extends React.PureComponent {
                     name={name}
                     handleInputChange={handleInputChange}
                     checked={checked}
+                    ref={el => {
+                      this.listItems[index] = el;
+                      return el;
+                    }}
                   />
                 );
               })}

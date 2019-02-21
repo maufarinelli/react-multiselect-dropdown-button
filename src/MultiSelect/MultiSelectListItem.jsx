@@ -27,21 +27,26 @@ const MultiSelectCheckIcon = styled(Check, 'multiselect-list-item-check-icon')`
   height: 1rem;
 `;
 
-const MultiSelectListItem = ({ label, name, id, handleInputChange, checked }) => (
-  <MultiSelectListItemLi role="option">
-    <MultiSelectLisItemLabel
-      role="checkbox"
-      aria-checked={checked}
-      tabIndex="0"
-      htmlFor={id}
-      onKeyPress={handleInputChange}
-    >
-      {label}
-      <MultiSelectCheckbox type="checkbox" name={name} id={id} onChange={handleInputChange} checked={checked} />
-      <MultiSelectCheckIcon checked={checked} />
-    </MultiSelectLisItemLabel>
-  </MultiSelectListItemLi>
-);
+const MultiSelectListItem = React.forwardRef((props, ref) => {
+  const { label, name, id, handleInputChange, checked } = props;
+
+  return (
+    <MultiSelectListItemLi role="option">
+      <MultiSelectLisItemLabel
+        role="checkbox"
+        aria-checked={checked}
+        tabIndex="0"
+        htmlFor={id}
+        onKeyPress={handleInputChange}
+        ref={ref}
+      >
+        {label}
+        <MultiSelectCheckbox type="checkbox" name={name} id={id} onChange={handleInputChange} checked={checked} />
+        <MultiSelectCheckIcon checked={checked} />
+      </MultiSelectLisItemLabel>
+    </MultiSelectListItemLi>
+  );
+});
 
 MultiSelectListItem.propTypes = {
   label: PropTypes.string.isRequired,
