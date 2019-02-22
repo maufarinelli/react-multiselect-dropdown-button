@@ -68,12 +68,16 @@ class MultiSelect extends React.PureComponent {
 
   handleInputChange = event => {
     const tag = event.target.tagName;
-    const { name, checked } = tag === 'INPUT' ? event.target : event.target.children[0];
-    // If user used the keyboard to select the label, we need to programatically check the checkbox child
-    const checkedValue = tag === 'INPUT' ? checked : !checked;
+    const target = tag === 'LABEL' ? event.target.children[0] : event.target;
+    // If user used the keyboard to select the label, we need to programatically check the checkbox child.
+    // Also needed to work with screen readers
+    if (tag === 'LABEL') {
+      target.checked = !target.checked;
+    }
+    const { name, checked } = target;
 
     this.setState(prevState => ({
-      checkedItems: { ...prevState.checkedItems, [name]: checkedValue }
+      checkedItems: { ...prevState.checkedItems, [name]: checked }
     }));
   };
 
