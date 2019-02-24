@@ -52,7 +52,7 @@ const MultiSelectApplyIcon = styled(Send)`
   ${iconCSS}
 `;
 
-const MultiSelectFooter = ({ resetSelections, resetButtonText, applyButtonText, handleApplyClick }) => (
+const MultiSelectFooter = ({ resetSelections, resetButtonText = 'Reset', applyButtonText = 'Apply', handleApplyClick }) => (
   <MultiSelectListFooter>
     <MultiSelectResetButton className="multiselect-reset-button" onClick={resetSelections}>
       <MultiSelectResetIcon />
