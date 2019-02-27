@@ -114,9 +114,9 @@ class MultiSelect extends React.PureComponent {
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
     return (
-      <MultiSelectWrapper>
+      <MultiSelectWrapper className="multiselect-button-dropdown-wrapper">
         <MultiSelectDropdown
-          className="multiselect-section-wrapper"
+          className="multiselect-button-dropdown"
           text={dropdownButtonText}
           quantity={checkedItemsQuantity}
           toggleDropdown={this.toggleDropdown}
