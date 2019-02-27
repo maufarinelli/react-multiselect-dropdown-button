@@ -8,6 +8,38 @@ class App extends Component {
         {
           label: 'First option',
           name: 'first-option',
+          id: 'first-option-1',
+          checked: true
+        },
+        {
+          label: 'Second option',
+          name: 'second-option',
+          id: 'second-option-2',
+          checked: false
+        },
+        {
+          label: 'Third option',
+          name: 'third-option',
+          id: 'third-option-3',
+          checked: false
+        }
+      ],
+      onSelectionApplied: selection => {
+        console.log('Selected : ', selection);
+      },
+      dropdownButtonText: 'Selected',
+      resetButtonText: 'Reset',
+      applyButtonText: 'Apply'
+    };
+
+    return (
+      <div style={{display: 'flex', justifyContent: 'space-around'}}>
+        <MultiSelect {...multiSelectProps} />
+
+        <MultiSelect list={[
+        {
+          label: 'First option',
+          name: 'first-option',
           id: 'first-option',
           checked: true
         },
@@ -23,18 +55,7 @@ class App extends Component {
           id: 'third-option',
           checked: false
         }
-      ],
-      onSelectionApplied: selection => {
-        console.log('Selected : ', selection);
-      },
-      dropdownButtonText: 'Selected',
-      resetButtonText: 'Reset',
-      applyButtonText: 'Apply'
-    };
-
-    return (
-      <div className="App">
-        <MultiSelect {...multiSelectProps} />
+        ]} isRightAligned dropdownButtonText="Selected" />
       </div>
     );
   }

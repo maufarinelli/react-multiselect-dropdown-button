@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ArrowKeysReact from 'arrow-keys-react';
+import ListboxKeyEvents from '../react-listbox-key-events/ListboxKeyEvents';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
 
 const MultiSelectWrapper = styled('div')`
+  position: relative;
+`;
+
+const MultiSelectListWrapper = styled('div')`
   position: absolute;
+  right: ${props => props.isRightAligned ? '0' : 'auto'};
   min-width: 170px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 `;
 
-const MultiSelectList = styled('ul')`
+const MultiSelectList = styled(ListboxKeyEvents)`
   padding-left: 0;
   list-style: none;
 `;
@@ -26,10 +31,9 @@ class MultiSelect extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.listElement = React.createRef();
     this.listItems = [];
 
-    ArrowKeysReact.config({
+    this.keyEvents = {
       up: () => {
         const activeElementIndex = this.listItems.findIndex(item => {
           return item === document.activeElement;
@@ -42,7 +46,7 @@ class MultiSelect extends React.PureComponent {
         });
         this.listItems[activeElementIndex + 1] && this.listItems[activeElementIndex + 1].focus();
       }
-    });
+    };
   }
 
   componentDidMount() {
@@ -99,12 +103,12 @@ class MultiSelect extends React.PureComponent {
 
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
-    const { list, dropdownButtonText, resetButtonText, applyButtonText } = this.props;
+    const { list, dropdownButtonText, isRightAligned, onSelectionApplied, resetButtonText, applyButtonText } = this.props;
     const { handleInputChange, handleApplyClick } = this;
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
     return (
-      <>
+      <MultiSelectWrapper>
         <MultiSelectDropdown
           className="multiselect-section-wrapper"
           text={dropdownButtonText}
@@ -113,22 +117,22 @@ class MultiSelect extends React.PureComponent {
           isOpened={isDropdownOpened}
         />
         {isDropdownOpened && (
-          <MultiSelectWrapper className="multiselect-section-wrapper">
+          <MultiSelectListWrapper {...(isRightAligned ? {isRightAligned} : {})} className="multiselect-section-wrapper">
             <MultiSelectList
-              ref={this.listElement}
               role="listbox"
-              {...ArrowKeysReact.events}
               className="multiselect-list"
+              keyEvents={{...this.keyEvents}}
             >
               {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
                 const checked = checkedItems[name];
+                const key = `${id}-${index}`;
 
                 return (
                   <MultiSelectListItem
                     className="multiselect-list-item"
                     label={label}
-                    key={id}
+                    key={key}
                     id={id}
                     name={name}
                     handleInputChange={handleInputChange}
@@ -141,15 +145,15 @@ class MultiSelect extends React.PureComponent {
                 );
               })}
             </MultiSelectList>
-            <MultiSelectFooter
+            {onSelectionApplied && <MultiSelectFooter
               resetSelections={this.resetSelections}
               resetButtonText={resetButtonText}
               applyButtonText={applyButtonText}
               handleApplyClick={handleApplyClick}
-            />
-          </MultiSelectWrapper>
+            />}
+          </MultiSelectListWrapper>
         )}
-      </>
+      </MultiSelectWrapper>
     );
   }
 }
@@ -164,9 +168,10 @@ MultiSelect.propTypes = {
     })
   ).isRequired,
   dropdownButtonText: PropTypes.string.isRequired,
-  onSelectionApplied: PropTypes.func.isRequired,
-  resetButtonText: PropTypes.string.isRequired,
-  applyButtonText: PropTypes.string.isRequired
+  isRightAligned: PropTypes.bool,
+  onSelectionApplied: PropTypes.func,
+  resetButtonText: PropTypes.string,
+  applyButtonText: PropTypes.string
 };
 
 export default MultiSelect;
