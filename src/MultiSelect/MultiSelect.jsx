@@ -45,6 +45,12 @@ class MultiSelect extends React.PureComponent {
           return item === document.activeElement;
         });
         this.listItems[activeElementIndex + 1] && this.listItems[activeElementIndex + 1].focus();
+      },
+      home: () => {
+        this.listItems[0].focus();
+      },
+      end: () => {
+        this.listItems[this.listItems.length - 1].focus();
       }
     };
   }
