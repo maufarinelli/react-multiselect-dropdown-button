@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ArrowKeysReact from 'arrow-keys-react';
+import ListboxKeyEvents from '../react-listbox-key-events/ListboxKeyEvents';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
@@ -18,7 +18,7 @@ const MultiSelectListWrapper = styled('div')`
   border: 1px #000 solid;
 `;
 
-const MultiSelectList = styled('ul')`
+const MultiSelectList = styled(ListboxKeyEvents)`
   padding-left: 0;
   list-style: none;
 `;
@@ -31,10 +31,9 @@ class MultiSelect extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.listElement = React.createRef();
     this.listItems = [];
 
-    ArrowKeysReact.config({
+    this.keyEvents = {
       up: () => {
         const activeElementIndex = this.listItems.findIndex(item => {
           return item === document.activeElement;
@@ -42,13 +41,12 @@ class MultiSelect extends React.PureComponent {
         this.listItems[activeElementIndex - 1] && this.listItems[activeElementIndex - 1].focus();
       },
       down: () => {
-        console.log('this.listItems : ', this.listItems)
         const activeElementIndex = this.listItems.findIndex(item => {
           return item === document.activeElement;
         });
         this.listItems[activeElementIndex + 1] && this.listItems[activeElementIndex + 1].focus();
       }
-    });
+    };
   }
 
   componentDidMount() {
@@ -121,20 +119,20 @@ class MultiSelect extends React.PureComponent {
         {isDropdownOpened && (
           <MultiSelectListWrapper {...(isRightAligned ? {isRightAligned} : {})} className="multiselect-section-wrapper">
             <MultiSelectList
-              ref={this.listElement}
               role="listbox"
-              {...ArrowKeysReact.events}
               className="multiselect-list"
+              keyEvents={{...this.keyEvents}}
             >
               {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
                 const checked = checkedItems[name];
+                const key = `${id}-${index}`;
 
                 return (
                   <MultiSelectListItem
                     className="multiselect-list-item"
                     label={label}
-                    key={id}
+                    key={key}
                     id={id}
                     name={name}
                     handleInputChange={handleInputChange}

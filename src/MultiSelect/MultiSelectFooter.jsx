@@ -17,7 +17,6 @@ const buttonCSS = css`
   height: 40px;
   padding: 0 0.625rem;
   font-family: inherit;
-  font-size: inherit;
   line-height: 40px;
   text-align: center;
   color: #fff;
@@ -66,10 +65,10 @@ const MultiSelectFooter = ({ resetSelections, resetButtonText = 'Reset', applyBu
 );
 
 MultiSelectFooter.propTypes = {
-  resetSelections: PropTypes.func.isRequired,
-  resetButtonText: PropTypes.string.isRequired,
-  applyButtonText: PropTypes.string.isRequired,
-  handleApplyClick: PropTypes.func.isRequired
+  resetSelections: PropTypes.func,
+  resetButtonText: PropTypes.string,
+  applyButtonText: PropTypes.string,
+  handleApplyClick: PropTypes.func
 };
 
 export default MultiSelectFooter;

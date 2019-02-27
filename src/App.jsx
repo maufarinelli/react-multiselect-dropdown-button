@@ -8,19 +8,19 @@ class App extends Component {
         {
           label: 'First option',
           name: 'first-option',
-          id: 'first-option',
+          id: 'first-option-1',
           checked: true
         },
         {
           label: 'Second option',
           name: 'second-option',
-          id: 'second-option',
+          id: 'second-option-2',
           checked: false
         },
         {
           label: 'Third option',
           name: 'third-option',
-          id: 'third-option',
+          id: 'third-option-3',
           checked: false
         }
       ],
