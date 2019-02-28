@@ -17,6 +17,7 @@
 - **list:** `Array<listItem>` (required)
   listItem is:
   `{ label: PropTypes.string.isRequired, id: PropTypes.string.isRequired, name: PropTypes.string, checked: PropTypes.bool.isRequired }`
+
   Provides a list of checkboxes to the component
 
 - **dropdownButtonText:** `string` (required)
@@ -69,5 +70,5 @@ const props = {
     applyButtonText: 'Apply'
 };
 
-<MultiSelect {...multiSelectProps} />
+<MultiSelect {...props} />
 ```
