@@ -58,7 +58,7 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
 
 MultiSelectListItem.propTypes = {
   label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   id: PropTypes.string.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   checked: PropTypes.bool.isRequired
