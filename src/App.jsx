@@ -33,29 +33,30 @@ class App extends Component {
     };
 
     return (
-      <div style={{display: 'flex', justifyContent: 'space-around'}}>
+      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <MultiSelect {...multiSelectProps} />
 
-        <MultiSelect list={[
-        {
-          label: 'First option',
-          name: 'first-option',
-          id: 'first-option',
-          checked: true
-        },
-        {
-          label: 'Second option',
-          name: 'second-option',
-          id: 'second-option',
-          checked: false
-        },
-        {
-          label: 'Third option',
-          name: 'third-option',
-          id: 'third-option',
-          checked: false
-        }
-        ]} isRightAligned dropdownButtonText="Selected" />
+        <MultiSelect
+          list={[
+            {
+              label: 'First option',
+              id: 'first-option',
+              checked: true
+            },
+            {
+              label: 'Second option',
+              id: 'second-option',
+              checked: false
+            },
+            {
+              label: 'Third option',
+              id: 'third-option',
+              checked: false
+            }
+          ]}
+          isRightAligned
+          dropdownButtonText="Selected"
+        />
       </div>
     );
   }

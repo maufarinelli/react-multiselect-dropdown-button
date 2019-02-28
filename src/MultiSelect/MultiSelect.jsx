@@ -12,7 +12,7 @@ const MultiSelectWrapper = styled('div')`
 
 const MultiSelectListWrapper = styled('div')`
   position: absolute;
-  right: ${props => props.isRightAligned ? '0' : 'auto'};
+  right: ${props => (props.isRightAligned ? '0' : 'auto')};
   min-width: 170px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
@@ -60,7 +60,7 @@ class MultiSelect extends React.PureComponent {
 
     this.setState({
       checkedItems: list.reduce((acc, listItem) => {
-        acc[listItem.name] = listItem.checked;
+        acc[listItem.id] = listItem.checked;
         return acc;
       }, {})
     });
@@ -84,10 +84,10 @@ class MultiSelect extends React.PureComponent {
     if (tag === 'LABEL') {
       target.checked = !target.checked;
     }
-    const { name, checked } = target;
+    const { id, checked } = target;
 
     this.setState(prevState => ({
-      checkedItems: { ...prevState.checkedItems, [name]: checked }
+      checkedItems: { ...prevState.checkedItems, [id]: checked }
     }));
   };
 
@@ -109,7 +109,14 @@ class MultiSelect extends React.PureComponent {
 
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
-    const { list, dropdownButtonText, isRightAligned, onSelectionApplied, resetButtonText, applyButtonText } = this.props;
+    const {
+      list,
+      dropdownButtonText,
+      isRightAligned,
+      onSelectionApplied,
+      resetButtonText,
+      applyButtonText
+    } = this.props;
     const { handleInputChange, handleApplyClick } = this;
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
@@ -123,15 +130,14 @@ class MultiSelect extends React.PureComponent {
           isOpened={isDropdownOpened}
         />
         {isDropdownOpened && (
-          <MultiSelectListWrapper {...(isRightAligned ? {isRightAligned} : {})} className="multiselect-section-wrapper">
-            <MultiSelectList
-              role="listbox"
-              className="multiselect-list"
-              keyEvents={{...this.keyEvents}}
-            >
+          <MultiSelectListWrapper
+            {...(isRightAligned ? { isRightAligned } : {})}
+            className="multiselect-section-wrapper"
+          >
+            <MultiSelectList role="listbox" className="multiselect-list" keyEvents={{ ...this.keyEvents }}>
               {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
-                const checked = checkedItems[name];
+                const checked = checkedItems[id];
                 const key = `${id}-${index}`;
 
                 return (
@@ -151,12 +157,14 @@ class MultiSelect extends React.PureComponent {
                 );
               })}
             </MultiSelectList>
-            {onSelectionApplied && <MultiSelectFooter
-              resetSelections={this.resetSelections}
-              resetButtonText={resetButtonText}
-              applyButtonText={applyButtonText}
-              handleApplyClick={handleApplyClick}
-            />}
+            {onSelectionApplied && (
+              <MultiSelectFooter
+                resetSelections={this.resetSelections}
+                resetButtonText={resetButtonText}
+                applyButtonText={applyButtonText}
+                handleApplyClick={handleApplyClick}
+              />
+            )}
           </MultiSelectListWrapper>
         )}
       </MultiSelectWrapper>
@@ -169,7 +177,7 @@ MultiSelect.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      name: PropTypes.string,
       checked: PropTypes.bool.isRequired
     })
   ).isRequired,
