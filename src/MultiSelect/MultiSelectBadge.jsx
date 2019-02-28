@@ -17,7 +17,7 @@ const Badge = styled('span')`
 
 const MultiSelectBadge = ({ text, quantity }) => (
   <>
-    {text} <Badge>{quantity}</Badge>
+    {text} <Badge className="multiselect-badge">{quantity}</Badge>
   </>
 );
 

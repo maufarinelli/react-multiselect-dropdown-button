@@ -5,6 +5,8 @@ React MultiSelect Button Dropdown
 
 // TODO:
 - fix tests
+- remove list.name (only list.id)
+- Write and example of how to use (props)
 
 A11y notes
 - In order to keep it fully accessible, make sure:
