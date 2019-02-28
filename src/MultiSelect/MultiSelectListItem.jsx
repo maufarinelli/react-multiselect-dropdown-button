@@ -4,17 +4,17 @@ import { Check } from 'styled-icons/fa-solid/Check';
 import styled from 'styled-components';
 
 // TODO (hover background-color) coming from theme? Refactor when decision has been made
-const MultiSelectListItemLi = styled('li', 'multiselect-list-item')`
+const MultiSelectListItemLi = styled('li')`
   :hover {
     background-color: #f0f0f0;
   }
 `;
 
-const MultiSelectCheckbox = styled('input', 'multiselect-list-item-checkbox')`
+const MultiSelectCheckbox = styled('input')`
   visibility: hidden;
 `;
 
-const MultiSelectLisItemLabel = styled('label', 'multiselect-list-item-label')`
+const MultiSelectLisItemLabel = styled('label')`
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
@@ -22,7 +22,7 @@ const MultiSelectLisItemLabel = styled('label', 'multiselect-list-item-label')`
   cursor: pointer;
 `;
 
-const MultiSelectCheckIcon = styled(Check, 'multiselect-list-item-check-icon')`
+const MultiSelectCheckIcon = styled(Check)`
   visibility: ${props => (props.checked ? 'visible' : 'hidden')};
   height: 1rem;
 `;
@@ -31,7 +31,7 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
   const { label, name, id, handleInputChange, checked } = props;
 
   return (
-    <MultiSelectListItemLi role="option">
+    <MultiSelectListItemLi className="multiselect-list-item" role="option">
       <MultiSelectLisItemLabel
         role="checkbox"
         aria-checked={checked}
@@ -39,9 +39,17 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
         htmlFor={id}
         onKeyPress={handleInputChange}
         ref={ref}
+        className="multiselect-list-item-label"
       >
         {label}
-        <MultiSelectCheckbox type="checkbox" name={name} id={id} onChange={handleInputChange} checked={checked} />
+        <MultiSelectCheckbox
+          className="multiselect-list-item-checkbox"
+          type="checkbox"
+          name={name}
+          id={id}
+          onChange={handleInputChange}
+          checked={checked}
+        />
         <MultiSelectCheckIcon checked={checked} />
       </MultiSelectLisItemLabel>
     </MultiSelectListItemLi>
