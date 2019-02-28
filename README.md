@@ -21,20 +21,25 @@
   Provides a list of checkboxes to the component
 
 - **dropdownButtonText:** `string` (required)
+
   The text for the button dropdown
 
 - **isRightAligned:** `boolean` (optional)
+
   Used in order to align dropdown to the right of the button. The default is left aligned
 
 - **onSelectionApplied:** `(list) => {}` (optional)
+
   A callback function to get the state of checkbox list.
   If this property is added, it activates the footer of the component, containing the "Apply" and "Reset" buttons
 
 - **resetButtonText:** `string` (optional)
+
   The text to the reset button
   default: "Reset"
 
 - **applyButtonText:** `string` (optional)
+
   The text to the apply button
   default: "Apply"
 
