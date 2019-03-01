@@ -490,6 +490,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
 }
 
 .c6 {
+  max-height: calc(100vh - 4.125rem - 2.625rem - 3.75rem);
+  margin: 0;
+  overflow: auto;
   padding-left: 0;
   list-style: none;
 }
@@ -835,6 +838,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
             >
               <Styled(ListboxKeyEvents)
                 className="multiselect-list"
+                hasFooter={true}
                 keyEvents={
                   Object {
                     "down": [Function],
@@ -853,10 +857,15 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                       "attrs": Array [],
                       "componentStyle": ComponentStyle {
                         "componentId": "sc-fjdhpX",
-                        "isStatic": true,
+                        "isStatic": false,
                         "lastClassName": "c6",
                         "rules": Array [
                           "
+  max-height: ",
+                          [Function],
+                          ";
+  margin: 0;
+  overflow: auto;
   padding-left: 0;
   list-style: none;
 ",
@@ -874,6 +883,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                     }
                   }
                   forwardedRef={null}
+                  hasFooter={true}
                   keyEvents={
                     Object {
                       "down": [Function],
@@ -886,6 +896,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                 >
                   <ListboxKeyEvents
                     className="multiselect-list c6"
+                    hasFooter={true}
                     keyEvents={
                       Object {
                         "down": [Function],
@@ -899,7 +910,6 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                     <ul
                       className="multiselect-list c6"
                       onKeyDown={[Function]}
-                      role="listbox"
                     >
                       <ForwardRef
                         checked={false}

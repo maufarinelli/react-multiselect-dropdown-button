@@ -18,7 +18,14 @@ const MultiSelectListWrapper = styled('div')`
   border: 1px #000 solid;
 `;
 
+const buttonHeight = '4.125rem'; /* 66px if base font-size is 16px */
+const paddingList = '2.625rem'; /* 42px if base font-size is 16px */
+const footerHeight = '3.75rem'; /* 60px if base font-size is 16px */
+
 const MultiSelectList = styled(ListboxKeyEvents)`
+  max-height: ${props => `calc(100vh - ${buttonHeight} - ${paddingList} - ${props.hasFooter ? footerHeight : '0px'})`};
+  margin: 0;
+  overflow: auto;
   padding-left: 0;
   list-style: none;
 `;
@@ -134,7 +141,7 @@ class MultiSelect extends React.PureComponent {
             {...(isRightAligned ? { isRightAligned } : {})}
             className="multiselect-section-wrapper"
           >
-            <MultiSelectList role="listbox" className="multiselect-list" keyEvents={{ ...this.keyEvents }}>
+            <MultiSelectList role="listbox" hasFooter={!!onSelectionApplied} className="multiselect-list" keyEvents={{ ...this.keyEvents }}>
               {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
                 const checked = checkedItems[id];

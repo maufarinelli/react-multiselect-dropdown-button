@@ -32,6 +32,54 @@ class App extends Component {
       applyButtonText: 'Apply'
     };
 
+    const props2 = {...multiSelectProps, list: [
+      {
+        label: 'First option',
+        id: 'first-option-1',
+        checked: true
+      },
+      {
+        label: 'Second option',
+        id: 'second-option-2',
+        checked: false
+      },
+      {
+        label: 'Third option',
+        id: 'third-option-3',
+        checked: false
+      },
+      {
+        label: 'Forth option',
+        id: 'forth-option-4',
+        checked: true
+      },
+      {
+        label: 'Fifth option',
+        id: 'fifth-option-5',
+        checked: false
+      },
+      {
+        label: 'Sixth option',
+        id: 'sixth-option-6',
+        checked: false
+      },
+      {
+        label: 'Seventh option',
+        id: 'seventh-option-7',
+        checked: true
+      },
+      {
+        label: 'Eighth option',
+        id: 'Eighth-option-8',
+        checked: false
+      },
+      {
+        label: 'Nineth option',
+        id: 'nineth-option-9',
+        checked: false
+      }
+    ],};
+
     return (
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <MultiSelect {...multiSelectProps} />
@@ -57,6 +105,8 @@ class App extends Component {
           isRightAligned
           dropdownButtonText="Selected"
         />
+
+        <MultiSelect {...props2} />
       </div>
     );
   }

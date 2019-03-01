@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ListboxKeyEvents = ({keyEvents, children, ...otherProps}) => {
+const ListboxKeyEvents = ({keyEvents, children, className}) => {
     const onKeyDown = (e) => {
       if (e.keyCode === 37){
         if(keyEvents.left){
@@ -30,7 +30,7 @@ const ListboxKeyEvents = ({keyEvents, children, ...otherProps}) => {
       }
     }
 
-    return <ul onKeyDown={onKeyDown} {...otherProps}>{children}</ul>;
+    return <ul onKeyDown={onKeyDown} className={className}>{children}</ul>;
 }
 
 ListboxKeyEvents.propTypes = {
