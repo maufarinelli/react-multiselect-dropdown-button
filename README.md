@@ -1,6 +1,6 @@
-# React MultiSelect Dropdown Button fully accessible (A11y).
+# React MultiSelect Dropdown Button accessible (A11y).
 
-A Dropdown Button which toggle a Multiselect List. React component fully accessible (A11y).
+A Dropdown Button which toggle a Multiselect List. React component accessible (A11y).
 
 - Easy use with keyboard navigation (Tab, selection with Space, Arrows Up, Down, Home and End for the list) following A11y guide of https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role
 - Provide a callback function to give selected items applied
