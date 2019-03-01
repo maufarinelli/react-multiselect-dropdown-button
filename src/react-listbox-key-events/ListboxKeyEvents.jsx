@@ -3,15 +3,7 @@ import PropTypes from 'prop-types';
 
 const ListboxKeyEvents = ({keyEvents, children, className}) => {
     const onKeyDown = (e) => {
-      if (e.keyCode === 37){
-        if(keyEvents.left){
-            keyEvents.left(e);
-        }
-      } else if (e.keyCode === 39) {
-        if(keyEvents.right){
-          keyEvents.right(e);
-        }
-      } else if (e.keyCode === 38) {
+      if (e.keyCode === 38) {
         if(keyEvents.up){
           keyEvents.up(e);
         }

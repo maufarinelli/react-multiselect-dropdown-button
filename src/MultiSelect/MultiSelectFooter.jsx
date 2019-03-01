@@ -3,27 +3,13 @@ import PropTypes from 'prop-types';
 import { UndoAlt } from 'styled-icons/fa-solid/UndoAlt';
 import { Send } from 'styled-icons/feather/Send';
 import styled, { css } from 'styled-components';
+import { buttonCSS } from './MultiSelect.styles';
 
-// TODO (border-color???) coming from theme?
 const MultiSelectListFooter = styled('div')`
   display: flex;
   justify-content: space-between;
   padding-top: 1.25rem; /* 20px if base font-size is 16px */
   border-top: 1px #ccc solid;
-`;
-
-const buttonCSS = css`
-  display: block;
-  height: 40px;
-  padding: 0 0.625rem;
-  font-family: inherit;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
 `;
 
 const iconCSS = css`
@@ -32,7 +18,6 @@ const iconCSS = css`
   vertical-align: baseline;
 `;
 
-// TODO (color?) coming from theme?
 const MultiSelectResetButton = styled('button')`
   ${buttonCSS}
 `;

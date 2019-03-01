@@ -35,6 +35,11 @@ A Dropdown Button which toggle a Multiselect List. React component accessible (A
   A callback function to get the state of checkbox list.
   If this property is added, it activates the footer of the component, containing the "Apply" and "Reset" buttons
 
+- **selectAllButtonText:** `string` (optional)
+
+  The text to the select all button
+  default: "Select All"
+
 - **resetButtonText:** `string` (optional)
 
   The text to the reset button

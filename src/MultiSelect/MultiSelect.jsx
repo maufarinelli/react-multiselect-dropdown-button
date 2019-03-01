@@ -1,34 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import ListboxKeyEvents from '../react-listbox-key-events/ListboxKeyEvents';
+import { MultiSelectWrapper, MultiSelectListWrapper, MultiSelectList, MultiSelectAllButton } from './MultiSelect.styles';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
-
-const MultiSelectWrapper = styled('div')`
-  position: relative;
-`;
-
-const MultiSelectListWrapper = styled('div')`
-  position: absolute;
-  right: ${props => (props.isRightAligned ? '0' : 'auto')};
-  min-width: 170px;
-  padding: 1.25rem; /* 20px if base font-size is 16px */
-  border: 1px #000 solid;
-`;
-
-const buttonHeight = '4.125rem'; /* 66px if base font-size is 16px */
-const paddingList = '2.625rem'; /* 42px if base font-size is 16px */
-const footerHeight = '3.75rem'; /* 60px if base font-size is 16px */
-
-const MultiSelectList = styled(ListboxKeyEvents)`
-  max-height: ${props => `calc(100vh - ${buttonHeight} - ${paddingList} - ${props.hasFooter ? footerHeight : '0px'})`};
-  margin: 0;
-  overflow: auto;
-  padding-left: 0;
-  list-style: none;
-`;
 
 class MultiSelect extends React.PureComponent {
   state = {
@@ -114,6 +89,15 @@ class MultiSelect extends React.PureComponent {
     onSelectionApplied(checkedItems);
   };
 
+  selectAll = () => {
+    this.setState(prevState => ({
+      checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemId) => {
+        acc[listItemId] = true;
+        return acc;
+      }, {})
+    }));
+  }
+
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
     const {
@@ -121,10 +105,11 @@ class MultiSelect extends React.PureComponent {
       dropdownButtonText,
       isRightAligned,
       onSelectionApplied,
+      selectAllButtonText,
       resetButtonText,
       applyButtonText
     } = this.props;
-    const { handleInputChange, handleApplyClick } = this;
+    const { handleInputChange, handleApplyClick, selectAll } = this;
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
     return (
@@ -141,6 +126,7 @@ class MultiSelect extends React.PureComponent {
             {...(isRightAligned ? { isRightAligned } : {})}
             className="multiselect-section-wrapper"
           >
+            <MultiSelectAllButton onClick={selectAll}>{selectAllButtonText}</MultiSelectAllButton>
             <MultiSelectList role="listbox" hasFooter={!!onSelectionApplied} className="multiselect-list" keyEvents={{ ...this.keyEvents }}>
               {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
@@ -190,9 +176,14 @@ MultiSelect.propTypes = {
   ).isRequired,
   dropdownButtonText: PropTypes.string.isRequired,
   isRightAligned: PropTypes.bool,
+  selectAllButtonText: PropTypes.string,
   onSelectionApplied: PropTypes.func,
   resetButtonText: PropTypes.string,
   applyButtonText: PropTypes.string
 };
+
+MultiSelect.defaultProps = {
+  selectAllButtonText: 'Select All'
+}
 
 export default MultiSelect;
