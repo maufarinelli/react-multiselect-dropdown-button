@@ -1,4 +1,4 @@
-# React MultiSelect Button Dropdown
+# React MultiSelect Dropdown Button fully accessible (A11y).
 
 A Dropdown Button which toggle a Multiselect List. React component fully accessible (A11y).
 
