@@ -14,11 +14,12 @@ export const MultiSelectListWrapper = styled('div')`
 `;
 
 const buttonHeight = '4.125rem'; /* 66px if base font-size is 16px */
+const selectAllButtonHeight = '3.125rem'; /* 50px if base font-size is 16px */
 const paddingList = '2.625rem'; /* 42px if base font-size is 16px */
 const footerHeight = '3.75rem'; /* 60px if base font-size is 16px */
 
 export const MultiSelectList = styled(ListboxKeyEvents)`
-  max-height: ${props => `calc(100vh - ${buttonHeight} - ${paddingList} - ${props.hasFooter ? footerHeight : '0px'})`};
+  max-height: ${props => `calc(100vh - ${buttonHeight} - ${paddingList} - ${selectAllButtonHeight} - ${props.hasFooter ? footerHeight : '0px'})`};
   margin: 0;
   overflow: auto;
   padding-left: 0;

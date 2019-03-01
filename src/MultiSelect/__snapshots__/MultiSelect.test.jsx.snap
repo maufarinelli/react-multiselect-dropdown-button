@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
+.c0 {
+  position: relative;
+}
+
 .c4 {
   display: inline-block;
   vertical-align: -.125em;
@@ -39,10 +43,6 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
   vertical-align: middle;
 }
 
-.c0 {
-  position: relative;
-}
-
 <MultiSelect
   applyButtonText="Apply"
   dropdownButtonText="Selected"
@@ -70,6 +70,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
   }
   onSelectionApplied={[Function]}
   resetButtonText="Reset"
+  selectAllButtonText="Select All"
 >
   <styled.div
     className="multiselect-button-dropdown-wrapper"
@@ -81,7 +82,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-VigVT",
+            "componentId": "sc-bdVaJa",
             "isStatic": true,
             "lastClassName": "c0",
             "rules": Array [
@@ -93,7 +94,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
           "displayName": "styled.div",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-VigVT",
+          "styledComponentId": "sc-bdVaJa",
           "target": "div",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -125,7 +126,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": Array [],
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-bwzfXH",
+                    "componentId": "sc-EHOje",
                     "isStatic": true,
                     "lastClassName": "c1",
                     "rules": Array [
@@ -147,7 +148,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
                   "displayName": "styled.button",
                   "foldedComponentIds": Array [],
                   "render": [Function],
-                  "styledComponentId": "sc-bwzfXH",
+                  "styledComponentId": "sc-EHOje",
                   "target": "button",
                   "toString": [Function],
                   "warnTooManyClasses": [Function],
@@ -179,7 +180,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
                           "$$typeof": Symbol(react.forward_ref),
                           "attrs": Array [],
                           "componentStyle": ComponentStyle {
-                            "componentId": "sc-bdVaJa",
+                            "componentId": "sc-ifAKCX",
                             "isStatic": true,
                             "lastClassName": "c2",
                             "rules": Array [
@@ -199,7 +200,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
                           "displayName": "styled.span",
                           "foldedComponentIds": Array [],
                           "render": [Function],
-                          "styledComponentId": "sc-bdVaJa",
+                          "styledComponentId": "sc-ifAKCX",
                           "target": "span",
                           "toString": [Function],
                           "warnTooManyClasses": [Function],
@@ -223,7 +224,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
                         "$$typeof": Symbol(react.forward_ref),
                         "attrs": Array [],
                         "componentStyle": ComponentStyle {
-                          "componentId": "sc-htpNat",
+                          "componentId": "sc-bZQynM",
                           "isStatic": true,
                           "lastClassName": "c3",
                           "rules": Array [
@@ -241,7 +242,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
                         "displayName": "Styled(AngleDown)",
                         "foldedComponentIds": Array [],
                         "render": [Function],
-                        "styledComponentId": "sc-htpNat",
+                        "styledComponentId": "sc-bZQynM",
                         "target": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "displayName": "AngleDown",
@@ -349,13 +350,48 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 `;
 
 exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c5 {
+  position: absolute;
+  right: auto;
+  min-width: 170px;
+  padding: 1.25rem;
+  border: 1px #000 solid;
+}
+
+.c7 {
+  max-height: calc(100vh - 4.125rem - 2.625rem - 3.125rem - 3.75rem);
+  margin: 0;
+  overflow: auto;
+  padding-left: 0;
+  list-style: none;
+}
+
+.c6 {
+  display: block;
+  height: 40px;
+  padding: 0 0.625rem;
+  font-family: inherit;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
 .c4 {
   display: inline-block;
   vertical-align: -.125em;
   overflow: hidden;
 }
 
-.c16 {
+.c17 {
   display: inline-block;
   vertical-align: middle;
   overflow: hidden;
@@ -393,15 +429,15 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   vertical-align: middle;
 }
 
-.c7:hover {
+.c8:hover {
   background-color: #f0f0f0;
 }
 
-.c9 {
+.c10 {
   visibility: hidden;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -415,12 +451,12 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   cursor: pointer;
 }
 
-.c10 {
+.c11 {
   visibility: hidden;
   height: 1rem;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -433,7 +469,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   border-top: 1px #ccc solid;
 }
 
-.c12 {
+.c13 {
   display: block;
   height: 40px;
   padding: 0 0.625rem;
@@ -447,7 +483,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   cursor: pointer;
 }
 
-.c13 {
+.c14 {
   width: 0.75rem;
   margin-right: 0.625rem;
   vertical-align: baseline;
@@ -456,7 +492,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   transform: scaleX(-1);
 }
 
-.c14 {
+.c15 {
   display: block;
   height: 40px;
   padding: 0 0.625rem;
@@ -471,30 +507,10 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   margin-left: 0.625rem;
 }
 
-.c15 {
+.c16 {
   width: 0.75rem;
   margin-right: 0.625rem;
   vertical-align: baseline;
-}
-
-.c0 {
-  position: relative;
-}
-
-.c5 {
-  position: absolute;
-  right: auto;
-  min-width: 170px;
-  padding: 1.25rem;
-  border: 1px #000 solid;
-}
-
-.c6 {
-  max-height: calc(100vh - 4.125rem - 2.625rem - 3.75rem);
-  margin: 0;
-  overflow: auto;
-  padding-left: 0;
-  list-style: none;
 }
 
 <MultiSelect
@@ -524,6 +540,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   }
   onSelectionApplied={[Function]}
   resetButtonText="Reset"
+  selectAllButtonText="Select All"
 >
   <styled.div
     className="multiselect-button-dropdown-wrapper"
@@ -535,7 +552,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-VigVT",
+            "componentId": "sc-bdVaJa",
             "isStatic": true,
             "lastClassName": "c0",
             "rules": Array [
@@ -547,7 +564,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
           "displayName": "styled.div",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-VigVT",
+          "styledComponentId": "sc-bdVaJa",
           "target": "div",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -579,7 +596,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                   "$$typeof": Symbol(react.forward_ref),
                   "attrs": Array [],
                   "componentStyle": ComponentStyle {
-                    "componentId": "sc-bwzfXH",
+                    "componentId": "sc-EHOje",
                     "isStatic": true,
                     "lastClassName": "c1",
                     "rules": Array [
@@ -601,7 +618,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                   "displayName": "styled.button",
                   "foldedComponentIds": Array [],
                   "render": [Function],
-                  "styledComponentId": "sc-bwzfXH",
+                  "styledComponentId": "sc-EHOje",
                   "target": "button",
                   "toString": [Function],
                   "warnTooManyClasses": [Function],
@@ -633,7 +650,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                           "$$typeof": Symbol(react.forward_ref),
                           "attrs": Array [],
                           "componentStyle": ComponentStyle {
-                            "componentId": "sc-bdVaJa",
+                            "componentId": "sc-ifAKCX",
                             "isStatic": true,
                             "lastClassName": "c2",
                             "rules": Array [
@@ -653,7 +670,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                           "displayName": "styled.span",
                           "foldedComponentIds": Array [],
                           "render": [Function],
-                          "styledComponentId": "sc-bdVaJa",
+                          "styledComponentId": "sc-ifAKCX",
                           "target": "span",
                           "toString": [Function],
                           "warnTooManyClasses": [Function],
@@ -677,7 +694,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                         "$$typeof": Symbol(react.forward_ref),
                         "attrs": Array [],
                         "componentStyle": ComponentStyle {
-                          "componentId": "sc-bxivhb",
+                          "componentId": "sc-gzVnrw",
                           "isStatic": true,
                           "lastClassName": "c3",
                           "rules": Array [
@@ -695,7 +712,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                         "displayName": "Styled(AngleUp)",
                         "foldedComponentIds": Array [],
                         "render": [Function],
-                        "styledComponentId": "sc-bxivhb",
+                        "styledComponentId": "sc-gzVnrw",
                         "target": Object {
                           "$$typeof": Symbol(react.forward_ref),
                           "displayName": "AngleUp",
@@ -730,7 +747,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                               "componentStyle": ComponentStyle {
                                 "componentId": "StyledIconBase-sc-bdy9j4",
                                 "isStatic": false,
-                                "lastClassName": "c16",
+                                "lastClassName": "c17",
                                 "rules": Array [
                                   "
   display: inline-block;
@@ -806,7 +823,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-jTzLTM",
+                  "componentId": "sc-bwzfXH",
                   "isStatic": false,
                   "lastClassName": "c5",
                   "rules": Array [
@@ -824,7 +841,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                 "displayName": "styled.div",
                 "foldedComponentIds": Array [],
                 "render": [Function],
-                "styledComponentId": "sc-jTzLTM",
+                "styledComponentId": "sc-bwzfXH",
                 "target": "div",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
@@ -836,6 +853,60 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
             <div
               className="multiselect-section-wrapper c5"
             >
+              <styled.button
+                onClick={[Function]}
+              >
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bxivhb",
+                        "isStatic": true,
+                        "lastClassName": "c6",
+                        "rules": Array [
+                          "
+  ",
+                          "
+  display: block;
+  height: 40px;
+  padding: 0 0.625rem;
+  font-family: inherit;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+",
+                          "
+  margin-bottom: 10px;
+",
+                        ],
+                      },
+                      "displayName": "styled.button",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-bxivhb",
+                      "target": "button",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                  onClick={[Function]}
+                >
+                  <button
+                    className="c6"
+                    onClick={[Function]}
+                  >
+                    Select All
+                  </button>
+                </StyledComponent>
+              </styled.button>
               <Styled(ListboxKeyEvents)
                 className="multiselect-list"
                 hasFooter={true}
@@ -856,9 +927,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                       "$$typeof": Symbol(react.forward_ref),
                       "attrs": Array [],
                       "componentStyle": ComponentStyle {
-                        "componentId": "sc-fjdhpX",
+                        "componentId": "sc-htpNat",
                         "isStatic": false,
-                        "lastClassName": "c6",
+                        "lastClassName": "c7",
                         "rules": Array [
                           "
   max-height: ",
@@ -874,7 +945,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                       "displayName": "Styled(ListboxKeyEvents)",
                       "foldedComponentIds": Array [],
                       "render": [Function],
-                      "styledComponentId": "sc-fjdhpX",
+                      "styledComponentId": "sc-htpNat",
                       "target": [Function],
                       "toString": [Function],
                       "warnTooManyClasses": [Function],
@@ -895,7 +966,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                   role="listbox"
                 >
                   <ListboxKeyEvents
-                    className="multiselect-list c6"
+                    className="multiselect-list c7"
                     hasFooter={true}
                     keyEvents={
                       Object {
@@ -908,7 +979,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                     role="listbox"
                   >
                     <ul
-                      className="multiselect-list c6"
+                      className="multiselect-list c7"
                       onKeyDown={[Function]}
                     >
                       <ForwardRef
@@ -931,9 +1002,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 "$$typeof": Symbol(react.forward_ref),
                                 "attrs": Array [],
                                 "componentStyle": ComponentStyle {
-                                  "componentId": "sc-ifAKCX",
+                                  "componentId": "sc-htoDjs",
                                   "isStatic": true,
-                                  "lastClassName": "c7",
+                                  "lastClassName": "c8",
                                   "rules": Array [
                                     "
   :hover {
@@ -945,7 +1016,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 "displayName": "styled.li",
                                 "foldedComponentIds": Array [],
                                 "render": [Function],
-                                "styledComponentId": "sc-ifAKCX",
+                                "styledComponentId": "sc-htoDjs",
                                 "target": "li",
                                 "toString": [Function],
                                 "warnTooManyClasses": [Function],
@@ -956,7 +1027,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                             role="option"
                           >
                             <li
-                              className="multiselect-list-item c7"
+                              className="multiselect-list-item c8"
                               role="option"
                             >
                               <styled.label
@@ -975,9 +1046,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       "$$typeof": Symbol(react.forward_ref),
                                       "attrs": Array [],
                                       "componentStyle": ComponentStyle {
-                                        "componentId": "sc-bZQynM",
+                                        "componentId": "sc-iwsKbI",
                                         "isStatic": true,
-                                        "lastClassName": "c8",
+                                        "lastClassName": "c9",
                                         "rules": Array [
                                           "
   display: flex;
@@ -991,7 +1062,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       "displayName": "styled.label",
                                       "foldedComponentIds": Array [],
                                       "render": [Function],
-                                      "styledComponentId": "sc-bZQynM",
+                                      "styledComponentId": "sc-iwsKbI",
                                       "target": "label",
                                       "toString": [Function],
                                       "warnTooManyClasses": [Function],
@@ -1006,7 +1077,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 >
                                   <label
                                     aria-checked={false}
-                                    className="multiselect-list-item-label c8"
+                                    className="multiselect-list-item-label c9"
                                     htmlFor="first-option-1"
                                     onKeyPress={[Function]}
                                     role="checkbox"
@@ -1029,9 +1100,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-EHOje",
+                                              "componentId": "sc-dnqmqq",
                                               "isStatic": true,
-                                              "lastClassName": "c9",
+                                              "lastClassName": "c10",
                                               "rules": Array [
                                                 "
   visibility: hidden;
@@ -1041,7 +1112,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "displayName": "styled.input",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-EHOje",
+                                            "styledComponentId": "sc-dnqmqq",
                                             "target": "input",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -1056,7 +1127,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <input
                                           checked={false}
-                                          className="multiselect-list-item-checkbox c9"
+                                          className="multiselect-list-item-checkbox c10"
                                           id="first-option-1"
                                           name="first-option"
                                           onChange={[Function]}
@@ -1074,9 +1145,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gzVnrw",
+                                              "componentId": "sc-gZMcBi",
                                               "isStatic": false,
-                                              "lastClassName": "c10",
+                                              "lastClassName": "c11",
                                               "rules": Array [
                                                 "
   visibility: ",
@@ -1089,7 +1160,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "displayName": "Styled(Check)",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-gzVnrw",
+                                            "styledComponentId": "sc-gZMcBi",
                                             "target": Object {
                                               "$$typeof": Symbol(react.forward_ref),
                                               "displayName": "Check",
@@ -1104,11 +1175,11 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <Check
                                           checked={false}
-                                          className="c10"
+                                          className="c11"
                                         >
                                           <StyledIconBase
                                             checked={false}
-                                            className="c10"
+                                            className="c11"
                                             iconAttrs={
                                               Object {
                                                 "fill": "currentColor",
@@ -1119,7 +1190,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                           >
                                             <StyledComponent
                                               checked={false}
-                                              className="c10"
+                                              className="c11"
                                               forwardedComponent={
                                                 Object {
                                                   "$$typeof": Symbol(react.forward_ref),
@@ -1127,7 +1198,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                                   "componentStyle": ComponentStyle {
                                                     "componentId": "StyledIconBase-sc-bdy9j4",
                                                     "isStatic": false,
-                                                    "lastClassName": "c16",
+                                                    "lastClassName": "c17",
                                                     "rules": Array [
                                                       "
   display: inline-block;
@@ -1162,7 +1233,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             >
                                               <ForwardRef
                                                 checked={false}
-                                                className="c10 c4"
+                                                className="c11 c4"
                                                 iconAttrs={
                                                   Object {
                                                     "fill": "currentColor",
@@ -1174,7 +1245,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                                 <svg
                                                   aria-hidden="true"
                                                   checked={false}
-                                                  className="c10 c4"
+                                                  className="c11 c4"
                                                   fill="currentColor"
                                                   focusable="false"
                                                   viewBox="0 0 512 512"
@@ -1218,9 +1289,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 "$$typeof": Symbol(react.forward_ref),
                                 "attrs": Array [],
                                 "componentStyle": ComponentStyle {
-                                  "componentId": "sc-ifAKCX",
+                                  "componentId": "sc-htoDjs",
                                   "isStatic": true,
-                                  "lastClassName": "c7",
+                                  "lastClassName": "c8",
                                   "rules": Array [
                                     "
   :hover {
@@ -1232,7 +1303,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 "displayName": "styled.li",
                                 "foldedComponentIds": Array [],
                                 "render": [Function],
-                                "styledComponentId": "sc-ifAKCX",
+                                "styledComponentId": "sc-htoDjs",
                                 "target": "li",
                                 "toString": [Function],
                                 "warnTooManyClasses": [Function],
@@ -1243,7 +1314,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                             role="option"
                           >
                             <li
-                              className="multiselect-list-item c7"
+                              className="multiselect-list-item c8"
                               role="option"
                             >
                               <styled.label
@@ -1262,9 +1333,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       "$$typeof": Symbol(react.forward_ref),
                                       "attrs": Array [],
                                       "componentStyle": ComponentStyle {
-                                        "componentId": "sc-bZQynM",
+                                        "componentId": "sc-iwsKbI",
                                         "isStatic": true,
-                                        "lastClassName": "c8",
+                                        "lastClassName": "c9",
                                         "rules": Array [
                                           "
   display: flex;
@@ -1278,7 +1349,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       "displayName": "styled.label",
                                       "foldedComponentIds": Array [],
                                       "render": [Function],
-                                      "styledComponentId": "sc-bZQynM",
+                                      "styledComponentId": "sc-iwsKbI",
                                       "target": "label",
                                       "toString": [Function],
                                       "warnTooManyClasses": [Function],
@@ -1293,7 +1364,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 >
                                   <label
                                     aria-checked={false}
-                                    className="multiselect-list-item-label c8"
+                                    className="multiselect-list-item-label c9"
                                     htmlFor="second-option-2"
                                     onKeyPress={[Function]}
                                     role="checkbox"
@@ -1316,9 +1387,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-EHOje",
+                                              "componentId": "sc-dnqmqq",
                                               "isStatic": true,
-                                              "lastClassName": "c9",
+                                              "lastClassName": "c10",
                                               "rules": Array [
                                                 "
   visibility: hidden;
@@ -1328,7 +1399,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "displayName": "styled.input",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-EHOje",
+                                            "styledComponentId": "sc-dnqmqq",
                                             "target": "input",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -1343,7 +1414,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <input
                                           checked={false}
-                                          className="multiselect-list-item-checkbox c9"
+                                          className="multiselect-list-item-checkbox c10"
                                           id="second-option-2"
                                           name="second-option"
                                           onChange={[Function]}
@@ -1361,9 +1432,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gzVnrw",
+                                              "componentId": "sc-gZMcBi",
                                               "isStatic": false,
-                                              "lastClassName": "c10",
+                                              "lastClassName": "c11",
                                               "rules": Array [
                                                 "
   visibility: ",
@@ -1376,7 +1447,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "displayName": "Styled(Check)",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-gzVnrw",
+                                            "styledComponentId": "sc-gZMcBi",
                                             "target": Object {
                                               "$$typeof": Symbol(react.forward_ref),
                                               "displayName": "Check",
@@ -1391,11 +1462,11 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <Check
                                           checked={false}
-                                          className="c10"
+                                          className="c11"
                                         >
                                           <StyledIconBase
                                             checked={false}
-                                            className="c10"
+                                            className="c11"
                                             iconAttrs={
                                               Object {
                                                 "fill": "currentColor",
@@ -1406,7 +1477,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                           >
                                             <StyledComponent
                                               checked={false}
-                                              className="c10"
+                                              className="c11"
                                               forwardedComponent={
                                                 Object {
                                                   "$$typeof": Symbol(react.forward_ref),
@@ -1414,7 +1485,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                                   "componentStyle": ComponentStyle {
                                                     "componentId": "StyledIconBase-sc-bdy9j4",
                                                     "isStatic": false,
-                                                    "lastClassName": "c16",
+                                                    "lastClassName": "c17",
                                                     "rules": Array [
                                                       "
   display: inline-block;
@@ -1449,7 +1520,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             >
                                               <ForwardRef
                                                 checked={false}
-                                                className="c10 c4"
+                                                className="c11 c4"
                                                 iconAttrs={
                                                   Object {
                                                     "fill": "currentColor",
@@ -1461,7 +1532,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                                 <svg
                                                   aria-hidden="true"
                                                   checked={false}
-                                                  className="c10 c4"
+                                                  className="c11 c4"
                                                   fill="currentColor"
                                                   focusable="false"
                                                   viewBox="0 0 512 512"
@@ -1505,9 +1576,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 "$$typeof": Symbol(react.forward_ref),
                                 "attrs": Array [],
                                 "componentStyle": ComponentStyle {
-                                  "componentId": "sc-ifAKCX",
+                                  "componentId": "sc-htoDjs",
                                   "isStatic": true,
-                                  "lastClassName": "c7",
+                                  "lastClassName": "c8",
                                   "rules": Array [
                                     "
   :hover {
@@ -1519,7 +1590,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 "displayName": "styled.li",
                                 "foldedComponentIds": Array [],
                                 "render": [Function],
-                                "styledComponentId": "sc-ifAKCX",
+                                "styledComponentId": "sc-htoDjs",
                                 "target": "li",
                                 "toString": [Function],
                                 "warnTooManyClasses": [Function],
@@ -1530,7 +1601,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                             role="option"
                           >
                             <li
-                              className="multiselect-list-item c7"
+                              className="multiselect-list-item c8"
                               role="option"
                             >
                               <styled.label
@@ -1549,9 +1620,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       "$$typeof": Symbol(react.forward_ref),
                                       "attrs": Array [],
                                       "componentStyle": ComponentStyle {
-                                        "componentId": "sc-bZQynM",
+                                        "componentId": "sc-iwsKbI",
                                         "isStatic": true,
-                                        "lastClassName": "c8",
+                                        "lastClassName": "c9",
                                         "rules": Array [
                                           "
   display: flex;
@@ -1565,7 +1636,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       "displayName": "styled.label",
                                       "foldedComponentIds": Array [],
                                       "render": [Function],
-                                      "styledComponentId": "sc-bZQynM",
+                                      "styledComponentId": "sc-iwsKbI",
                                       "target": "label",
                                       "toString": [Function],
                                       "warnTooManyClasses": [Function],
@@ -1580,7 +1651,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 >
                                   <label
                                     aria-checked={false}
-                                    className="multiselect-list-item-label c8"
+                                    className="multiselect-list-item-label c9"
                                     htmlFor="third-option-3"
                                     onKeyPress={[Function]}
                                     role="checkbox"
@@ -1603,9 +1674,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-EHOje",
+                                              "componentId": "sc-dnqmqq",
                                               "isStatic": true,
-                                              "lastClassName": "c9",
+                                              "lastClassName": "c10",
                                               "rules": Array [
                                                 "
   visibility: hidden;
@@ -1615,7 +1686,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "displayName": "styled.input",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-EHOje",
+                                            "styledComponentId": "sc-dnqmqq",
                                             "target": "input",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -1630,7 +1701,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <input
                                           checked={false}
-                                          className="multiselect-list-item-checkbox c9"
+                                          className="multiselect-list-item-checkbox c10"
                                           id="third-option-3"
                                           name="third-option"
                                           onChange={[Function]}
@@ -1648,9 +1719,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gzVnrw",
+                                              "componentId": "sc-gZMcBi",
                                               "isStatic": false,
-                                              "lastClassName": "c10",
+                                              "lastClassName": "c11",
                                               "rules": Array [
                                                 "
   visibility: ",
@@ -1663,7 +1734,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             "displayName": "Styled(Check)",
                                             "foldedComponentIds": Array [],
                                             "render": [Function],
-                                            "styledComponentId": "sc-gzVnrw",
+                                            "styledComponentId": "sc-gZMcBi",
                                             "target": Object {
                                               "$$typeof": Symbol(react.forward_ref),
                                               "displayName": "Check",
@@ -1678,11 +1749,11 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <Check
                                           checked={false}
-                                          className="c10"
+                                          className="c11"
                                         >
                                           <StyledIconBase
                                             checked={false}
-                                            className="c10"
+                                            className="c11"
                                             iconAttrs={
                                               Object {
                                                 "fill": "currentColor",
@@ -1693,7 +1764,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                           >
                                             <StyledComponent
                                               checked={false}
-                                              className="c10"
+                                              className="c11"
                                               forwardedComponent={
                                                 Object {
                                                   "$$typeof": Symbol(react.forward_ref),
@@ -1701,7 +1772,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                                   "componentStyle": ComponentStyle {
                                                     "componentId": "StyledIconBase-sc-bdy9j4",
                                                     "isStatic": false,
-                                                    "lastClassName": "c16",
+                                                    "lastClassName": "c17",
                                                     "rules": Array [
                                                       "
   display: inline-block;
@@ -1736,7 +1807,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                             >
                                               <ForwardRef
                                                 checked={false}
-                                                className="c10 c4"
+                                                className="c11 c4"
                                                 iconAttrs={
                                                   Object {
                                                     "fill": "currentColor",
@@ -1748,7 +1819,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                                 <svg
                                                   aria-hidden="true"
                                                   checked={false}
-                                                  className="c10 c4"
+                                                  className="c11 c4"
                                                   fill="currentColor"
                                                   focusable="false"
                                                   viewBox="0 0 512 512"
@@ -1789,9 +1860,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                         "$$typeof": Symbol(react.forward_ref),
                         "attrs": Array [],
                         "componentStyle": ComponentStyle {
-                          "componentId": "sc-htoDjs",
+                          "componentId": "sc-gqjmRU",
                           "isStatic": true,
-                          "lastClassName": "c11",
+                          "lastClassName": "c12",
                           "rules": Array [
                             "
   display: flex;
@@ -1804,7 +1875,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                         "displayName": "styled.div",
                         "foldedComponentIds": Array [],
                         "render": [Function],
-                        "styledComponentId": "sc-htoDjs",
+                        "styledComponentId": "sc-gqjmRU",
                         "target": "div",
                         "toString": [Function],
                         "warnTooManyClasses": [Function],
@@ -1814,7 +1885,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                     forwardedRef={null}
                   >
                     <div
-                      className="c11"
+                      className="c12"
                     >
                       <styled.button
                         className="multiselect-reset-button"
@@ -1827,9 +1898,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                               "$$typeof": Symbol(react.forward_ref),
                               "attrs": Array [],
                               "componentStyle": ComponentStyle {
-                                "componentId": "sc-dnqmqq",
+                                "componentId": "sc-VigVT",
                                 "isStatic": true,
-                                "lastClassName": "c12",
+                                "lastClassName": "c13",
                                 "rules": Array [
                                   "
   ",
@@ -1853,7 +1924,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                               "displayName": "styled.button",
                               "foldedComponentIds": Array [],
                               "render": [Function],
-                              "styledComponentId": "sc-dnqmqq",
+                              "styledComponentId": "sc-VigVT",
                               "target": "button",
                               "toString": [Function],
                               "warnTooManyClasses": [Function],
@@ -1864,7 +1935,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                           onClick={[Function]}
                         >
                           <button
-                            className="multiselect-reset-button c12"
+                            className="multiselect-reset-button c13"
                             onClick={[Function]}
                           >
                             <Styled(UndoAlt)>
@@ -1874,9 +1945,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                     "$$typeof": Symbol(react.forward_ref),
                                     "attrs": Array [],
                                     "componentStyle": ComponentStyle {
-                                      "componentId": "sc-iwsKbI",
+                                      "componentId": "sc-jTzLTM",
                                       "isStatic": true,
-                                      "lastClassName": "c13",
+                                      "lastClassName": "c14",
                                       "rules": Array [
                                         "
   ",
@@ -1893,7 +1964,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                     "displayName": "Styled(UndoAlt)",
                                     "foldedComponentIds": Array [],
                                     "render": [Function],
-                                    "styledComponentId": "sc-iwsKbI",
+                                    "styledComponentId": "sc-jTzLTM",
                                     "target": Object {
                                       "$$typeof": Symbol(react.forward_ref),
                                       "displayName": "UndoAlt",
@@ -1907,10 +1978,10 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 forwardedRef={null}
                               >
                                 <UndoAlt
-                                  className="c13"
+                                  className="c14"
                                 >
                                   <StyledIconBase
-                                    className="c13"
+                                    className="c14"
                                     iconAttrs={
                                       Object {
                                         "fill": "currentColor",
@@ -1920,7 +1991,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                     iconViewBox="0 0 512 512"
                                   >
                                     <StyledComponent
-                                      className="c13"
+                                      className="c14"
                                       forwardedComponent={
                                         Object {
                                           "$$typeof": Symbol(react.forward_ref),
@@ -1928,7 +1999,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "StyledIconBase-sc-bdy9j4",
                                             "isStatic": false,
-                                            "lastClassName": "c16",
+                                            "lastClassName": "c17",
                                             "rules": Array [
                                               "
   display: inline-block;
@@ -1962,7 +2033,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       iconViewBox="0 0 512 512"
                                     >
                                       <ForwardRef
-                                        className="c13 c4"
+                                        className="c14 c4"
                                         iconAttrs={
                                           Object {
                                             "fill": "currentColor",
@@ -1973,7 +2044,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          className="c13 c4"
+                                          className="c14 c4"
                                           fill="currentColor"
                                           focusable="false"
                                           viewBox="0 0 512 512"
@@ -2005,9 +2076,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                               "$$typeof": Symbol(react.forward_ref),
                               "attrs": Array [],
                               "componentStyle": ComponentStyle {
-                                "componentId": "sc-gZMcBi",
+                                "componentId": "sc-fjdhpX",
                                 "isStatic": true,
-                                "lastClassName": "c14",
+                                "lastClassName": "c15",
                                 "rules": Array [
                                   "
   ",
@@ -2032,7 +2103,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                               "displayName": "styled.button",
                               "foldedComponentIds": Array [],
                               "render": [Function],
-                              "styledComponentId": "sc-gZMcBi",
+                              "styledComponentId": "sc-fjdhpX",
                               "target": "button",
                               "toString": [Function],
                               "warnTooManyClasses": [Function],
@@ -2043,7 +2114,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                           onClick={[Function]}
                         >
                           <button
-                            className="multiselect-apply-button c14"
+                            className="multiselect-apply-button c15"
                             onClick={[Function]}
                           >
                             <Styled(Send)>
@@ -2053,9 +2124,9 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                     "$$typeof": Symbol(react.forward_ref),
                                     "attrs": Array [],
                                     "componentStyle": ComponentStyle {
-                                      "componentId": "sc-gqjmRU",
+                                      "componentId": "sc-jzJRlG",
                                       "isStatic": true,
-                                      "lastClassName": "c15",
+                                      "lastClassName": "c16",
                                       "rules": Array [
                                         "
   ",
@@ -2071,7 +2142,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                     "displayName": "Styled(Send)",
                                     "foldedComponentIds": Array [],
                                     "render": [Function],
-                                    "styledComponentId": "sc-gqjmRU",
+                                    "styledComponentId": "sc-jzJRlG",
                                     "target": Object {
                                       "$$typeof": Symbol(react.forward_ref),
                                       "displayName": "Send",
@@ -2085,10 +2156,10 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                 forwardedRef={null}
                               >
                                 <Send
-                                  className="c15"
+                                  className="c16"
                                 >
                                   <StyledIconBase
-                                    className="c15"
+                                    className="c16"
                                     iconAttrs={
                                       Object {
                                         "fill": "none",
@@ -2101,7 +2172,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                     iconViewBox="0 0 24 24"
                                   >
                                     <StyledComponent
-                                      className="c15"
+                                      className="c16"
                                       forwardedComponent={
                                         Object {
                                           "$$typeof": Symbol(react.forward_ref),
@@ -2109,7 +2180,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                           "componentStyle": ComponentStyle {
                                             "componentId": "StyledIconBase-sc-bdy9j4",
                                             "isStatic": false,
-                                            "lastClassName": "c16",
+                                            "lastClassName": "c17",
                                             "rules": Array [
                                               "
   display: inline-block;
@@ -2146,7 +2217,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       iconViewBox="0 0 24 24"
                                     >
                                       <ForwardRef
-                                        className="c15 c16"
+                                        className="c16 c17"
                                         iconAttrs={
                                           Object {
                                             "fill": "none",
@@ -2160,7 +2231,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                                       >
                                         <svg
                                           aria-hidden="true"
-                                          className="c15 c16"
+                                          className="c16 c17"
                                           fill="none"
                                           focusable="false"
                                           stroke="currentColor"
