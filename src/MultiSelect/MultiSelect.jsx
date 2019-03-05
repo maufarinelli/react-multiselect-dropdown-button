@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MultiSelectWrapper, MultiSelectListWrapper, MultiSelectList, MultiSelectAllButton } from './MultiSelect.styles';
+import {
+  MultiSelectWrapper,
+  MultiSelectListWrapper,
+  MultiSelectList,
+  MultiSelectAllButton
+} from './MultiSelect.styles';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
@@ -68,9 +73,14 @@ class MultiSelect extends React.PureComponent {
     }
     const { id, checked } = target;
 
-    this.setState(prevState => ({
-      checkedItems: { ...prevState.checkedItems, [id]: checked }
-    }));
+    this.setState(
+      prevState => ({
+        checkedItems: { ...prevState.checkedItems, [id]: checked }
+      }),
+      () => {
+        this.props.onOptionChanged && this.props.onOptionChanged({ [id]: checked });
+      }
+    );
   };
 
   resetSelections = () => {
@@ -96,7 +106,7 @@ class MultiSelect extends React.PureComponent {
         return acc;
       }, {})
     }));
-  }
+  };
 
   render() {
     const { isDropdownOpened, checkedItems } = this.state;
@@ -126,8 +136,15 @@ class MultiSelect extends React.PureComponent {
             {...(isRightAligned ? { isRightAligned } : {})}
             className="multiselect-section-wrapper"
           >
-            <MultiSelectAllButton onClick={selectAll}>{selectAllButtonText}</MultiSelectAllButton>
-            <MultiSelectList role="listbox" hasFooter={!!onSelectionApplied} className="multiselect-list" keyEvents={{ ...this.keyEvents }}>
+            <MultiSelectAllButton className="multiselect-button-select-all" onClick={selectAll}>
+              {selectAllButtonText}
+            </MultiSelectAllButton>
+            <MultiSelectList
+              role="listbox"
+              hasFooter={!!onSelectionApplied}
+              className="multiselect-list"
+              keyEvents={{ ...this.keyEvents }}
+            >
               {list.map((listItem, index) => {
                 const { label, id, name } = listItem;
                 const checked = checkedItems[id];
@@ -177,6 +194,7 @@ MultiSelect.propTypes = {
   dropdownButtonText: PropTypes.string.isRequired,
   isRightAligned: PropTypes.bool,
   selectAllButtonText: PropTypes.string,
+  onOptionChanged: PropTypes.func,
   onSelectionApplied: PropTypes.func,
   resetButtonText: PropTypes.string,
   applyButtonText: PropTypes.string
@@ -184,6 +202,6 @@ MultiSelect.propTypes = {
 
 MultiSelect.defaultProps = {
   selectAllButtonText: 'Select All'
-}
+};
 
 export default MultiSelect;

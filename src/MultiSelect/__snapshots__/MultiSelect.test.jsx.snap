@@ -68,6 +68,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
       },
     ]
   }
+  onOptionChanged={[Function]}
   onSelectionApplied={[Function]}
   resetButtonText="Reset"
   selectAllButtonText="Select All"
@@ -538,6 +539,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
       },
     ]
   }
+  onOptionChanged={[Function]}
   onSelectionApplied={[Function]}
   resetButtonText="Reset"
   selectAllButtonText="Select All"
@@ -854,9 +856,11 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
               className="multiselect-section-wrapper c5"
             >
               <styled.button
+                className="multiselect-button-select-all"
                 onClick={[Function]}
               >
                 <StyledComponent
+                  className="multiselect-button-select-all"
                   forwardedComponent={
                     Object {
                       "$$typeof": Symbol(react.forward_ref),
@@ -900,7 +904,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
                   onClick={[Function]}
                 >
                   <button
-                    className="c6"
+                    className="multiselect-button-select-all c6"
                     onClick={[Function]}
                   >
                     Select All

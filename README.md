@@ -30,6 +30,10 @@ A Dropdown Button which toggle a Multiselect List. React component accessible (A
 
   Used in order to align dropdown to the right of the button. The default is left aligned
 
+- **onOptionChanged** `(optionState) => {}` (optional)
+
+  A callback function to get the state of options selected/unselected.
+
 - **onSelectionApplied:** `(list) => {}` (optional)
 
   A callback function to get the state of checkbox list.

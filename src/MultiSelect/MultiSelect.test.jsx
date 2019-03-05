@@ -27,6 +27,9 @@ describe('<MultiSelect />', () => {
     onSelectionApplied: selection => {
       console.log('Selected : ', selection);
     },
+    onOptionChanged: optionState => {
+      console.log('optionState : ', optionState);
+    },
     dropdownButtonText: 'Selected',
     resetButtonText: 'Reset',
     applyButtonText: 'Apply'
@@ -56,104 +59,104 @@ describe('<MultiSelect />', () => {
     expect(wrapper.find('.multiselect-section-wrapper')).toBeDefined();
   });
 
-  test('should select the first item to filter', () => {
+  test('should select the first item', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
 
-    const firstFilterLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstFilterCheckbox = firstFilterLabel.find('input.multiselect-list-item-checkbox');
-    const firstFilterCheckboxId = firstFilterCheckbox.prop('id');
-    const firstFilterState = wrapper.state().checkedItems[firstFilterCheckboxId];
+    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
+    const firstOptionCheckbox = firstOptionLabel.find('input.multiselect-list-item-checkbox');
+    const firstOptionCheckboxId = firstOptionCheckbox.prop('id');
+    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
 
-    firstFilterLabel.prop('onKeyPress')({
+    firstOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: firstFilterCheckboxId, checked: firstFilterState }]
+        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
       }
     });
 
-    expect(wrapper.state().checkedItems[firstFilterCheckboxId]).toBeTruthy();
+    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
   });
 
-  test('should unselect the first item to filter', () => {
+  test('should unselect the first item', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
 
-    const firstFilterLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstFilterCheckbox = firstFilterLabel.find('input.multiselect-list-item-checkbox');
-    const firstFilterCheckboxId = firstFilterCheckbox.prop('id');
+    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
+    const firstOptionCheckbox = firstOptionLabel.find('input.multiselect-list-item-checkbox');
+    const firstOptionCheckboxId = firstOptionCheckbox.prop('id');
 
-    firstFilterLabel.prop('onKeyPress')({
+    firstOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: firstFilterCheckboxId, checked: wrapper.state().checkedItems[firstFilterCheckboxId] }]
+        children: [{ id: firstOptionCheckboxId, checked: wrapper.state().checkedItems[firstOptionCheckboxId] }]
       }
     });
 
-    expect(wrapper.state().checkedItems[firstFilterCheckboxId]).toBeTruthy();
+    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
 
-    firstFilterLabel.prop('onKeyPress')({
+    firstOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: firstFilterCheckboxId, checked: wrapper.state().checkedItems[firstFilterCheckboxId] }]
+        children: [{ id: firstOptionCheckboxId, checked: wrapper.state().checkedItems[firstOptionCheckboxId] }]
       }
     });
 
-    expect(wrapper.state().checkedItems[firstFilterCheckboxId]).toBeFalsy();
+    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeFalsy();
   });
 
-  test('should reset filter selection', () => {
+  test('should reset selection', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
 
-    const firstFilterLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstFilterCheckboxId = firstFilterLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const firstFilterState = wrapper.state().checkedItems[firstFilterCheckboxId];
+    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
+    const firstOptionCheckboxId = firstOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
+    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
 
-    firstFilterLabel.prop('onKeyPress')({
+    firstOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: firstFilterCheckboxId, checked: firstFilterState }]
+        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
       }
     });
 
-    const lastFilterLabel = wrapper.find('label.multiselect-list-item-label').last();
-    const lastFilterCheckboxId = lastFilterLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const lastFilterState = wrapper.state().checkedItems[lastFilterCheckboxId];
+    const lastOptionLabel = wrapper.find('label.multiselect-list-item-label').last();
+    const lastOptionCheckboxId = lastOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
+    const lastOptionState = wrapper.state().checkedItems[lastOptionCheckboxId];
 
-    lastFilterLabel.prop('onKeyPress')({
+    lastOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: lastFilterCheckboxId, checked: lastFilterState }]
+        children: [{ id: lastOptionCheckboxId, checked: lastOptionState }]
       }
     });
 
-    expect(wrapper.state().checkedItems[firstFilterCheckboxId]).toBeTruthy();
-    expect(wrapper.state().checkedItems[lastFilterCheckboxId]).toBeTruthy();
+    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
+    expect(wrapper.state().checkedItems[lastOptionCheckboxId]).toBeTruthy();
 
     wrapper.find('button.multiselect-reset-button').simulate('click');
 
-    expect(wrapper.state().checkedItems[firstFilterCheckboxId]).toBeFalsy();
-    expect(wrapper.state().checkedItems[lastFilterCheckboxId]).toBeFalsy();
+    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeFalsy();
+    expect(wrapper.state().checkedItems[lastOptionCheckboxId]).toBeFalsy();
   });
 
-  test('should apply filters', () => {
+  test('should apply selections', () => {
     const spyApply = jest.spyOn(multiSelectProps, 'onSelectionApplied');
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
 
-    const firstFilterLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstFilterCheckboxId = firstFilterLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const firstFilterState = wrapper.state().checkedItems[firstFilterCheckboxId];
+    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
+    const firstOptionCheckboxId = firstOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
+    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
 
-    firstFilterLabel.prop('onKeyPress')({
+    firstOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: firstFilterCheckboxId, checked: firstFilterState }]
+        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
       }
     });
 
@@ -170,31 +173,67 @@ describe('<MultiSelect />', () => {
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
 
-    const firstFilterLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstFilterCheckboxId = firstFilterLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const firstFilterState = wrapper.state().checkedItems[firstFilterCheckboxId];
+    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
+    const firstOptionCheckboxId = firstOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
+    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
 
-    firstFilterLabel.prop('onKeyPress')({
+    firstOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: firstFilterCheckboxId, checked: firstFilterState }]
+        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
       }
     });
 
     const badge = wrapper.find('span.multiselect-badge');
     expect(badge.text()).toBe('1');
 
-    const lastFilterLabel = wrapper.find('label.multiselect-list-item-label').last();
-    const lastFilterCheckboxId = lastFilterLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const lastFilterState = wrapper.state().checkedItems[lastFilterCheckboxId];
+    const lastOptionLabel = wrapper.find('label.multiselect-list-item-label').last();
+    const lastOptionCheckboxId = lastOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
+    const lastOptionState = wrapper.state().checkedItems[lastOptionCheckboxId];
 
-    lastFilterLabel.prop('onKeyPress')({
+    lastOptionLabel.prop('onKeyPress')({
       target: {
         tagName: 'LABEL',
-        children: [{ id: lastFilterCheckboxId, checked: lastFilterState }]
+        children: [{ id: lastOptionCheckboxId, checked: lastOptionState }]
       }
     });
 
     expect(badge.text()).toBe('2');
+  });
+
+  test('should select all items', () => {
+    const wrapper = mount(<MultiSelect {...multiSelectProps} />);
+
+    wrapper.find('button.multiselect-button-dropdown').simulate('click');
+
+    const buttonSelectAll = wrapper.find('button.multiselect-button-select-all');
+    buttonSelectAll.simulate('click');
+
+    const checkedItemsState = wrapper.state().checkedItems;
+
+    for (const item in checkedItemsState) {
+      expect(item).toBeTruthy();
+    }
+  });
+
+  test('should trigger option changed', () => {
+    const spyOptionChanged = jest.spyOn(multiSelectProps, 'onOptionChanged');
+    const wrapper = mount(<MultiSelect {...multiSelectProps} />);
+
+    wrapper.find('button.multiselect-button-dropdown').simulate('click');
+
+    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
+    const firstOptionCheckboxId = firstOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
+    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
+
+    firstOptionLabel.prop('onKeyPress')({
+      target: {
+        tagName: 'LABEL',
+        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
+      }
+    });
+    expect(spyOptionChanged).toHaveBeenCalledWith({
+      'first-option-1': true
+    });
   });
 });

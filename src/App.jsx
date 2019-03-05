@@ -32,53 +32,56 @@ class App extends Component {
       applyButtonText: 'Apply'
     };
 
-    const props2 = {...multiSelectProps, list: [
-      {
-        label: 'First option',
-        id: 'first-option-1',
-        checked: true
-      },
-      {
-        label: 'Second option',
-        id: 'second-option-2',
-        checked: false
-      },
-      {
-        label: 'Third option',
-        id: 'third-option-3',
-        checked: false
-      },
-      {
-        label: 'Forth option',
-        id: 'forth-option-4',
-        checked: true
-      },
-      {
-        label: 'Fifth option',
-        id: 'fifth-option-5',
-        checked: false
-      },
-      {
-        label: 'Sixth option',
-        id: 'sixth-option-6',
-        checked: false
-      },
-      {
-        label: 'Seventh option',
-        id: 'seventh-option-7',
-        checked: true
-      },
-      {
-        label: 'Eighth option',
-        id: 'Eighth-option-8',
-        checked: false
-      },
-      {
-        label: 'Nineth option',
-        id: 'nineth-option-9',
-        checked: false
-      }
-    ],};
+    const props2 = {
+      ...multiSelectProps,
+      list: [
+        {
+          label: 'First option',
+          id: 'first-option-10',
+          checked: true
+        },
+        {
+          label: 'Second option',
+          id: 'second-option-12',
+          checked: false
+        },
+        {
+          label: 'Third option',
+          id: 'third-option-13',
+          checked: false
+        },
+        {
+          label: 'Forth option',
+          id: 'forth-option-14',
+          checked: true
+        },
+        {
+          label: 'Fifth option',
+          id: 'fifth-option-15',
+          checked: false
+        },
+        {
+          label: 'Sixth option',
+          id: 'sixth-option-16',
+          checked: false
+        },
+        {
+          label: 'Seventh option',
+          id: 'seventh-option-17',
+          checked: true
+        },
+        {
+          label: 'Eighth option',
+          id: 'Eighth-option-18',
+          checked: false
+        },
+        {
+          label: 'Nineth option',
+          id: 'nineth-option-19',
+          checked: false
+        }
+      ]
+    };
 
     return (
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -104,6 +107,7 @@ class App extends Component {
           ]}
           isRightAligned
           dropdownButtonText="Selected"
+          onOptionChanged={optionState => console.log('optionState : ', optionState)}
         />
 
         <MultiSelect {...props2} />
