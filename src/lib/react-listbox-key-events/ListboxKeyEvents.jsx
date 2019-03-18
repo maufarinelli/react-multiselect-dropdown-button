@@ -1,37 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ListboxKeyEvents = ({keyEvents, children, className}) => {
-    const onKeyDown = (e) => {
-      if (e.keyCode === 38) {
-        if(keyEvents.up){
-          keyEvents.up(e);
-        }
-      } else if (e.keyCode === 40) {
-        if(keyEvents.down){
-          keyEvents.down(e);
-        }
-      } else if (e.keyCode === 35) {
-        if(keyEvents.end){
-          keyEvents.end(e);
-        }
-      } else if (e.keyCode === 36) {
-        if(keyEvents.home){
-          keyEvents.home(e);
-        }
-      }
+const ListboxKeyEvents = ({ keyEvents, children, className }) => {
+  const onKeyDown = e => {
+    switch (e.keyCode) {
+      case 35:
+        if (keyEvents.end) keyEvents.end(e);
+        break;
+      case 36:
+        if (keyEvents.home) keyEvents.home(e);
+        break;
+      case 38:
+        if (keyEvents.up) keyEvents.up(e);
+        break;
+      case 40:
+        if (keyEvents.down) keyEvents.down(e);
+        break;
+      default:
+        return;
     }
+  };
 
-    return <ul onKeyDown={onKeyDown} className={className}>{children}</ul>;
-}
+  return (
+    <ul onKeyDown={onKeyDown} className={className}>
+      {children}
+    </ul>
+  );
+};
 
 ListboxKeyEvents.propTypes = {
-    keyEvents: PropTypes.shape({
-        left: PropTypes.func,
-        right: PropTypes.func,
-        up: PropTypes.func,
-        down: PropTypes.func,
-    })
+  keyEvents: PropTypes.shape({
+    home: PropTypes.func,
+    end: PropTypes.func,
+    up: PropTypes.func,
+    down: PropTypes.func
+  })
 };
 
 export default ListboxKeyEvents;
