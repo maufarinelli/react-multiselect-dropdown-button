@@ -1,10 +1,9 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
-    entry: './src/index.js',
     output: {
         path: path.join(__dirname, '/build'),
         filename: 'main.js'
@@ -32,6 +31,9 @@ module.exports = {
                 "css-loader"
             ]
         }]
+    },
+    optimization: {
+        minimizer: [new TerserPlugin()],
     },
     resolve: {
         extensions: ['.js', '.jsx']

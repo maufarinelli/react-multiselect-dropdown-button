@@ -2,6 +2,11 @@
   "name": "react-multiselect-button-dropdown",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "test": "jest src/lib"
+  },
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -36,14 +41,12 @@
     "jest-watch-typeahead": "^0.2.1",
     "mini-css-extract-plugin": "^0.5.0",
     "prettier": "^1.16.4",
+    "react-app-polyfill": "^0.2.2",
+    "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "DEBUG=babel:config:loading:files:plugins webpack --mode production",
-    "test": "node scripts/test.js"
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -83,14 +86,8 @@
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
-      "web.js",
       "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
       "json",
-      "web.jsx",
       "jsx",
       "node"
     ],
