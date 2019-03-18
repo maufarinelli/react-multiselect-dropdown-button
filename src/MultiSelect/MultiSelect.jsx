@@ -70,6 +70,8 @@ class MultiSelect extends React.PureComponent {
     // Also needed to work with screen readers
     if (tag === 'LABEL') {
       target.checked = !target.checked;
+      // preventing just after toggle checked property in order to prevent the space scroll behavior on a list
+      event.preventDefault(); 
     }
     const { id, checked } = target;
 
