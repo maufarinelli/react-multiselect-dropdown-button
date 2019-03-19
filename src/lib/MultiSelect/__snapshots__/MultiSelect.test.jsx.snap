@@ -3,6 +3,7 @@
 exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 .c0 {
   position: relative;
+  display: inline-block;
 }
 
 .c4 {
@@ -35,6 +36,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 
 .c1.c1.is-opened {
   border-bottom: 0;
+  box-shadow: 0 1px #000;
 }
 
 .c3 {
@@ -89,6 +91,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
             "rules": Array [
               "
   position: relative;
+  display: inline-block;
 ",
             ],
           },
@@ -142,6 +145,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 
   &&.is-opened {
     border-bottom: 0;
+    box-shadow: 0 1px #000;
   }
 ",
                     ],
@@ -353,6 +357,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
 exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
 .c0 {
   position: relative;
+  display: inline-block;
 }
 
 .c5 {
@@ -422,6 +427,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
 
 .c1.c1.is-opened {
   border-bottom: 0;
+  box-shadow: 0 1px #000;
 }
 
 .c3 {
@@ -448,8 +454,13 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.625rem 0;
+  margin: 1px;
   line-height: 1;
   cursor: pointer;
+}
+
+.c9:focus {
+  outline: 1px solid #5e9ed6;
 }
 
 .c11 {
@@ -560,6 +571,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
             "rules": Array [
               "
   position: relative;
+  display: inline-block;
 ",
             ],
           },
@@ -613,6 +625,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
 
   &&.is-opened {
     border-bottom: 0;
+    box-shadow: 0 1px #000;
   }
 ",
                     ],
@@ -1057,8 +1070,13 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
+  margin: 1px;
   line-height: 1;
   cursor: pointer;
+
+  :focus {
+    outline: 1px solid #5e9ed6;
+  }
 ",
                                         ],
                                       },
@@ -1344,8 +1362,13 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
+  margin: 1px;
   line-height: 1;
   cursor: pointer;
+
+  :focus {
+    outline: 1px solid #5e9ed6;
+  }
 ",
                                         ],
                                       },
@@ -1631,8 +1654,13 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
+  margin: 1px;
   line-height: 1;
   cursor: pointer;
+
+  :focus {
+    outline: 1px solid #5e9ed6;
+  }
 ",
                                         ],
                                       },

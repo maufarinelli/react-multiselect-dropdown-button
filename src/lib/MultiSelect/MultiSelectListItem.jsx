@@ -18,8 +18,13 @@ const MultiSelectLisItemLabel = styled('label')`
   display: flex;
   justify-content: space-between;
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
+  margin: 1px;
   line-height: 1;
   cursor: pointer;
+
+  :focus {
+    outline: 1px solid #5e9ed6;
+  }
 `;
 
 const MultiSelectCheckIcon = styled(Check)`

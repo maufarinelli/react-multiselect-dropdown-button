@@ -17,6 +17,7 @@ const MultiSelectButton = styled('button')`
 
   &&.is-opened {
     border-bottom: 0;
+    box-shadow: 0 1px #000;
   }
 `;
 

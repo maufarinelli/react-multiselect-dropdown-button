@@ -10,7 +10,7 @@ module.exports = {
     coveragePathIgnorePatterns: ['/node_modules/', '/coverage/', '/dist/', '/scripts/', '/public/', '/config/'],
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?)$',
     watchPathIgnorePatterns: ['/node_modules/', '/dist/', '/coverage/', '/scripts/', '/public/', '/config/'],
-    setupFilesAfterEnv: ['./setupTests.js'],
+    setupFilesAfterEnv: ['./src/setupTests.js'],
     snapshotSerializers: ['enzyme-to-json/serializer'],
     testMatch: null,
     testPathIgnorePatterns: ['/node_modules/', '/coverage/', '/dist/', '/scripts/', '/public/', '/config/']

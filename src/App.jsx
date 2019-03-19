@@ -84,7 +84,7 @@ class App extends Component {
     };
 
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
         <MultiSelect {...multiSelectProps} />
 
         <MultiSelect
@@ -106,7 +106,7 @@ class App extends Component {
             }
           ]}
           isRightAligned
-          dropdownButtonText="Selected"
+          dropdownButtonText="Options selected"
           onOptionChanged={optionState => console.log('optionState : ', optionState)}
         />
 
