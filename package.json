@@ -1,8 +1,14 @@
 {
   "name": "react-multiselect-button-dropdown",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "build/index.js",
   "license": "MIT",
+  "author": "Mauricio Farinelli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maufarinelli/react-multiselect-dropdown-button.git"
+  },
+  "homepage": "https://github.com/maufarinelli/react-multiselect-dropdown-button/#readme",
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
