@@ -165,26 +165,17 @@ module.exports = {
             new OptimizeCSSAssetsPlugin({
                 cssProcessorOptions: {
                     parser: safePostCssParser,
-                    map: shouldUseSourceMap ?
-                        {
-                            // `inline: false` forces the sourcemap to be output into a
-                            // separate file
-                            inline: false,
-                            // `annotation: true` appends the sourceMappingURL to the end of
-                            // the css file, helping the browser find the sourcemap
-                            annotation: true,
-                        } :
-                        false,
+                    map: shouldUseSourceMap ? {
+                        // `inline: false` forces the sourcemap to be output into a
+                        // separate file
+                        inline: false,
+                        // `annotation: true` appends the sourceMappingURL to the end of
+                        // the css file, helping the browser find the sourcemap
+                        annotation: true,
+                    } : false,
                 },
             }),
-        ],
-        // Automatically split vendor and commons
-        // https://twitter.com/wSokra/status/969633336732905474
-        // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-        splitChunks: {
-            chunks: 'all',
-            name: false,
-        },
+        ]
     },
     resolve: {
         // This allows you to set a fallback for where Webpack should look for modules.
