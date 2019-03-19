@@ -14,6 +14,13 @@ A Dropdown Button which toggle a Multiselect List. React component accessible (A
 
 ## How to use
 
+`npm i react-multiselect-button-dropdown`
+or
+`yarn add react-multiselect-button-dropdown`
+
+and import in your app
+`import MultiSelect from "react-multiselect-button-dropdown";`
+
 ### props
 
 - **list:** `Array<listItem>` (required)
