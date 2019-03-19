@@ -1,7 +1,7 @@
 {
   "name": "react-multiselect-button-dropdown",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/index.js",
   "license": "MIT",
   "dependencies": {
     "@babel/cli": "^7.2.3",
