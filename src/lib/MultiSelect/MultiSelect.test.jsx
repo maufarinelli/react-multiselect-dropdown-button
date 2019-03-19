@@ -73,7 +73,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
@@ -92,7 +93,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: wrapper.state().checkedItems[firstOptionCheckboxId] }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
@@ -101,7 +103,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: wrapper.state().checkedItems[firstOptionCheckboxId] }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeFalsy();
@@ -120,7 +123,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     const lastOptionLabel = wrapper.find('label.multiselect-list-item-label').last();
@@ -131,7 +135,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: lastOptionCheckboxId, checked: lastOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
@@ -157,7 +162,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     wrapper.find('button.multiselect-apply-button').simulate('click');
@@ -181,7 +187,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     const badge = wrapper.find('span.multiselect-badge');
@@ -195,7 +202,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: lastOptionCheckboxId, checked: lastOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
 
     expect(badge.text()).toBe('2');
@@ -230,7 +238,8 @@ describe('<MultiSelect />', () => {
       target: {
         tagName: 'LABEL',
         children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      }
+      },
+      preventDefault: () => {}
     });
     expect(spyOptionChanged).toHaveBeenCalledWith({
       'first-option-1': true
