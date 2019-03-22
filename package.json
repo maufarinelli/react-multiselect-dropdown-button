@@ -2,9 +2,6 @@
   "name": "react-multiselect-button-dropdown",
   "version": "1.0.9",
   "main": "build/index.js",
-  "publishConfig": {
-    "access": "restricted"
-  },
   "license": "MIT",
   "author": "Mauricio Farinelli",
   "repository": {
