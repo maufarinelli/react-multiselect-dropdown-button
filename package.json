@@ -2,6 +2,9 @@
   "name": "react-multiselect-button-dropdown",
   "version": "1.0.8",
   "main": "build/index.js",
+  "publishConfig": {
+    "access": "restricted"
+  },
   "license": "MIT",
   "author": "Mauricio Farinelli",
   "repository": {
@@ -9,24 +12,24 @@
     "url": "git+https://github.com/maufarinelli/react-multiselect-dropdown-button.git"
   },
   "homepage": "https://github.com/maufarinelli/react-multiselect-dropdown-button/#readme",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "resolve": "1.10.0",
     "styled-components": "^4.1.3",
     "styled-icons": "^7.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
-    "babel": "^6.23.0",
-    "babel-loader": "^8.0.5",
     "@svgr/webpack": "4.1.0",
+    "babel": "^6.23.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "24.5.0",
+    "babel-loader": "^8.0.5",
     "babel-plugin-named-asset-import": "^0.3.1",
     "babel-preset-react-app": "^7.0.1",
     "bfj": "6.1.1",
@@ -62,20 +65,26 @@
     "postcss-preset-env": "6.5.0",
     "postcss-safe-parser": "4.0.1",
     "prettier": "^1.16.4",
+    "react": "^16.8.2",
     "react-app-polyfill": "^0.2.1",
     "react-dev-utils": "^7.0.3",
+    "react-dom": "^16.8.2",
+    "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
+    "styled-components": "^4.1.3",
+    "styled-icons": "^7.1.1",
     "terser-webpack-plugin": "1.2.2",
     "url-loader": "1.1.2",
     "webpack": "4.28.3",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "webpack --config webpack.config.build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "eslintConfig": {
