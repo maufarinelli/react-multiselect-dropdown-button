@@ -84,7 +84,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "webpack --config webpack.config.build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -124,14 +124,8 @@
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
-      "web.js",
       "js",
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
       "json",
-      "web.jsx",
       "jsx",
       "node"
     ],

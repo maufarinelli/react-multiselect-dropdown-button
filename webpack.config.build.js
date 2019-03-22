@@ -42,7 +42,7 @@ module.exports = {
     // CRL: add externals block since it's a library
     //  no need to ship React since it's shipped with the main app
     externals: {
-        // Don't bundle react or react-dom      
+        // Don't bundle react, react-dom and styled-components   
         react: {
             commonjs: "react",
             commonjs2: "react",
