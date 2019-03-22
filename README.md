@@ -6,6 +6,8 @@ A Dropdown Button which toggle a Multiselect List. React component accessible (A
 - Provide a callback function to give selected items applied
 - Can be used multilanguage, as it receives text by props
 
+![alt text](https://raw.githubusercontent.com/maufarinelli/react-multiselect-dropdown-button/master/public/react-multiselect-button-dropdown-examples.png)
+
 ## A11y notes
 
 - In order to keep it fully accessible, make sure:
