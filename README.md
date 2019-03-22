@@ -8,7 +8,7 @@ A Dropdown Button which toggle a Multiselect List. React component accessible (A
 
 ![alt text](https://raw.githubusercontent.com/maufarinelli/react-multiselect-dropdown-button/master/public/react-multiselect-button-dropdown-examples.png)
 
-Try it out in this <a href="https://w0977qv38.codesandbox.io/">Live Demo</a>
+Try it out in this [Live Demo](https://w0977qv38.codesandbox.io/)
 
 ## A11y notes
 
