@@ -36,8 +36,7 @@ module.exports = {
         alias: {
             'react': path.resolve(__dirname, './node_modules/react'),
             'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
-            'styled-components': path.resolve(__dirname, './node_modules/styled-components'),
-            'styled-icons': path.resolve(__dirname, './node_modules/styled-icons')
+            'styled-components': path.resolve(__dirname, './node_modules/styled-components')
         }
     },
     // CRL: add externals block since it's a library
@@ -56,7 +55,11 @@ module.exports = {
             amd: "ReactDOM",
             root: "ReactDOM"
         },
-        'styled-components': 'styled-components',
-        'styled-icons': 'styled-icons'
+        'styled-components': {
+            commonjs: "styled-components",
+            commonjs2: "styled-components",
+            amd: "styled-components",
+            root: "styled-components"
+        }
     }
 };
