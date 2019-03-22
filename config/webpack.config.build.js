@@ -1,4 +1,5 @@
 const path = require("path");
+const paths = require('./paths');
 const TerserPlugin = require('terser-webpack-plugin');
 
 process.env.NODE_ENV = 'production';
@@ -7,7 +8,7 @@ module.exports = {
     mode: 'production',
     entry: './src/lib/index.js',
     output: {
-        path: path.join(__dirname, './build'),
+        path: paths.appBuild,
         filename: 'index.js',
         library: 'MultiSelect',
         libraryTarget: 'umd',
