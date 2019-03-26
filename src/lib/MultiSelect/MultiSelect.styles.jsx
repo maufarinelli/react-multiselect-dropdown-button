@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import ListboxKeyEvents from '../react-listbox-key-events/ListboxKeyEvents';
+import ListboxKeyNav from '../react-listbox-keyboard-navigation/ListboxKeyNav';
 
 export const MultiSelectWrapper = styled('div')`
   position: relative;
@@ -19,7 +19,7 @@ const selectAllButtonHeight = '3.125rem'; /* 50px if base font-size is 16px */
 const paddingList = '2.625rem'; /* 42px if base font-size is 16px */
 const footerHeight = '3.75rem'; /* 60px if base font-size is 16px */
 
-export const MultiSelectList = styled(ListboxKeyEvents)`
+export const MultiSelectList = styled(ListboxKeyNav)`
   max-height: ${props =>
     `calc(100vh - ${buttonHeight} - ${paddingList} - ${selectAllButtonHeight} - ${
       props.hasFooter ? footerHeight : '0px'

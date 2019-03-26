@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ListboxKeyEvents = ({ keyEvents, children, className }) => {
+const ListboxKeyNav = ({ tag, keyEvents, children, className, otherProps }) => {
   const onKeyDown = e => {
     switch (e.keyCode) {
       case 35:
@@ -21,14 +21,19 @@ const ListboxKeyEvents = ({ keyEvents, children, className }) => {
     }
   };
 
-  return (
-    <ul onKeyDown={onKeyDown} className={className}>
-      {children}
-    </ul>
+  return React.createElement(
+    tag,
+    {
+      className,
+      onKeyDown,
+      ...otherProps
+    },
+    children
   );
 };
 
-ListboxKeyEvents.propTypes = {
+ListboxKeyNav.propTypes = {
+  tag: PropTypes.string.isRequired,
   keyEvents: PropTypes.shape({
     home: PropTypes.func,
     end: PropTypes.func,
@@ -37,4 +42,4 @@ ListboxKeyEvents.propTypes = {
   })
 };
 
-export default ListboxKeyEvents;
+export default ListboxKeyNav;

@@ -71,7 +71,7 @@ class MultiSelect extends React.PureComponent {
     if (tag === 'LABEL') {
       target.checked = !target.checked;
       // preventing just after toggle checked property in order to prevent the space scroll behavior on a list
-      event.preventDefault(); 
+      event.preventDefault();
     }
     const { id, checked } = target;
 
@@ -143,6 +143,7 @@ class MultiSelect extends React.PureComponent {
             </MultiSelectAllButton>
             <MultiSelectList
               role="listbox"
+              tag="ul"
               hasFooter={!!onSelectionApplied}
               className="multiselect-list"
               keyEvents={{ ...this.keyEvents }}
