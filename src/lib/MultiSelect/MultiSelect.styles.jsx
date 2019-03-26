@@ -20,6 +20,7 @@ const paddingList = '2.625rem'; /* 42px if base font-size is 16px */
 const footerHeight = '3.75rem'; /* 60px if base font-size is 16px */
 
 export const MultiSelectList = styled(ListboxKeyEvents)`
+  width: 100%;
   max-height: ${props =>
     `calc(100vh - ${buttonHeight} - ${paddingList} - ${selectAllButtonHeight} - ${
       props.hasFooter ? footerHeight : '0px'
@@ -27,7 +28,7 @@ export const MultiSelectList = styled(ListboxKeyEvents)`
   margin: 0;
   overflow: auto;
   padding-left: 0;
-  list-style: none;
+  border: 0;
 `;
 
 export const buttonCSS = css`

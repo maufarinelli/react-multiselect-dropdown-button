@@ -22,9 +22,9 @@ const ListboxKeyEvents = ({ keyEvents, children, className }) => {
   };
 
   return (
-    <ul onKeyDown={onKeyDown} className={className}>
+    <select multiple onKeyDown={onKeyDown} className={className}>
       {children}
-    </ul>
+    </select>
   );
 };
 

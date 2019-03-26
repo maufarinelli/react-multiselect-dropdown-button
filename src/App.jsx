@@ -9,19 +9,19 @@ class App extends Component {
           label: 'First option',
           name: 'first-option',
           id: 'first-option-1',
-          checked: true
+          selected: true
         },
         {
           label: 'Second option',
           name: 'second-option',
           id: 'second-option-2',
-          checked: false
+          selected: false
         },
         {
           label: 'Third option',
           name: 'third-option',
           id: 'third-option-3',
-          checked: false
+          selected: false
         }
       ],
       onSelectionApplied: selection => {
@@ -38,47 +38,47 @@ class App extends Component {
         {
           label: 'First option',
           id: 'first-option-10',
-          checked: true
+          selected: true
         },
         {
           label: 'Second option',
           id: 'second-option-12',
-          checked: false
+          selected: false
         },
         {
           label: 'Third option',
           id: 'third-option-13',
-          checked: false
+          selected: false
         },
         {
           label: 'Forth option',
           id: 'forth-option-14',
-          checked: true
+          selected: true
         },
         {
           label: 'Fifth option',
           id: 'fifth-option-15',
-          checked: false
+          selected: false
         },
         {
           label: 'Sixth option',
           id: 'sixth-option-16',
-          checked: false
+          selected: false
         },
         {
           label: 'Seventh option',
           id: 'seventh-option-17',
-          checked: true
+          selected: true
         },
         {
           label: 'Eighth option',
           id: 'Eighth-option-18',
-          checked: false
+          selected: false
         },
         {
           label: 'Nineth option',
           id: 'nineth-option-19',
-          checked: false
+          selected: false
         }
       ]
     };
@@ -92,17 +92,17 @@ class App extends Component {
             {
               label: 'First option',
               id: 'first-option',
-              checked: true
+              selected: true
             },
             {
               label: 'Second option',
               id: 'second-option',
-              checked: false
+              selected: false
             },
             {
               label: 'Third option',
               id: 'third-option',
-              checked: false
+              selected: false
             }
           ]}
           isRightAligned

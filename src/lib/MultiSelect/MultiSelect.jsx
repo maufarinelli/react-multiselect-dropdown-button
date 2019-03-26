@@ -13,7 +13,7 @@ import MultiSelectFooter from './MultiSelectFooter';
 class MultiSelect extends React.PureComponent {
   state = {
     isDropdownOpened: false,
-    checkedItems: {}
+    selectedItems: {}
   };
 
   constructor(props) {
@@ -45,12 +45,18 @@ class MultiSelect extends React.PureComponent {
   componentDidMount() {
     const { list } = this.props;
 
-    this.setState({
-      checkedItems: list.reduce((acc, listItem) => {
-        acc[listItem.id] = listItem.checked;
-        return acc;
-      }, {})
-    });
+    this.setState(
+      {
+        selectedItems: list.reduce((acc, listItem) => {
+          acc[listItem.id] = listItem.selected;
+          return acc;
+        }, {})
+      },
+      () => {
+        debugger;
+        console.log(this.state);
+      }
+    );
   }
 
   toggleDropdown = () => {
@@ -58,12 +64,12 @@ class MultiSelect extends React.PureComponent {
 
     this.setState({ isDropdownOpened: !isDropdownOpened }, () => {
       if (this.state.isDropdownOpened) {
-        this.listItems[0].focus();
+        // this.listItems[0].focus();
       }
     });
   };
 
-  handleInputChange = event => {
+  handleSelectChange = event => {
     const tag = event.target.tagName;
     const target = tag === 'LABEL' ? event.target.children[0] : event.target;
     // If user used the keyboard to select the label, we need to programatically check the checkbox child.
@@ -71,13 +77,13 @@ class MultiSelect extends React.PureComponent {
     if (tag === 'LABEL') {
       target.checked = !target.checked;
       // preventing just after toggle checked property in order to prevent the space scroll behavior on a list
-      event.preventDefault(); 
+      event.preventDefault();
     }
     const { id, checked } = target;
 
     this.setState(
       prevState => ({
-        checkedItems: { ...prevState.checkedItems, [id]: checked }
+        selectedItems: { ...prevState.selectedItems, [id]: checked }
       }),
       () => {
         this.props.onOptionChanged && this.props.onOptionChanged({ [id]: checked });
@@ -87,7 +93,7 @@ class MultiSelect extends React.PureComponent {
 
   resetSelections = () => {
     this.setState(prevState => ({
-      checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemName) => {
+      selectedItems: Object.keys(prevState.selectedItems).reduce((acc, listItemName) => {
         acc[listItemName] = false;
         return acc;
       }, {})
@@ -96,14 +102,14 @@ class MultiSelect extends React.PureComponent {
 
   handleApplyClick = () => {
     const { onSelectionApplied } = this.props;
-    const { checkedItems } = this.state;
+    const { selectedItems } = this.state;
 
-    onSelectionApplied(checkedItems);
+    onSelectionApplied(selectedItems);
   };
 
   selectAll = () => {
     this.setState(prevState => ({
-      checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemId) => {
+      selectedItems: Object.keys(prevState.selectedItems).reduce((acc, listItemId) => {
         acc[listItemId] = true;
         return acc;
       }, {})
@@ -111,7 +117,7 @@ class MultiSelect extends React.PureComponent {
   };
 
   render() {
-    const { isDropdownOpened, checkedItems } = this.state;
+    const { isDropdownOpened, selectedItems } = this.state;
     const {
       list,
       dropdownButtonText,
@@ -121,15 +127,16 @@ class MultiSelect extends React.PureComponent {
       resetButtonText,
       applyButtonText
     } = this.props;
-    const { handleInputChange, handleApplyClick, selectAll } = this;
-    const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
+    const { handleSelectChange, handleApplyClick, selectAll } = this;
+    const selectedItemsValues = Object.keys(selectedItems).filter(itemName => selectedItems[itemName]);
+    const selectedItemsQuantity = selectedItemsValues.length;
 
     return (
       <MultiSelectWrapper className="multiselect-button-dropdown-wrapper">
         <MultiSelectDropdown
           className="multiselect-button-dropdown"
           text={dropdownButtonText}
-          quantity={checkedItemsQuantity}
+          quantity={selectedItemsQuantity}
           toggleDropdown={this.toggleDropdown}
           isOpened={isDropdownOpened}
         />
@@ -142,14 +149,16 @@ class MultiSelect extends React.PureComponent {
               {selectAllButtonText}
             </MultiSelectAllButton>
             <MultiSelectList
-              role="listbox"
+              multiple={true}
               hasFooter={!!onSelectionApplied}
               className="multiselect-list"
               keyEvents={{ ...this.keyEvents }}
+              value={selectedItemsValues}
+              onChange={handleSelectChange}
             >
               {list.map((listItem, index) => {
-                const { label, id, name } = listItem;
-                const checked = checkedItems[id];
+                const { label, id } = listItem;
+                const selected = selectedItems[id];
                 const key = `${id}-${index}`;
 
                 return (
@@ -158,9 +167,7 @@ class MultiSelect extends React.PureComponent {
                     label={label}
                     key={key}
                     id={id}
-                    name={name}
-                    handleInputChange={handleInputChange}
-                    checked={checked}
+                    selected={selected}
                     ref={el => {
                       this.listItems[index] = el;
                       return el;
@@ -190,7 +197,7 @@ MultiSelect.propTypes = {
       label: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
       name: PropTypes.string,
-      checked: PropTypes.bool.isRequired
+      selected: PropTypes.bool.isRequired
     })
   ).isRequired,
   dropdownButtonText: PropTypes.string.isRequired,
