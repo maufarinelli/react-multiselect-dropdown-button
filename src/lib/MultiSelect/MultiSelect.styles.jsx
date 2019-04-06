@@ -9,7 +9,7 @@ export const MultiSelectWrapper = styled('div')`
 export const MultiSelectListWrapper = styled('div')`
   position: absolute;
   right: ${props => (props.isRightAligned ? '0' : 'auto')};
-  min-width: 170px;
+  min-width: 140px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 `;
@@ -47,4 +47,19 @@ export const buttonCSS = css`
 export const MultiSelectAllButton = styled('button')`
   ${buttonCSS}
   margin-bottom: 10px;
+`;
+
+export const MultiSelectResetButton = styled('button')`
+  ${buttonCSS}
+`;
+
+export const iconCSS = css`
+  width: 0.75rem; /* 12px if base font-size is 16px */
+  margin-right: 0.625rem; /* 10px if base font-size is 16px */
+  vertical-align: baseline;
+`;
+
+export const MultiSelectListButtonsWrapper = styled('div')`
+  display: flex;
+  justify-content: space-between;
 `;

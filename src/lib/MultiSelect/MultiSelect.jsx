@@ -4,7 +4,9 @@ import {
   MultiSelectWrapper,
   MultiSelectListWrapper,
   MultiSelectList,
-  MultiSelectAllButton
+  MultiSelectAllButton,
+  MultiSelectResetButton,
+  MultiSelectListButtonsWrapper
 } from './MultiSelect.styles';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListItem from './MultiSelectListItem';
@@ -121,7 +123,7 @@ class MultiSelect extends React.PureComponent {
       resetButtonText,
       applyButtonText
     } = this.props;
-    const { handleInputChange, handleApplyClick, selectAll } = this;
+    const { handleInputChange, handleApplyClick, selectAll, resetSelections } = this;
     const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
     return (
@@ -138,9 +140,14 @@ class MultiSelect extends React.PureComponent {
             {...(isRightAligned ? { isRightAligned } : {})}
             className="multiselect-section-wrapper"
           >
-            <MultiSelectAllButton className="multiselect-button-select-all" onClick={selectAll}>
-              {selectAllButtonText}
-            </MultiSelectAllButton>
+            <MultiSelectListButtonsWrapper>
+              <MultiSelectAllButton className="multiselect-button-select-all" onClick={selectAll}>
+                {selectAllButtonText}
+              </MultiSelectAllButton>
+              <MultiSelectResetButton className="multiselect-reset-button" onClick={resetSelections}>
+                {resetButtonText}
+              </MultiSelectResetButton>
+            </MultiSelectListButtonsWrapper>
             <MultiSelectList
               role="listbox"
               tag="ul"
@@ -172,8 +179,6 @@ class MultiSelect extends React.PureComponent {
             </MultiSelectList>
             {onSelectionApplied && (
               <MultiSelectFooter
-                resetSelections={this.resetSelections}
-                resetButtonText={resetButtonText}
                 applyButtonText={applyButtonText}
                 handleApplyClick={handleApplyClick}
               />
@@ -204,7 +209,8 @@ MultiSelect.propTypes = {
 };
 
 MultiSelect.defaultProps = {
-  selectAllButtonText: 'Select All'
+  selectAllButtonText: 'Select All',
+  resetButtonText: 'Reset'
 };
 
 export default MultiSelect;
