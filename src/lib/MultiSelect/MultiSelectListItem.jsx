@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Check } from 'styled-icons/fa-solid/Check';
 import styled from 'styled-components';
 
 const MultiSelectListItemLi = styled('li')`
@@ -39,11 +38,6 @@ const MultiSelectLisItemLabel = styled('label')`
     }
   }
 `;
-
-// const MultiSelectCheckIcon = styled(Check)`
-//   visibility: ${props => (props.checked ? 'visible' : 'hidden')};
-//   height: 1rem;
-// `;
 
 const MultiSelectListItem = React.forwardRef((props, ref) => {
   const { label, name, id, handleInputChange, checked } = props;

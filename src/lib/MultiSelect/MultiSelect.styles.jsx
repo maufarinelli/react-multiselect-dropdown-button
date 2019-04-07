@@ -44,13 +44,23 @@ export const buttonCSS = css`
   cursor: pointer;
 `;
 
-export const MultiSelectAllButton = styled('button')`
+export const secondaryButtonCSS = css`
   ${buttonCSS}
+  height: 1.3em;
+  line-height: 1em;
+  color: #5e9ed6;
+  background-color: transparent;
+`;
+
+export const MultiSelectAllButton = styled('button')`
+  ${secondaryButtonCSS}
   margin-bottom: 10px;
+  padding-left: 0;
 `;
 
 export const MultiSelectResetButton = styled('button')`
-  ${buttonCSS}
+  ${secondaryButtonCSS}
+  padding-right: 0;
 `;
 
 export const iconCSS = css`
