@@ -9,7 +9,7 @@ export const MultiSelectWrapper = styled('div')`
 export const MultiSelectListWrapper = styled('div')`
   position: absolute;
   right: ${props => (props.isRightAligned ? '0' : 'auto')};
-  min-width: 170px;
+  min-width: 140px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
 `;
@@ -44,7 +44,32 @@ export const buttonCSS = css`
   cursor: pointer;
 `;
 
-export const MultiSelectAllButton = styled('button')`
+export const secondaryButtonCSS = css`
   ${buttonCSS}
+  height: 1.3em;
+  line-height: 1em;
+  color: #5e9ed6;
+  background-color: transparent;
+`;
+
+export const MultiSelectAllButton = styled('button')`
+  ${secondaryButtonCSS}
   margin-bottom: 10px;
+  padding-left: 0;
+`;
+
+export const MultiSelectResetButton = styled('button')`
+  ${secondaryButtonCSS}
+  padding-right: 0;
+`;
+
+export const iconCSS = css`
+  width: 0.75rem; /* 12px if base font-size is 16px */
+  margin-right: 0.625rem; /* 10px if base font-size is 16px */
+  vertical-align: baseline;
+`;
+
+export const MultiSelectListButtonsWrapper = styled('div')`
+  display: flex;
+  justify-content: space-between;
 `;

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Check } from 'styled-icons/fa-solid/Check';
 import styled from 'styled-components';
 
-// TODO (hover background-color) coming from theme? Refactor when decision has been made
 const MultiSelectListItemLi = styled('li')`
   :hover {
     background-color: #f0f0f0;
@@ -20,16 +18,25 @@ const MultiSelectLisItemLabel = styled('label')`
   padding: 0.625rem 0; /* 10px if base font-size is 16px */
   margin: 1px;
   line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
 
   :focus {
     outline: 1px solid #5e9ed6;
   }
-`;
 
-const MultiSelectCheckIcon = styled(Check)`
-  visibility: ${props => (props.checked ? 'visible' : 'hidden')};
-  height: 1rem;
+  &.is-checked {
+    :after {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 10px;
+      margin-right: 3px;
+      border: solid #000;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
 `;
 
 const MultiSelectListItem = React.forwardRef((props, ref) => {
@@ -44,7 +51,7 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
         htmlFor={id}
         onKeyPress={handleInputChange}
         ref={ref}
-        className="multiselect-list-item-label"
+        className={checked ? 'multiselect-list-item-label is-checked' : 'multiselect-list-item-label'}
       >
         {label}
         <MultiSelectCheckbox
@@ -55,7 +62,6 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
           onChange={handleInputChange}
           checked={checked}
         />
-        <MultiSelectCheckIcon checked={checked} />
       </MultiSelectLisItemLabel>
     </MultiSelectListItemLi>
   );

@@ -38,14 +38,14 @@ describe('<MultiSelect />', () => {
   test('should match snapshot - dropdown closed', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.getDOMNode()).toMatchSnapshot();
   });
 
   test('should match snapshot - dropdown opened', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.getDOMNode()).toMatchSnapshot();
   });
 
   test('should open dropdown when button is clicked', () => {
