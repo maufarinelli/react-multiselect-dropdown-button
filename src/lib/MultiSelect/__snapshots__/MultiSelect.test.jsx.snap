@@ -6,12 +6,6 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
   display: inline-block;
 }
 
-.c4 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
 .c2 {
   padding: 0.1875rem 0.5rem;
   margin-left: 0.3125rem;
@@ -32,326 +26,46 @@ exports[`<MultiSelect /> should match snapshot - dropdown closed 1`] = `
   cursor: pointer;
   background-color: transparent;
   border: 1px #000 solid;
-}
-
-.c1.c1.is-opened {
   border-bottom: 0;
   box-shadow: 0 1px #000;
 }
 
-.c3 {
-  width: 0.8rem;
-  margin: 0 0.625rem;
-  vertical-align: middle;
+.c1:after {
+  content: '';
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
-<MultiSelect
-  applyButtonText="Apply"
-  dropdownButtonText="Selected"
-  list={
-    Array [
-      Object {
-        "checked": false,
-        "id": "first-option-1",
-        "label": "First option",
-        "name": "first-option",
-      },
-      Object {
-        "checked": false,
-        "id": "second-option-2",
-        "label": "Second option",
-        "name": "second-option",
-      },
-      Object {
-        "checked": false,
-        "id": "third-option-3",
-        "label": "Third option",
-        "name": "third-option",
-      },
-    ]
-  }
-  onOptionChanged={[Function]}
-  onSelectionApplied={[Function]}
-  resetButtonText="Reset"
-  selectAllButtonText="Select All"
->
-  <styled.div
-    className="multiselect-button-dropdown-wrapper"
-  >
-    <StyledComponent
-      className="multiselect-button-dropdown-wrapper"
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bdVaJa",
-            "isStatic": true,
-            "lastClassName": "c0",
-            "rules": Array [
-              "
-  position: relative;
-  display: inline-block;
-",
-            ],
-          },
-          "displayName": "styled.div",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-bdVaJa",
-          "target": "div",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
-    >
-      <div
-        className="multiselect-button-dropdown-wrapper c0"
-      >
-        <MultiSelectDropdown
-          className="multiselect-button-dropdown"
-          isOpened={false}
-          quantity={0}
-          text="Selected"
-          toggleDropdown={[Function]}
-        >
-          <styled.button
-            aria-haspopup="true"
-            className="multiselect-button-dropdown"
-            onClick={[Function]}
-          >
-            <StyledComponent
-              aria-haspopup="true"
-              className="multiselect-button-dropdown"
-              forwardedComponent={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "attrs": Array [],
-                  "componentStyle": ComponentStyle {
-                    "componentId": "sc-EHOje",
-                    "isStatic": true,
-                    "lastClassName": "c1",
-                    "rules": Array [
-                      "
-  height: 100%;
-  padding: 1.25rem; /* 20px if base font-size is 16px */
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px #000 solid;
+.c1.c1.is-opened:after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
 
-  &&.is-opened {
-    border-bottom: 0;
-    box-shadow: 0 1px #000;
-  }
-",
-                    ],
-                  },
-                  "displayName": "styled.button",
-                  "foldedComponentIds": Array [],
-                  "render": [Function],
-                  "styledComponentId": "sc-EHOje",
-                  "target": "button",
-                  "toString": [Function],
-                  "warnTooManyClasses": [Function],
-                  "withComponent": [Function],
-                }
-              }
-              forwardedRef={null}
-              onClick={[Function]}
-            >
-              <button
-                aria-haspopup="true"
-                className="multiselect-button-dropdown c1"
-                onClick={[Function]}
-              >
-                <MultiSelectBadge
-                  className="multiselect-badge"
-                  quantity={0}
-                  text="Selected"
-                >
-                  Selected
-                   
-                  <styled.span
-                    className="multiselect-badge"
-                  >
-                    <StyledComponent
-                      className="multiselect-badge"
-                      forwardedComponent={
-                        Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "attrs": Array [],
-                          "componentStyle": ComponentStyle {
-                            "componentId": "sc-ifAKCX",
-                            "isStatic": true,
-                            "lastClassName": "c2",
-                            "rules": Array [
-                              "
-  padding: 0.1875rem 0.5rem; /* 3px 8px if base font-size is 16px */
-  margin-left: 0.3125rem;
-  font-size: 0.85rem;
-  font-weight: normal;
-  line-height: 1;
-  color: #fff;
-  vertical-align: middle;
-  background-color: #000;
-  border-radius: 50%;
-",
-                            ],
-                          },
-                          "displayName": "styled.span",
-                          "foldedComponentIds": Array [],
-                          "render": [Function],
-                          "styledComponentId": "sc-ifAKCX",
-                          "target": "span",
-                          "toString": [Function],
-                          "warnTooManyClasses": [Function],
-                          "withComponent": [Function],
-                        }
-                      }
-                      forwardedRef={null}
-                    >
-                      <span
-                        className="multiselect-badge c2"
-                      >
-                        0
-                      </span>
-                    </StyledComponent>
-                  </styled.span>
-                </MultiSelectBadge>
-                <Styled(AngleDown)>
-                  <StyledComponent
-                    forwardedComponent={
-                      Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "attrs": Array [],
-                        "componentStyle": ComponentStyle {
-                          "componentId": "sc-bZQynM",
-                          "isStatic": true,
-                          "lastClassName": "c3",
-                          "rules": Array [
-                            "
-  ",
-                            "
-  width: 0.8rem;
-  margin: 0 0.625rem; /* 10px if base font-size is 16px */
-  vertical-align: middle;
-",
-                            "
-",
-                          ],
-                        },
-                        "displayName": "Styled(AngleDown)",
-                        "foldedComponentIds": Array [],
-                        "render": [Function],
-                        "styledComponentId": "sc-bZQynM",
-                        "target": Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "displayName": "AngleDown",
-                          "render": [Function],
-                        },
-                        "toString": [Function],
-                        "warnTooManyClasses": [Function],
-                        "withComponent": [Function],
-                      }
-                    }
-                    forwardedRef={null}
-                  >
-                    <AngleDown
-                      className="c3"
-                    >
-                      <StyledIconBase
-                        className="c3"
-                        iconAttrs={
-                          Object {
-                            "fill": "currentColor",
-                          }
-                        }
-                        iconVerticalAlign="-.125em"
-                        iconViewBox="0 0 320 512"
-                      >
-                        <StyledComponent
-                          className="c3"
-                          forwardedComponent={
-                            Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "attrs": Array [],
-                              "componentStyle": ComponentStyle {
-                                "componentId": "StyledIconBase-sc-bdy9j4",
-                                "isStatic": false,
-                                "lastClassName": "c4",
-                                "rules": Array [
-                                  "
-  display: inline-block;
-  vertical-align: ",
-                                  [Function],
-                                  ";
-  overflow: hidden;
-",
-                                ],
-                              },
-                              "displayName": "StyledIconBase",
-                              "foldedComponentIds": Array [],
-                              "render": [Function],
-                              "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                              "target": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
-                              "toString": [Function],
-                              "warnTooManyClasses": [Function],
-                              "withComponent": [Function],
-                            }
-                          }
-                          forwardedRef={null}
-                          iconAttrs={
-                            Object {
-                              "fill": "currentColor",
-                            }
-                          }
-                          iconVerticalAlign="-.125em"
-                          iconViewBox="0 0 320 512"
-                        >
-                          <ForwardRef
-                            className="c3 c4"
-                            iconAttrs={
-                              Object {
-                                "fill": "currentColor",
-                              }
-                            }
-                            iconVerticalAlign="-.125em"
-                            iconViewBox="0 0 320 512"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              className="c3 c4"
-                              fill="currentColor"
-                              focusable="false"
-                              viewBox="0 0 320 512"
-                            >
-                              <path
-                                d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"
-                                fill="currentColor"
-                                key="k0"
-                              />
-                            </svg>
-                          </ForwardRef>
-                        </StyledComponent>
-                      </StyledIconBase>
-                    </AngleDown>
-                  </StyledComponent>
-                </Styled(AngleDown)>
-              </button>
-            </StyledComponent>
-          </styled.button>
-        </MultiSelectDropdown>
-      </div>
-    </StyledComponent>
-  </styled.div>
-</MultiSelect>
+<div
+  class="multiselect-button-dropdown-wrapper c0"
+>
+  <button
+    aria-haspopup="true"
+    class="multiselect-button-dropdown c1"
+  >
+    Selected
+     
+    <span
+      class="multiselect-badge c2"
+    >
+      0
+    </span>
+  </button>
+</div>
 `;
 
 exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
@@ -360,10 +74,10 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   display: inline-block;
 }
 
-.c5 {
+.c3 {
   position: absolute;
   right: auto;
-  min-width: 170px;
+  min-width: 140px;
   padding: 1.25rem;
   border: 1px #000 solid;
 }
@@ -374,6 +88,26 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   overflow: auto;
   padding-left: 0;
   list-style: none;
+}
+
+.c5 {
+  display: block;
+  height: 40px;
+  padding: 0 0.625rem;
+  font-family: inherit;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  height: 1.3em;
+  line-height: 1em;
+  color: #5e9ed6;
+  background-color: transparent;
+  margin-bottom: 10px;
+  padding-left: 0;
 }
 
 .c6 {
@@ -388,19 +122,22 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   border: none;
   border-radius: 0;
   cursor: pointer;
-  margin-bottom: 10px;
+  height: 1.3em;
+  line-height: 1em;
+  color: #5e9ed6;
+  background-color: transparent;
+  padding-right: 0;
 }
 
 .c4 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
-.c17 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .c2 {
@@ -423,17 +160,28 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   cursor: pointer;
   background-color: transparent;
   border: 1px #000 solid;
-}
-
-.c1.c1.is-opened {
   border-bottom: 0;
   box-shadow: 0 1px #000;
 }
 
-.c3 {
-  width: 0.8rem;
-  margin: 0 0.625rem;
-  vertical-align: middle;
+.c1:after {
+  content: '';
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.c1.c1.is-opened:after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 
 .c8:hover {
@@ -456,6 +204,7 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   padding: 0.625rem 0;
   margin: 1px;
   line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -463,25 +212,32 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   outline: 1px solid #5e9ed6;
 }
 
-.c11 {
-  visibility: hidden;
-  height: 1rem;
+.c9.is-checked:after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  margin-right: 3px;
+  border: solid #000;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
-.c12 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
   padding-top: 1.25rem;
   border-top: 1px #ccc solid;
 }
 
-.c13 {
+.c12 {
   display: block;
   height: 40px;
   padding: 0 0.625rem;
@@ -495,1815 +251,111 @@ exports[`<MultiSelect /> should match snapshot - dropdown opened 1`] = `
   cursor: pointer;
 }
 
-.c14 {
-  width: 0.75rem;
-  margin-right: 0.625rem;
-  vertical-align: baseline;
-  -webkit-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
-
-.c15 {
-  display: block;
-  height: 40px;
-  padding: 0 0.625rem;
-  font-family: inherit;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  margin-left: 0.625rem;
-}
-
-.c16 {
-  width: 0.75rem;
-  margin-right: 0.625rem;
-  vertical-align: baseline;
-}
-
-<MultiSelect
-  applyButtonText="Apply"
-  dropdownButtonText="Selected"
-  list={
-    Array [
-      Object {
-        "checked": false,
-        "id": "first-option-1",
-        "label": "First option",
-        "name": "first-option",
-      },
-      Object {
-        "checked": false,
-        "id": "second-option-2",
-        "label": "Second option",
-        "name": "second-option",
-      },
-      Object {
-        "checked": false,
-        "id": "third-option-3",
-        "label": "Third option",
-        "name": "third-option",
-      },
-    ]
-  }
-  onOptionChanged={[Function]}
-  onSelectionApplied={[Function]}
-  resetButtonText="Reset"
-  selectAllButtonText="Select All"
+<div
+  class="multiselect-button-dropdown-wrapper c0"
 >
-  <styled.div
-    className="multiselect-button-dropdown-wrapper"
+  <button
+    aria-haspopup="true"
+    class="multiselect-button-dropdown is-opened c1"
   >
-    <StyledComponent
-      className="multiselect-button-dropdown-wrapper"
-      forwardedComponent={
-        Object {
-          "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
-          "componentStyle": ComponentStyle {
-            "componentId": "sc-bdVaJa",
-            "isStatic": true,
-            "lastClassName": "c0",
-            "rules": Array [
-              "
-  position: relative;
-  display: inline-block;
-",
-            ],
-          },
-          "displayName": "styled.div",
-          "foldedComponentIds": Array [],
-          "render": [Function],
-          "styledComponentId": "sc-bdVaJa",
-          "target": "div",
-          "toString": [Function],
-          "warnTooManyClasses": [Function],
-          "withComponent": [Function],
-        }
-      }
-      forwardedRef={null}
+    Selected
+     
+    <span
+      class="multiselect-badge c2"
     >
-      <div
-        className="multiselect-button-dropdown-wrapper c0"
+      0
+    </span>
+  </button>
+  <div
+    class="multiselect-section-wrapper c3"
+  >
+    <div
+      class="c4"
+    >
+      <button
+        class="multiselect-button-select-all c5"
       >
-        <MultiSelectDropdown
-          className="multiselect-button-dropdown"
-          isOpened={true}
-          quantity={0}
-          text="Selected"
-          toggleDropdown={[Function]}
+        Select All
+      </button>
+      <button
+        class="multiselect-reset-button c6"
+      >
+        Reset
+      </button>
+    </div>
+    <ul
+      class="multiselect-list c7"
+    >
+      <li
+        class="multiselect-list-item c8"
+        role="option"
+      >
+        <label
+          aria-checked="false"
+          class="multiselect-list-item-label c9"
+          for="first-option-1"
+          role="checkbox"
+          tabindex="0"
         >
-          <styled.button
-            aria-haspopup="true"
-            className="multiselect-button-dropdown is-opened"
-            onClick={[Function]}
-          >
-            <StyledComponent
-              aria-haspopup="true"
-              className="multiselect-button-dropdown is-opened"
-              forwardedComponent={
-                Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "attrs": Array [],
-                  "componentStyle": ComponentStyle {
-                    "componentId": "sc-EHOje",
-                    "isStatic": true,
-                    "lastClassName": "c1",
-                    "rules": Array [
-                      "
-  height: 100%;
-  padding: 1.25rem; /* 20px if base font-size is 16px */
-  font-family: inherit;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px #000 solid;
-
-  &&.is-opened {
-    border-bottom: 0;
-    box-shadow: 0 1px #000;
-  }
-",
-                    ],
-                  },
-                  "displayName": "styled.button",
-                  "foldedComponentIds": Array [],
-                  "render": [Function],
-                  "styledComponentId": "sc-EHOje",
-                  "target": "button",
-                  "toString": [Function],
-                  "warnTooManyClasses": [Function],
-                  "withComponent": [Function],
-                }
-              }
-              forwardedRef={null}
-              onClick={[Function]}
-            >
-              <button
-                aria-haspopup="true"
-                className="multiselect-button-dropdown is-opened c1"
-                onClick={[Function]}
-              >
-                <MultiSelectBadge
-                  className="multiselect-badge"
-                  quantity={0}
-                  text="Selected"
-                >
-                  Selected
-                   
-                  <styled.span
-                    className="multiselect-badge"
-                  >
-                    <StyledComponent
-                      className="multiselect-badge"
-                      forwardedComponent={
-                        Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "attrs": Array [],
-                          "componentStyle": ComponentStyle {
-                            "componentId": "sc-ifAKCX",
-                            "isStatic": true,
-                            "lastClassName": "c2",
-                            "rules": Array [
-                              "
-  padding: 0.1875rem 0.5rem; /* 3px 8px if base font-size is 16px */
-  margin-left: 0.3125rem;
-  font-size: 0.85rem;
-  font-weight: normal;
-  line-height: 1;
-  color: #fff;
-  vertical-align: middle;
-  background-color: #000;
-  border-radius: 50%;
-",
-                            ],
-                          },
-                          "displayName": "styled.span",
-                          "foldedComponentIds": Array [],
-                          "render": [Function],
-                          "styledComponentId": "sc-ifAKCX",
-                          "target": "span",
-                          "toString": [Function],
-                          "warnTooManyClasses": [Function],
-                          "withComponent": [Function],
-                        }
-                      }
-                      forwardedRef={null}
-                    >
-                      <span
-                        className="multiselect-badge c2"
-                      >
-                        0
-                      </span>
-                    </StyledComponent>
-                  </styled.span>
-                </MultiSelectBadge>
-                <Styled(AngleUp)>
-                  <StyledComponent
-                    forwardedComponent={
-                      Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "attrs": Array [],
-                        "componentStyle": ComponentStyle {
-                          "componentId": "sc-gzVnrw",
-                          "isStatic": true,
-                          "lastClassName": "c3",
-                          "rules": Array [
-                            "
-  ",
-                            "
-  width: 0.8rem;
-  margin: 0 0.625rem; /* 10px if base font-size is 16px */
-  vertical-align: middle;
-",
-                            "
-",
-                          ],
-                        },
-                        "displayName": "Styled(AngleUp)",
-                        "foldedComponentIds": Array [],
-                        "render": [Function],
-                        "styledComponentId": "sc-gzVnrw",
-                        "target": Object {
-                          "$$typeof": Symbol(react.forward_ref),
-                          "displayName": "AngleUp",
-                          "render": [Function],
-                        },
-                        "toString": [Function],
-                        "warnTooManyClasses": [Function],
-                        "withComponent": [Function],
-                      }
-                    }
-                    forwardedRef={null}
-                  >
-                    <AngleUp
-                      className="c3"
-                    >
-                      <StyledIconBase
-                        className="c3"
-                        iconAttrs={
-                          Object {
-                            "fill": "currentColor",
-                          }
-                        }
-                        iconVerticalAlign="-.125em"
-                        iconViewBox="0 0 320 512"
-                      >
-                        <StyledComponent
-                          className="c3"
-                          forwardedComponent={
-                            Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "attrs": Array [],
-                              "componentStyle": ComponentStyle {
-                                "componentId": "StyledIconBase-sc-bdy9j4",
-                                "isStatic": false,
-                                "lastClassName": "c17",
-                                "rules": Array [
-                                  "
-  display: inline-block;
-  vertical-align: ",
-                                  [Function],
-                                  ";
-  overflow: hidden;
-",
-                                ],
-                              },
-                              "displayName": "StyledIconBase",
-                              "foldedComponentIds": Array [],
-                              "render": [Function],
-                              "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                              "target": Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "render": [Function],
-                              },
-                              "toString": [Function],
-                              "warnTooManyClasses": [Function],
-                              "withComponent": [Function],
-                            }
-                          }
-                          forwardedRef={null}
-                          iconAttrs={
-                            Object {
-                              "fill": "currentColor",
-                            }
-                          }
-                          iconVerticalAlign="-.125em"
-                          iconViewBox="0 0 320 512"
-                        >
-                          <ForwardRef
-                            className="c3 c4"
-                            iconAttrs={
-                              Object {
-                                "fill": "currentColor",
-                              }
-                            }
-                            iconVerticalAlign="-.125em"
-                            iconViewBox="0 0 320 512"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              className="c3 c4"
-                              fill="currentColor"
-                              focusable="false"
-                              viewBox="0 0 320 512"
-                            >
-                              <path
-                                d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"
-                                fill="currentColor"
-                                key="k0"
-                              />
-                            </svg>
-                          </ForwardRef>
-                        </StyledComponent>
-                      </StyledIconBase>
-                    </AngleUp>
-                  </StyledComponent>
-                </Styled(AngleUp)>
-              </button>
-            </StyledComponent>
-          </styled.button>
-        </MultiSelectDropdown>
-        <styled.div
-          className="multiselect-section-wrapper"
+          First option
+          <input
+            class="multiselect-list-item-checkbox c10"
+            id="first-option-1"
+            name="first-option"
+            type="checkbox"
+          />
+        </label>
+      </li>
+      <li
+        class="multiselect-list-item c8"
+        role="option"
+      >
+        <label
+          aria-checked="false"
+          class="multiselect-list-item-label c9"
+          for="second-option-2"
+          role="checkbox"
+          tabindex="0"
         >
-          <StyledComponent
-            className="multiselect-section-wrapper"
-            forwardedComponent={
-              Object {
-                "$$typeof": Symbol(react.forward_ref),
-                "attrs": Array [],
-                "componentStyle": ComponentStyle {
-                  "componentId": "sc-bwzfXH",
-                  "isStatic": false,
-                  "lastClassName": "c5",
-                  "rules": Array [
-                    "
-  position: absolute;
-  right: ",
-                    [Function],
-                    ";
-  min-width: 170px;
-  padding: 1.25rem; /* 20px if base font-size is 16px */
-  border: 1px #000 solid;
-",
-                  ],
-                },
-                "displayName": "styled.div",
-                "foldedComponentIds": Array [],
-                "render": [Function],
-                "styledComponentId": "sc-bwzfXH",
-                "target": "div",
-                "toString": [Function],
-                "warnTooManyClasses": [Function],
-                "withComponent": [Function],
-              }
-            }
-            forwardedRef={null}
-          >
-            <div
-              className="multiselect-section-wrapper c5"
-            >
-              <styled.button
-                className="multiselect-button-select-all"
-                onClick={[Function]}
-              >
-                <StyledComponent
-                  className="multiselect-button-select-all"
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-bxivhb",
-                        "isStatic": true,
-                        "lastClassName": "c6",
-                        "rules": Array [
-                          "
-  ",
-                          "
-  display: block;
-  height: 40px;
-  padding: 0 0.625rem;
-  font-family: inherit;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-",
-                          "
-  margin-bottom: 10px;
-",
-                        ],
-                      },
-                      "displayName": "styled.button",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-bxivhb",
-                      "target": "button",
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
-                  onClick={[Function]}
-                >
-                  <button
-                    className="multiselect-button-select-all c6"
-                    onClick={[Function]}
-                  >
-                    Select All
-                  </button>
-                </StyledComponent>
-              </styled.button>
-              <Styled(ListboxKeyNav)
-                className="multiselect-list"
-                hasFooter={true}
-                keyEvents={
-                  Object {
-                    "down": [Function],
-                    "end": [Function],
-                    "home": [Function],
-                    "up": [Function],
-                  }
-                }
-                role="listbox"
-                tag="ul"
-              >
-                <StyledComponent
-                  className="multiselect-list"
-                  forwardedComponent={
-                    Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "attrs": Array [],
-                      "componentStyle": ComponentStyle {
-                        "componentId": "sc-htpNat",
-                        "isStatic": false,
-                        "lastClassName": "c7",
-                        "rules": Array [
-                          "
-  max-height: ",
-                          [Function],
-                          ";
-  margin: 0;
-  overflow: auto;
-  padding-left: 0;
-  list-style: none;
-",
-                        ],
-                      },
-                      "displayName": "Styled(ListboxKeyNav)",
-                      "foldedComponentIds": Array [],
-                      "render": [Function],
-                      "styledComponentId": "sc-htpNat",
-                      "target": [Function],
-                      "toString": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                    }
-                  }
-                  forwardedRef={null}
-                  hasFooter={true}
-                  keyEvents={
-                    Object {
-                      "down": [Function],
-                      "end": [Function],
-                      "home": [Function],
-                      "up": [Function],
-                    }
-                  }
-                  role="listbox"
-                  tag="ul"
-                >
-                  <ListboxKeyNav
-                    className="multiselect-list c7"
-                    hasFooter={true}
-                    keyEvents={
-                      Object {
-                        "down": [Function],
-                        "end": [Function],
-                        "home": [Function],
-                        "up": [Function],
-                      }
-                    }
-                    role="listbox"
-                    tag="ul"
-                  >
-                    <ul
-                      className="multiselect-list c7"
-                      onKeyDown={[Function]}
-                    >
-                      <ForwardRef
-                        checked={false}
-                        className="multiselect-list-item"
-                        handleInputChange={[Function]}
-                        id="first-option-1"
-                        key="first-option-1-0"
-                        label="First option"
-                        name="first-option"
-                      >
-                        <styled.li
-                          className="multiselect-list-item"
-                          role="option"
-                        >
-                          <StyledComponent
-                            className="multiselect-list-item"
-                            forwardedComponent={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "attrs": Array [],
-                                "componentStyle": ComponentStyle {
-                                  "componentId": "sc-htoDjs",
-                                  "isStatic": true,
-                                  "lastClassName": "c8",
-                                  "rules": Array [
-                                    "
-  :hover {
-    background-color: #f0f0f0;
-  }
-",
-                                  ],
-                                },
-                                "displayName": "styled.li",
-                                "foldedComponentIds": Array [],
-                                "render": [Function],
-                                "styledComponentId": "sc-htoDjs",
-                                "target": "li",
-                                "toString": [Function],
-                                "warnTooManyClasses": [Function],
-                                "withComponent": [Function],
-                              }
-                            }
-                            forwardedRef={null}
-                            role="option"
-                          >
-                            <li
-                              className="multiselect-list-item c8"
-                              role="option"
-                            >
-                              <styled.label
-                                aria-checked={false}
-                                className="multiselect-list-item-label"
-                                htmlFor="first-option-1"
-                                onKeyPress={[Function]}
-                                role="checkbox"
-                                tabIndex="0"
-                              >
-                                <StyledComponent
-                                  aria-checked={false}
-                                  className="multiselect-list-item-label"
-                                  forwardedComponent={
-                                    Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "attrs": Array [],
-                                      "componentStyle": ComponentStyle {
-                                        "componentId": "sc-iwsKbI",
-                                        "isStatic": true,
-                                        "lastClassName": "c9",
-                                        "rules": Array [
-                                          "
-  display: flex;
-  justify-content: space-between;
-  padding: 0.625rem 0; /* 10px if base font-size is 16px */
-  margin: 1px;
-  line-height: 1;
-  cursor: pointer;
-
-  :focus {
-    outline: 1px solid #5e9ed6;
-  }
-",
-                                        ],
-                                      },
-                                      "displayName": "styled.label",
-                                      "foldedComponentIds": Array [],
-                                      "render": [Function],
-                                      "styledComponentId": "sc-iwsKbI",
-                                      "target": "label",
-                                      "toString": [Function],
-                                      "warnTooManyClasses": [Function],
-                                      "withComponent": [Function],
-                                    }
-                                  }
-                                  forwardedRef={[Function]}
-                                  htmlFor="first-option-1"
-                                  onKeyPress={[Function]}
-                                  role="checkbox"
-                                  tabIndex="0"
-                                >
-                                  <label
-                                    aria-checked={false}
-                                    className="multiselect-list-item-label c9"
-                                    htmlFor="first-option-1"
-                                    onKeyPress={[Function]}
-                                    role="checkbox"
-                                    tabIndex="0"
-                                  >
-                                    First option
-                                    <styled.input
-                                      checked={false}
-                                      className="multiselect-list-item-checkbox"
-                                      id="first-option-1"
-                                      name="first-option"
-                                      onChange={[Function]}
-                                      type="checkbox"
-                                    >
-                                      <StyledComponent
-                                        checked={false}
-                                        className="multiselect-list-item-checkbox"
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "sc-dnqmqq",
-                                              "isStatic": true,
-                                              "lastClassName": "c10",
-                                              "rules": Array [
-                                                "
-  visibility: hidden;
-",
-                                              ],
-                                            },
-                                            "displayName": "styled.input",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "sc-dnqmqq",
-                                            "target": "input",
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                        id="first-option-1"
-                                        name="first-option"
-                                        onChange={[Function]}
-                                        type="checkbox"
-                                      >
-                                        <input
-                                          checked={false}
-                                          className="multiselect-list-item-checkbox c10"
-                                          id="first-option-1"
-                                          name="first-option"
-                                          onChange={[Function]}
-                                          type="checkbox"
-                                        />
-                                      </StyledComponent>
-                                    </styled.input>
-                                    <Styled(Check)
-                                      checked={false}
-                                    >
-                                      <StyledComponent
-                                        checked={false}
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gZMcBi",
-                                              "isStatic": false,
-                                              "lastClassName": "c11",
-                                              "rules": Array [
-                                                "
-  visibility: ",
-                                                [Function],
-                                                ";
-  height: 1rem;
-",
-                                              ],
-                                            },
-                                            "displayName": "Styled(Check)",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "sc-gZMcBi",
-                                            "target": Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "displayName": "Check",
-                                              "render": [Function],
-                                            },
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                      >
-                                        <Check
-                                          checked={false}
-                                          className="c11"
-                                        >
-                                          <StyledIconBase
-                                            checked={false}
-                                            className="c11"
-                                            iconAttrs={
-                                              Object {
-                                                "fill": "currentColor",
-                                              }
-                                            }
-                                            iconVerticalAlign="-.125em"
-                                            iconViewBox="0 0 512 512"
-                                          >
-                                            <StyledComponent
-                                              checked={false}
-                                              className="c11"
-                                              forwardedComponent={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "attrs": Array [],
-                                                  "componentStyle": ComponentStyle {
-                                                    "componentId": "StyledIconBase-sc-bdy9j4",
-                                                    "isStatic": false,
-                                                    "lastClassName": "c17",
-                                                    "rules": Array [
-                                                      "
-  display: inline-block;
-  vertical-align: ",
-                                                      [Function],
-                                                      ";
-  overflow: hidden;
-",
-                                                    ],
-                                                  },
-                                                  "displayName": "StyledIconBase",
-                                                  "foldedComponentIds": Array [],
-                                                  "render": [Function],
-                                                  "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                                                  "target": Object {
-                                                    "$$typeof": Symbol(react.forward_ref),
-                                                    "render": [Function],
-                                                  },
-                                                  "toString": [Function],
-                                                  "warnTooManyClasses": [Function],
-                                                  "withComponent": [Function],
-                                                }
-                                              }
-                                              forwardedRef={null}
-                                              iconAttrs={
-                                                Object {
-                                                  "fill": "currentColor",
-                                                }
-                                              }
-                                              iconVerticalAlign="-.125em"
-                                              iconViewBox="0 0 512 512"
-                                            >
-                                              <ForwardRef
-                                                checked={false}
-                                                className="c11 c4"
-                                                iconAttrs={
-                                                  Object {
-                                                    "fill": "currentColor",
-                                                  }
-                                                }
-                                                iconVerticalAlign="-.125em"
-                                                iconViewBox="0 0 512 512"
-                                              >
-                                                <svg
-                                                  aria-hidden="true"
-                                                  checked={false}
-                                                  className="c11 c4"
-                                                  fill="currentColor"
-                                                  focusable="false"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path
-                                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                                                    fill="currentColor"
-                                                    key="k0"
-                                                  />
-                                                </svg>
-                                              </ForwardRef>
-                                            </StyledComponent>
-                                          </StyledIconBase>
-                                        </Check>
-                                      </StyledComponent>
-                                    </Styled(Check)>
-                                  </label>
-                                </StyledComponent>
-                              </styled.label>
-                            </li>
-                          </StyledComponent>
-                        </styled.li>
-                      </ForwardRef>
-                      <ForwardRef
-                        checked={false}
-                        className="multiselect-list-item"
-                        handleInputChange={[Function]}
-                        id="second-option-2"
-                        key="second-option-2-1"
-                        label="Second option"
-                        name="second-option"
-                      >
-                        <styled.li
-                          className="multiselect-list-item"
-                          role="option"
-                        >
-                          <StyledComponent
-                            className="multiselect-list-item"
-                            forwardedComponent={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "attrs": Array [],
-                                "componentStyle": ComponentStyle {
-                                  "componentId": "sc-htoDjs",
-                                  "isStatic": true,
-                                  "lastClassName": "c8",
-                                  "rules": Array [
-                                    "
-  :hover {
-    background-color: #f0f0f0;
-  }
-",
-                                  ],
-                                },
-                                "displayName": "styled.li",
-                                "foldedComponentIds": Array [],
-                                "render": [Function],
-                                "styledComponentId": "sc-htoDjs",
-                                "target": "li",
-                                "toString": [Function],
-                                "warnTooManyClasses": [Function],
-                                "withComponent": [Function],
-                              }
-                            }
-                            forwardedRef={null}
-                            role="option"
-                          >
-                            <li
-                              className="multiselect-list-item c8"
-                              role="option"
-                            >
-                              <styled.label
-                                aria-checked={false}
-                                className="multiselect-list-item-label"
-                                htmlFor="second-option-2"
-                                onKeyPress={[Function]}
-                                role="checkbox"
-                                tabIndex="0"
-                              >
-                                <StyledComponent
-                                  aria-checked={false}
-                                  className="multiselect-list-item-label"
-                                  forwardedComponent={
-                                    Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "attrs": Array [],
-                                      "componentStyle": ComponentStyle {
-                                        "componentId": "sc-iwsKbI",
-                                        "isStatic": true,
-                                        "lastClassName": "c9",
-                                        "rules": Array [
-                                          "
-  display: flex;
-  justify-content: space-between;
-  padding: 0.625rem 0; /* 10px if base font-size is 16px */
-  margin: 1px;
-  line-height: 1;
-  cursor: pointer;
-
-  :focus {
-    outline: 1px solid #5e9ed6;
-  }
-",
-                                        ],
-                                      },
-                                      "displayName": "styled.label",
-                                      "foldedComponentIds": Array [],
-                                      "render": [Function],
-                                      "styledComponentId": "sc-iwsKbI",
-                                      "target": "label",
-                                      "toString": [Function],
-                                      "warnTooManyClasses": [Function],
-                                      "withComponent": [Function],
-                                    }
-                                  }
-                                  forwardedRef={[Function]}
-                                  htmlFor="second-option-2"
-                                  onKeyPress={[Function]}
-                                  role="checkbox"
-                                  tabIndex="0"
-                                >
-                                  <label
-                                    aria-checked={false}
-                                    className="multiselect-list-item-label c9"
-                                    htmlFor="second-option-2"
-                                    onKeyPress={[Function]}
-                                    role="checkbox"
-                                    tabIndex="0"
-                                  >
-                                    Second option
-                                    <styled.input
-                                      checked={false}
-                                      className="multiselect-list-item-checkbox"
-                                      id="second-option-2"
-                                      name="second-option"
-                                      onChange={[Function]}
-                                      type="checkbox"
-                                    >
-                                      <StyledComponent
-                                        checked={false}
-                                        className="multiselect-list-item-checkbox"
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "sc-dnqmqq",
-                                              "isStatic": true,
-                                              "lastClassName": "c10",
-                                              "rules": Array [
-                                                "
-  visibility: hidden;
-",
-                                              ],
-                                            },
-                                            "displayName": "styled.input",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "sc-dnqmqq",
-                                            "target": "input",
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                        id="second-option-2"
-                                        name="second-option"
-                                        onChange={[Function]}
-                                        type="checkbox"
-                                      >
-                                        <input
-                                          checked={false}
-                                          className="multiselect-list-item-checkbox c10"
-                                          id="second-option-2"
-                                          name="second-option"
-                                          onChange={[Function]}
-                                          type="checkbox"
-                                        />
-                                      </StyledComponent>
-                                    </styled.input>
-                                    <Styled(Check)
-                                      checked={false}
-                                    >
-                                      <StyledComponent
-                                        checked={false}
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gZMcBi",
-                                              "isStatic": false,
-                                              "lastClassName": "c11",
-                                              "rules": Array [
-                                                "
-  visibility: ",
-                                                [Function],
-                                                ";
-  height: 1rem;
-",
-                                              ],
-                                            },
-                                            "displayName": "Styled(Check)",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "sc-gZMcBi",
-                                            "target": Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "displayName": "Check",
-                                              "render": [Function],
-                                            },
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                      >
-                                        <Check
-                                          checked={false}
-                                          className="c11"
-                                        >
-                                          <StyledIconBase
-                                            checked={false}
-                                            className="c11"
-                                            iconAttrs={
-                                              Object {
-                                                "fill": "currentColor",
-                                              }
-                                            }
-                                            iconVerticalAlign="-.125em"
-                                            iconViewBox="0 0 512 512"
-                                          >
-                                            <StyledComponent
-                                              checked={false}
-                                              className="c11"
-                                              forwardedComponent={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "attrs": Array [],
-                                                  "componentStyle": ComponentStyle {
-                                                    "componentId": "StyledIconBase-sc-bdy9j4",
-                                                    "isStatic": false,
-                                                    "lastClassName": "c17",
-                                                    "rules": Array [
-                                                      "
-  display: inline-block;
-  vertical-align: ",
-                                                      [Function],
-                                                      ";
-  overflow: hidden;
-",
-                                                    ],
-                                                  },
-                                                  "displayName": "StyledIconBase",
-                                                  "foldedComponentIds": Array [],
-                                                  "render": [Function],
-                                                  "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                                                  "target": Object {
-                                                    "$$typeof": Symbol(react.forward_ref),
-                                                    "render": [Function],
-                                                  },
-                                                  "toString": [Function],
-                                                  "warnTooManyClasses": [Function],
-                                                  "withComponent": [Function],
-                                                }
-                                              }
-                                              forwardedRef={null}
-                                              iconAttrs={
-                                                Object {
-                                                  "fill": "currentColor",
-                                                }
-                                              }
-                                              iconVerticalAlign="-.125em"
-                                              iconViewBox="0 0 512 512"
-                                            >
-                                              <ForwardRef
-                                                checked={false}
-                                                className="c11 c4"
-                                                iconAttrs={
-                                                  Object {
-                                                    "fill": "currentColor",
-                                                  }
-                                                }
-                                                iconVerticalAlign="-.125em"
-                                                iconViewBox="0 0 512 512"
-                                              >
-                                                <svg
-                                                  aria-hidden="true"
-                                                  checked={false}
-                                                  className="c11 c4"
-                                                  fill="currentColor"
-                                                  focusable="false"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path
-                                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                                                    fill="currentColor"
-                                                    key="k0"
-                                                  />
-                                                </svg>
-                                              </ForwardRef>
-                                            </StyledComponent>
-                                          </StyledIconBase>
-                                        </Check>
-                                      </StyledComponent>
-                                    </Styled(Check)>
-                                  </label>
-                                </StyledComponent>
-                              </styled.label>
-                            </li>
-                          </StyledComponent>
-                        </styled.li>
-                      </ForwardRef>
-                      <ForwardRef
-                        checked={false}
-                        className="multiselect-list-item"
-                        handleInputChange={[Function]}
-                        id="third-option-3"
-                        key="third-option-3-2"
-                        label="Third option"
-                        name="third-option"
-                      >
-                        <styled.li
-                          className="multiselect-list-item"
-                          role="option"
-                        >
-                          <StyledComponent
-                            className="multiselect-list-item"
-                            forwardedComponent={
-                              Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "attrs": Array [],
-                                "componentStyle": ComponentStyle {
-                                  "componentId": "sc-htoDjs",
-                                  "isStatic": true,
-                                  "lastClassName": "c8",
-                                  "rules": Array [
-                                    "
-  :hover {
-    background-color: #f0f0f0;
-  }
-",
-                                  ],
-                                },
-                                "displayName": "styled.li",
-                                "foldedComponentIds": Array [],
-                                "render": [Function],
-                                "styledComponentId": "sc-htoDjs",
-                                "target": "li",
-                                "toString": [Function],
-                                "warnTooManyClasses": [Function],
-                                "withComponent": [Function],
-                              }
-                            }
-                            forwardedRef={null}
-                            role="option"
-                          >
-                            <li
-                              className="multiselect-list-item c8"
-                              role="option"
-                            >
-                              <styled.label
-                                aria-checked={false}
-                                className="multiselect-list-item-label"
-                                htmlFor="third-option-3"
-                                onKeyPress={[Function]}
-                                role="checkbox"
-                                tabIndex="0"
-                              >
-                                <StyledComponent
-                                  aria-checked={false}
-                                  className="multiselect-list-item-label"
-                                  forwardedComponent={
-                                    Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "attrs": Array [],
-                                      "componentStyle": ComponentStyle {
-                                        "componentId": "sc-iwsKbI",
-                                        "isStatic": true,
-                                        "lastClassName": "c9",
-                                        "rules": Array [
-                                          "
-  display: flex;
-  justify-content: space-between;
-  padding: 0.625rem 0; /* 10px if base font-size is 16px */
-  margin: 1px;
-  line-height: 1;
-  cursor: pointer;
-
-  :focus {
-    outline: 1px solid #5e9ed6;
-  }
-",
-                                        ],
-                                      },
-                                      "displayName": "styled.label",
-                                      "foldedComponentIds": Array [],
-                                      "render": [Function],
-                                      "styledComponentId": "sc-iwsKbI",
-                                      "target": "label",
-                                      "toString": [Function],
-                                      "warnTooManyClasses": [Function],
-                                      "withComponent": [Function],
-                                    }
-                                  }
-                                  forwardedRef={[Function]}
-                                  htmlFor="third-option-3"
-                                  onKeyPress={[Function]}
-                                  role="checkbox"
-                                  tabIndex="0"
-                                >
-                                  <label
-                                    aria-checked={false}
-                                    className="multiselect-list-item-label c9"
-                                    htmlFor="third-option-3"
-                                    onKeyPress={[Function]}
-                                    role="checkbox"
-                                    tabIndex="0"
-                                  >
-                                    Third option
-                                    <styled.input
-                                      checked={false}
-                                      className="multiselect-list-item-checkbox"
-                                      id="third-option-3"
-                                      name="third-option"
-                                      onChange={[Function]}
-                                      type="checkbox"
-                                    >
-                                      <StyledComponent
-                                        checked={false}
-                                        className="multiselect-list-item-checkbox"
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "sc-dnqmqq",
-                                              "isStatic": true,
-                                              "lastClassName": "c10",
-                                              "rules": Array [
-                                                "
-  visibility: hidden;
-",
-                                              ],
-                                            },
-                                            "displayName": "styled.input",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "sc-dnqmqq",
-                                            "target": "input",
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                        id="third-option-3"
-                                        name="third-option"
-                                        onChange={[Function]}
-                                        type="checkbox"
-                                      >
-                                        <input
-                                          checked={false}
-                                          className="multiselect-list-item-checkbox c10"
-                                          id="third-option-3"
-                                          name="third-option"
-                                          onChange={[Function]}
-                                          type="checkbox"
-                                        />
-                                      </StyledComponent>
-                                    </styled.input>
-                                    <Styled(Check)
-                                      checked={false}
-                                    >
-                                      <StyledComponent
-                                        checked={false}
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "sc-gZMcBi",
-                                              "isStatic": false,
-                                              "lastClassName": "c11",
-                                              "rules": Array [
-                                                "
-  visibility: ",
-                                                [Function],
-                                                ";
-  height: 1rem;
-",
-                                              ],
-                                            },
-                                            "displayName": "Styled(Check)",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "sc-gZMcBi",
-                                            "target": Object {
-                                              "$$typeof": Symbol(react.forward_ref),
-                                              "displayName": "Check",
-                                              "render": [Function],
-                                            },
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                      >
-                                        <Check
-                                          checked={false}
-                                          className="c11"
-                                        >
-                                          <StyledIconBase
-                                            checked={false}
-                                            className="c11"
-                                            iconAttrs={
-                                              Object {
-                                                "fill": "currentColor",
-                                              }
-                                            }
-                                            iconVerticalAlign="-.125em"
-                                            iconViewBox="0 0 512 512"
-                                          >
-                                            <StyledComponent
-                                              checked={false}
-                                              className="c11"
-                                              forwardedComponent={
-                                                Object {
-                                                  "$$typeof": Symbol(react.forward_ref),
-                                                  "attrs": Array [],
-                                                  "componentStyle": ComponentStyle {
-                                                    "componentId": "StyledIconBase-sc-bdy9j4",
-                                                    "isStatic": false,
-                                                    "lastClassName": "c17",
-                                                    "rules": Array [
-                                                      "
-  display: inline-block;
-  vertical-align: ",
-                                                      [Function],
-                                                      ";
-  overflow: hidden;
-",
-                                                    ],
-                                                  },
-                                                  "displayName": "StyledIconBase",
-                                                  "foldedComponentIds": Array [],
-                                                  "render": [Function],
-                                                  "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                                                  "target": Object {
-                                                    "$$typeof": Symbol(react.forward_ref),
-                                                    "render": [Function],
-                                                  },
-                                                  "toString": [Function],
-                                                  "warnTooManyClasses": [Function],
-                                                  "withComponent": [Function],
-                                                }
-                                              }
-                                              forwardedRef={null}
-                                              iconAttrs={
-                                                Object {
-                                                  "fill": "currentColor",
-                                                }
-                                              }
-                                              iconVerticalAlign="-.125em"
-                                              iconViewBox="0 0 512 512"
-                                            >
-                                              <ForwardRef
-                                                checked={false}
-                                                className="c11 c4"
-                                                iconAttrs={
-                                                  Object {
-                                                    "fill": "currentColor",
-                                                  }
-                                                }
-                                                iconVerticalAlign="-.125em"
-                                                iconViewBox="0 0 512 512"
-                                              >
-                                                <svg
-                                                  aria-hidden="true"
-                                                  checked={false}
-                                                  className="c11 c4"
-                                                  fill="currentColor"
-                                                  focusable="false"
-                                                  viewBox="0 0 512 512"
-                                                >
-                                                  <path
-                                                    d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-                                                    fill="currentColor"
-                                                    key="k0"
-                                                  />
-                                                </svg>
-                                              </ForwardRef>
-                                            </StyledComponent>
-                                          </StyledIconBase>
-                                        </Check>
-                                      </StyledComponent>
-                                    </Styled(Check)>
-                                  </label>
-                                </StyledComponent>
-                              </styled.label>
-                            </li>
-                          </StyledComponent>
-                        </styled.li>
-                      </ForwardRef>
-                    </ul>
-                  </ListboxKeyNav>
-                </StyledComponent>
-              </Styled(ListboxKeyNav)>
-              <MultiSelectFooter
-                applyButtonText="Apply"
-                handleApplyClick={[Function]}
-                resetButtonText="Reset"
-                resetSelections={[Function]}
-              >
-                <styled.div>
-                  <StyledComponent
-                    forwardedComponent={
-                      Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "attrs": Array [],
-                        "componentStyle": ComponentStyle {
-                          "componentId": "sc-gqjmRU",
-                          "isStatic": true,
-                          "lastClassName": "c12",
-                          "rules": Array [
-                            "
-  display: flex;
-  justify-content: space-between;
-  padding-top: 1.25rem; /* 20px if base font-size is 16px */
-  border-top: 1px #ccc solid;
-",
-                          ],
-                        },
-                        "displayName": "styled.div",
-                        "foldedComponentIds": Array [],
-                        "render": [Function],
-                        "styledComponentId": "sc-gqjmRU",
-                        "target": "div",
-                        "toString": [Function],
-                        "warnTooManyClasses": [Function],
-                        "withComponent": [Function],
-                      }
-                    }
-                    forwardedRef={null}
-                  >
-                    <div
-                      className="c12"
-                    >
-                      <styled.button
-                        className="multiselect-reset-button"
-                        onClick={[Function]}
-                      >
-                        <StyledComponent
-                          className="multiselect-reset-button"
-                          forwardedComponent={
-                            Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "attrs": Array [],
-                              "componentStyle": ComponentStyle {
-                                "componentId": "sc-VigVT",
-                                "isStatic": true,
-                                "lastClassName": "c13",
-                                "rules": Array [
-                                  "
-  ",
-                                  "
-  display: block;
-  height: 40px;
-  padding: 0 0.625rem;
-  font-family: inherit;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-",
-                                  "
-",
-                                ],
-                              },
-                              "displayName": "styled.button",
-                              "foldedComponentIds": Array [],
-                              "render": [Function],
-                              "styledComponentId": "sc-VigVT",
-                              "target": "button",
-                              "toString": [Function],
-                              "warnTooManyClasses": [Function],
-                              "withComponent": [Function],
-                            }
-                          }
-                          forwardedRef={null}
-                          onClick={[Function]}
-                        >
-                          <button
-                            className="multiselect-reset-button c13"
-                            onClick={[Function]}
-                          >
-                            <Styled(UndoAlt)>
-                              <StyledComponent
-                                forwardedComponent={
-                                  Object {
-                                    "$$typeof": Symbol(react.forward_ref),
-                                    "attrs": Array [],
-                                    "componentStyle": ComponentStyle {
-                                      "componentId": "sc-jTzLTM",
-                                      "isStatic": true,
-                                      "lastClassName": "c14",
-                                      "rules": Array [
-                                        "
-  ",
-                                        "
-  width: 0.75rem; /* 12px if base font-size is 16px */
-  margin-right: 0.625rem; /* 10px if base font-size is 16px */
-  vertical-align: baseline;
-",
-                                        "
-  transform: scaleX(-1);
-",
-                                      ],
-                                    },
-                                    "displayName": "Styled(UndoAlt)",
-                                    "foldedComponentIds": Array [],
-                                    "render": [Function],
-                                    "styledComponentId": "sc-jTzLTM",
-                                    "target": Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "displayName": "UndoAlt",
-                                      "render": [Function],
-                                    },
-                                    "toString": [Function],
-                                    "warnTooManyClasses": [Function],
-                                    "withComponent": [Function],
-                                  }
-                                }
-                                forwardedRef={null}
-                              >
-                                <UndoAlt
-                                  className="c14"
-                                >
-                                  <StyledIconBase
-                                    className="c14"
-                                    iconAttrs={
-                                      Object {
-                                        "fill": "currentColor",
-                                      }
-                                    }
-                                    iconVerticalAlign="-.125em"
-                                    iconViewBox="0 0 512 512"
-                                  >
-                                    <StyledComponent
-                                      className="c14"
-                                      forwardedComponent={
-                                        Object {
-                                          "$$typeof": Symbol(react.forward_ref),
-                                          "attrs": Array [],
-                                          "componentStyle": ComponentStyle {
-                                            "componentId": "StyledIconBase-sc-bdy9j4",
-                                            "isStatic": false,
-                                            "lastClassName": "c17",
-                                            "rules": Array [
-                                              "
-  display: inline-block;
-  vertical-align: ",
-                                              [Function],
-                                              ";
-  overflow: hidden;
-",
-                                            ],
-                                          },
-                                          "displayName": "StyledIconBase",
-                                          "foldedComponentIds": Array [],
-                                          "render": [Function],
-                                          "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                                          "target": Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "render": [Function],
-                                          },
-                                          "toString": [Function],
-                                          "warnTooManyClasses": [Function],
-                                          "withComponent": [Function],
-                                        }
-                                      }
-                                      forwardedRef={null}
-                                      iconAttrs={
-                                        Object {
-                                          "fill": "currentColor",
-                                        }
-                                      }
-                                      iconVerticalAlign="-.125em"
-                                      iconViewBox="0 0 512 512"
-                                    >
-                                      <ForwardRef
-                                        className="c14 c4"
-                                        iconAttrs={
-                                          Object {
-                                            "fill": "currentColor",
-                                          }
-                                        }
-                                        iconVerticalAlign="-.125em"
-                                        iconViewBox="0 0 512 512"
-                                      >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="c14 c4"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          viewBox="0 0 512 512"
-                                        >
-                                          <path
-                                            d="M255.545 8c-66.269.119-126.438 26.233-170.86 68.685L48.971 40.971C33.851 25.851 8 36.559 8 57.941V192c0 13.255 10.745 24 24 24h134.059c21.382 0 32.09-25.851 16.971-40.971l-41.75-41.75c30.864-28.899 70.801-44.907 113.23-45.273 92.398-.798 170.283 73.977 169.484 169.442C423.236 348.009 349.816 424 256 424c-41.127 0-79.997-14.678-110.63-41.556-4.743-4.161-11.906-3.908-16.368.553L89.34 422.659c-4.872 4.872-4.631 12.815.482 17.433C133.798 479.813 192.074 504 256 504c136.966 0 247.999-111.033 248-247.998C504.001 119.193 392.354 7.755 255.545 8z"
-                                            fill="currentColor"
-                                            key="k0"
-                                          />
-                                        </svg>
-                                      </ForwardRef>
-                                    </StyledComponent>
-                                  </StyledIconBase>
-                                </UndoAlt>
-                              </StyledComponent>
-                            </Styled(UndoAlt)>
-                            Reset
-                          </button>
-                        </StyledComponent>
-                      </styled.button>
-                      <styled.button
-                        className="multiselect-apply-button"
-                        onClick={[Function]}
-                      >
-                        <StyledComponent
-                          className="multiselect-apply-button"
-                          forwardedComponent={
-                            Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "attrs": Array [],
-                              "componentStyle": ComponentStyle {
-                                "componentId": "sc-fjdhpX",
-                                "isStatic": true,
-                                "lastClassName": "c15",
-                                "rules": Array [
-                                  "
-  ",
-                                  "
-  display: block;
-  height: 40px;
-  padding: 0 0.625rem;
-  font-family: inherit;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #000;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-",
-                                  "
-  margin-left: 0.625rem;
-",
-                                ],
-                              },
-                              "displayName": "styled.button",
-                              "foldedComponentIds": Array [],
-                              "render": [Function],
-                              "styledComponentId": "sc-fjdhpX",
-                              "target": "button",
-                              "toString": [Function],
-                              "warnTooManyClasses": [Function],
-                              "withComponent": [Function],
-                            }
-                          }
-                          forwardedRef={null}
-                          onClick={[Function]}
-                        >
-                          <button
-                            className="multiselect-apply-button c15"
-                            onClick={[Function]}
-                          >
-                            <Styled(Send)>
-                              <StyledComponent
-                                forwardedComponent={
-                                  Object {
-                                    "$$typeof": Symbol(react.forward_ref),
-                                    "attrs": Array [],
-                                    "componentStyle": ComponentStyle {
-                                      "componentId": "sc-jzJRlG",
-                                      "isStatic": true,
-                                      "lastClassName": "c16",
-                                      "rules": Array [
-                                        "
-  ",
-                                        "
-  width: 0.75rem; /* 12px if base font-size is 16px */
-  margin-right: 0.625rem; /* 10px if base font-size is 16px */
-  vertical-align: baseline;
-",
-                                        "
-",
-                                      ],
-                                    },
-                                    "displayName": "Styled(Send)",
-                                    "foldedComponentIds": Array [],
-                                    "render": [Function],
-                                    "styledComponentId": "sc-jzJRlG",
-                                    "target": Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "displayName": "Send",
-                                      "render": [Function],
-                                    },
-                                    "toString": [Function],
-                                    "warnTooManyClasses": [Function],
-                                    "withComponent": [Function],
-                                  }
-                                }
-                                forwardedRef={null}
-                              >
-                                <Send
-                                  className="c16"
-                                >
-                                  <StyledIconBase
-                                    className="c16"
-                                    iconAttrs={
-                                      Object {
-                                        "fill": "none",
-                                        "stroke": "currentColor",
-                                        "strokeLinecap": "round",
-                                        "strokeLinejoin": "round",
-                                      }
-                                    }
-                                    iconVerticalAlign="middle"
-                                    iconViewBox="0 0 24 24"
-                                  >
-                                    <StyledComponent
-                                      className="c16"
-                                      forwardedComponent={
-                                        Object {
-                                          "$$typeof": Symbol(react.forward_ref),
-                                          "attrs": Array [],
-                                          "componentStyle": ComponentStyle {
-                                            "componentId": "StyledIconBase-sc-bdy9j4",
-                                            "isStatic": false,
-                                            "lastClassName": "c17",
-                                            "rules": Array [
-                                              "
-  display: inline-block;
-  vertical-align: ",
-                                              [Function],
-                                              ";
-  overflow: hidden;
-",
-                                            ],
-                                          },
-                                          "displayName": "StyledIconBase",
-                                          "foldedComponentIds": Array [],
-                                          "render": [Function],
-                                          "styledComponentId": "StyledIconBase-sc-bdy9j4",
-                                          "target": Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "render": [Function],
-                                          },
-                                          "toString": [Function],
-                                          "warnTooManyClasses": [Function],
-                                          "withComponent": [Function],
-                                        }
-                                      }
-                                      forwardedRef={null}
-                                      iconAttrs={
-                                        Object {
-                                          "fill": "none",
-                                          "stroke": "currentColor",
-                                          "strokeLinecap": "round",
-                                          "strokeLinejoin": "round",
-                                        }
-                                      }
-                                      iconVerticalAlign="middle"
-                                      iconViewBox="0 0 24 24"
-                                    >
-                                      <ForwardRef
-                                        className="c16 c17"
-                                        iconAttrs={
-                                          Object {
-                                            "fill": "none",
-                                            "stroke": "currentColor",
-                                            "strokeLinecap": "round",
-                                            "strokeLinejoin": "round",
-                                          }
-                                        }
-                                        iconVerticalAlign="middle"
-                                        iconViewBox="0 0 24 24"
-                                      >
-                                        <svg
-                                          aria-hidden="true"
-                                          className="c16 c17"
-                                          fill="none"
-                                          focusable="false"
-                                          stroke="currentColor"
-                                          strokeLinecap="round"
-                                          strokeLinejoin="round"
-                                          viewBox="0 0 24 24"
-                                        >
-                                          <line
-                                            key="k0"
-                                            x1={22}
-                                            x2={11}
-                                            y1={2}
-                                            y2={13}
-                                          />
-                                          <polygon
-                                            key="k1"
-                                            points="22 2 15 22 11 13 2 9 22 2"
-                                          />
-                                        </svg>
-                                      </ForwardRef>
-                                    </StyledComponent>
-                                  </StyledIconBase>
-                                </Send>
-                              </StyledComponent>
-                            </Styled(Send)>
-                            Apply
-                          </button>
-                        </StyledComponent>
-                      </styled.button>
-                    </div>
-                  </StyledComponent>
-                </styled.div>
-              </MultiSelectFooter>
-            </div>
-          </StyledComponent>
-        </styled.div>
-      </div>
-    </StyledComponent>
-  </styled.div>
-</MultiSelect>
+          Second option
+          <input
+            class="multiselect-list-item-checkbox c10"
+            id="second-option-2"
+            name="second-option"
+            type="checkbox"
+          />
+        </label>
+      </li>
+      <li
+        class="multiselect-list-item c8"
+        role="option"
+      >
+        <label
+          aria-checked="false"
+          class="multiselect-list-item-label c9"
+          for="third-option-3"
+          role="checkbox"
+          tabindex="0"
+        >
+          Third option
+          <input
+            class="multiselect-list-item-checkbox c10"
+            id="third-option-3"
+            name="third-option"
+            type="checkbox"
+          />
+        </label>
+      </li>
+    </ul>
+    <div
+      class="c11"
+    >
+      <button
+        class="multiselect-apply-button c12"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</div>
 `;
