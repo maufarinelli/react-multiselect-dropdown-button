@@ -34,6 +34,7 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "css-loader": "1.0.0",
+    "cypress": "^3.2.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "enzyme": "^3.9.0",
@@ -82,7 +83,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "webpack --config config/webpack.config.build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
