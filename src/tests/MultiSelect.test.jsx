@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import MultiSelect from './MultiSelect';
+import MultiSelect from '../lib/MultiSelect/MultiSelect';
 
 describe('<MultiSelect />', () => {
   const multiSelectProps = {
