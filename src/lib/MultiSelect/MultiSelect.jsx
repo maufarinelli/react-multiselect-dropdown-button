@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { MultiSelectWrapper, MultiSelectListWrapper, MultiSelectList } from './MultiSelect.styles';
 import MultiSelectDropdown from './MultiSelectDropdown';
@@ -6,60 +6,74 @@ import MultiSelectListButtons from './MultiSelectListButtons';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
 
-class MultiSelect extends React.PureComponent {
-  state = {
-    isDropdownOpened: false,
-    checkedItems: {}
+const MultiSelect = ({
+  list,
+  dropdownButtonText,
+  isRightAligned,
+  selectAllButtonText,
+  onOptionChanged,
+  onSelectionApplied,
+  resetButtonText,
+  applyButtonText
+}) => {
+  const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+  const [checkedItems, setCheckedItems] = useState(
+    list.reduce((acc, listItem) => {
+      acc[listItem.id] = listItem.checked;
+      return acc;
+    }, {})
+  );
+  const listItems = [];
+  const keyEvents = {
+    up: () => {
+      const activeElementIndex = listItems.findIndex(item => {
+        return item === document.activeElement;
+      });
+      listItems[activeElementIndex - 1] && listItems[activeElementIndex - 1].focus();
+    },
+    down: () => {
+      const activeElementIndex = listItems.findIndex(item => {
+        return item === document.activeElement;
+      });
+      listItems[activeElementIndex + 1] && listItems[activeElementIndex + 1].focus();
+    },
+    home: () => {
+      listItems[0].focus();
+    },
+    end: () => {
+      listItems[listItems.length - 1].focus();
+    }
   };
 
-  constructor(props) {
-    super(props);
-    this.listItems = [];
+  useEffect(() => {
+    if (isDropdownOpened) {
+      listItems[0].focus();
+    }
+  }, [isDropdownOpened]);
 
-    this.keyEvents = {
-      up: () => {
-        const activeElementIndex = this.listItems.findIndex(item => {
-          return item === document.activeElement;
-        });
-        this.listItems[activeElementIndex - 1] && this.listItems[activeElementIndex - 1].focus();
-      },
-      down: () => {
-        const activeElementIndex = this.listItems.findIndex(item => {
-          return item === document.activeElement;
-        });
-        this.listItems[activeElementIndex + 1] && this.listItems[activeElementIndex + 1].focus();
-      },
-      home: () => {
-        this.listItems[0].focus();
-      },
-      end: () => {
-        this.listItems[this.listItems.length - 1].focus();
-      }
-    };
-  }
+  const toggleDropdown = () => {
+    setIsDropdownOpened(!isDropdownOpened);
+  };
 
-  componentDidMount() {
-    const { list } = this.props;
-
-    this.setState({
-      checkedItems: list.reduce((acc, listItem) => {
-        acc[listItem.id] = listItem.checked;
+  const selectAll = () => {
+    setCheckedItems(
+      Object.keys(checkedItems).reduce((acc, listItemId) => {
+        acc[listItemId] = true;
         return acc;
       }, {})
-    });
-  }
-
-  toggleDropdown = () => {
-    const { isDropdownOpened } = this.state;
-
-    this.setState({ isDropdownOpened: !isDropdownOpened }, () => {
-      if (this.state.isDropdownOpened) {
-        this.listItems[0].focus();
-      }
-    });
+    );
   };
 
-  handleInputChange = event => {
+  const resetSelections = () => {
+    setCheckedItems(
+      Object.keys(checkedItems).reduce((acc, listItemName) => {
+        acc[listItemName] = false;
+        return acc;
+      }, {})
+    );
+  };
+
+  const handleInputChange = event => {
     const tag = event.target.tagName;
     const target = tag === 'LABEL' ? event.target.children[0] : event.target;
     // If user used the keyboard to select the label, we need to programatically check the checkbox child.
@@ -71,113 +85,71 @@ class MultiSelect extends React.PureComponent {
     }
     const { id, checked } = target;
 
-    this.setState(
-      prevState => ({
-        checkedItems: { ...prevState.checkedItems, [id]: checked }
-      }),
-      () => {
-        this.props.onOptionChanged && this.props.onOptionChanged({ [id]: checked });
-      }
-    );
+    setCheckedItems({ ...checkedItems, [id]: checked });
+
+    onOptionChanged && onOptionChanged({ [id]: checked });
   };
 
-  resetSelections = () => {
-    this.setState(prevState => ({
-      checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemName) => {
-        acc[listItemName] = false;
-        return acc;
-      }, {})
-    }));
-  };
-
-  handleApplyClick = () => {
-    const { onSelectionApplied } = this.props;
-    const { checkedItems } = this.state;
-
+  const handleApplyClick = () => {
     onSelectionApplied(checkedItems);
   };
 
-  selectAll = () => {
-    this.setState(prevState => ({
-      checkedItems: Object.keys(prevState.checkedItems).reduce((acc, listItemId) => {
-        acc[listItemId] = true;
-        return acc;
-      }, {})
-    }));
-  };
+  const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
-  render() {
-    const { isDropdownOpened, checkedItems } = this.state;
-    const {
-      list,
-      dropdownButtonText,
-      isRightAligned,
-      onSelectionApplied,
-      selectAllButtonText,
-      resetButtonText,
-      applyButtonText
-    } = this.props;
-    const { handleInputChange, handleApplyClick, selectAll, resetSelections } = this;
-    const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
-
-    return (
-      <MultiSelectWrapper className="multiselect-button-dropdown-wrapper">
-        <MultiSelectDropdown
-          className="multiselect-button-dropdown"
-          text={dropdownButtonText}
-          quantity={checkedItemsQuantity}
-          toggleDropdown={this.toggleDropdown}
-          isOpened={isDropdownOpened}
-        />
-        {isDropdownOpened && (
-          <MultiSelectListWrapper
-            {...(isRightAligned ? { isRightAligned } : {})}
-            className="multiselect-section-wrapper"
+  return (
+    <MultiSelectWrapper className="multiselect-button-dropdown-wrapper">
+      <MultiSelectDropdown
+        className="multiselect-button-dropdown"
+        text={dropdownButtonText}
+        quantity={checkedItemsQuantity}
+        toggleDropdown={toggleDropdown}
+        isOpened={isDropdownOpened}
+      />
+      {isDropdownOpened && (
+        <MultiSelectListWrapper {...(isRightAligned ? { isRightAligned } : {})} className="multiselect-section-wrapper">
+          <MultiSelectListButtons
+            selectAll={selectAll}
+            selectAllButtonText={selectAllButtonText}
+            resetSelections={resetSelections}
+            resetButtonText={resetButtonText}
+          />
+          <MultiSelectList
+            role="listbox"
+            tag="ul"
+            hasFooter={!!onSelectionApplied}
+            className="multiselect-list"
+            keyEvents={{ ...keyEvents }}
           >
-            <MultiSelectListButtons
-              selectAll={selectAll}
-              selectAllButtonText={selectAllButtonText}
-              resetSelections={resetSelections}
-              resetButtonText={resetButtonText}
-            />
-            <MultiSelectList
-              role="listbox"
-              tag="ul"
-              hasFooter={!!onSelectionApplied}
-              className="multiselect-list"
-              keyEvents={{ ...this.keyEvents }}
-            >
-              {list.map((listItem, index) => {
-                const { label, id, name } = listItem;
-                const checked = checkedItems[id];
-                const key = `${id}-${index}`;
+            {list.map((listItem, index) => {
+              const { label, id, name } = listItem;
+              const checked = checkedItems[id];
+              const key = `${id}-${index}`;
 
-                return (
-                  <MultiSelectListItem
-                    className="multiselect-list-item"
-                    label={label}
-                    key={key}
-                    id={id}
-                    name={name}
-                    handleInputChange={handleInputChange}
-                    checked={checked}
-                    ref={el => {
-                      this.listItems[index] = el;
-                      return el;
-                    }}
-                  />
-                );
-              })}
-            </MultiSelectList>
-            {onSelectionApplied && (
-              <MultiSelectFooter applyButtonText={applyButtonText} handleApplyClick={handleApplyClick} />
-            )}
-          </MultiSelectListWrapper>
-        )}
-      </MultiSelectWrapper>
-    );
-  }
-}
+              return (
+                <MultiSelectListItem
+                  className="multiselect-list-item"
+                  label={label}
+                  key={key}
+                  id={id}
+                  name={name}
+                  handleInputChange={handleInputChange}
+                  checked={checked}
+                  ref={el => {
+                    listItems[index] = el;
+                    return el;
+                  }}
+                />
+              );
+            })}
+          </MultiSelectList>
+          {onSelectionApplied && (
+            <MultiSelectFooter applyButtonText={applyButtonText} handleApplyClick={handleApplyClick} />
+          )}
+        </MultiSelectListWrapper>
+      )}
+    </MultiSelectWrapper>
+  );
+};
 
 MultiSelect.propTypes = {
   list: PropTypes.arrayOf(

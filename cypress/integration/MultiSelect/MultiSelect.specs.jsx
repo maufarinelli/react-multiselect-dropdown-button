@@ -19,6 +19,19 @@ describe('MultiSelect tests', () => {
       .should('be.visible');
   });
 
+  it('Close a MultiSelect Button Dropdown', () => {
+    cy.get('.multiselect-button-dropdown')
+      .first()
+      .click();
+
+    cy.get('.multiselect-button-dropdown')
+      .first()
+      .click();
+
+    // Assertion
+    cy.get('.multiselect-button-dropdown').should('not.have.class', 'is-opened');
+  });
+
   it('Select all options', () => {
     cy.get('.multiselect-button-dropdown')
       .first()
@@ -79,5 +92,33 @@ describe('MultiSelect tests', () => {
     cy.get('.multiselect-list-item-checkbox')
       .last()
       .should('be.checked');
+  });
+
+  it('Check if fist item of the list is focused on dropdown open', () => {
+    cy.get('.multiselect-button-dropdown')
+      .first()
+      .click();
+
+    cy.focused().should('have.attr', 'for', 'first-option-1');
+
+    cy.get('.multiselect-section-wrapper')
+      .get('.multiselect-list-item-label')
+      .last()
+      .click();
+
+    cy.focused().should('have.attr', 'for', 'third-option-3');
+  });
+
+  it('Check if focused change on click', () => {
+    cy.get('.multiselect-button-dropdown')
+      .first()
+      .click();
+
+    cy.get('.multiselect-section-wrapper')
+      .get('.multiselect-list-item-label')
+      .last()
+      .click();
+
+    cy.focused().should('have.attr', 'for', 'third-option-3');
   });
 });
