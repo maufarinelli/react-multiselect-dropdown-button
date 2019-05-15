@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { act } from 'react-dom/test-utils';
 import MultiSelect from '../lib/MultiSelect/MultiSelect';
 
 describe('<MultiSelect />', () => {
@@ -59,7 +60,7 @@ describe('<MultiSelect />', () => {
     expect(wrapper.find('.multiselect-section-wrapper')).toBeDefined();
   });
 
-  test('should select the first item', () => {
+  test.only('should select the first item', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');
@@ -67,17 +68,20 @@ describe('<MultiSelect />', () => {
     const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
     const firstOptionCheckbox = firstOptionLabel.find('input.multiselect-list-item-checkbox');
     const firstOptionCheckboxId = firstOptionCheckbox.prop('id');
-    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
 
-    firstOptionLabel.prop('onKeyPress')({
-      target: {
-        tagName: 'LABEL',
-        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      },
-      preventDefault: () => {}
+    act(() => {
+      firstOptionLabel.prop('onKeyPress')({
+        target: {
+          tagName: 'LABEL',
+          children: [{ id: firstOptionCheckboxId, checked: firstOptionCheckbox.prop('checked') }]
+        },
+        preventDefault: () => {}
+      });
     });
 
-    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
+    console.log('second : ', firstOptionCheckbox.debug());
+    // console.log('wrapper : ', wrapper.state());
+    expect(firstOptionCheckbox.prop('checked')).toBeTruthy();
   });
 
   test('should unselect the first item', () => {

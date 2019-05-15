@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { MultiSelectWrapper, MultiSelectListWrapper, MultiSelectList } from './MultiSelect.styles';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListButtons from './MultiSelectListButtons';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
+import useMultiSelect from './useMultiSelect';
 
 const MultiSelect = ({
   list,
@@ -16,13 +17,15 @@ const MultiSelect = ({
   resetButtonText,
   applyButtonText
 }) => {
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false);
-  const [checkedItems, setCheckedItems] = useState(
-    list.reduce((acc, listItem) => {
-      acc[listItem.id] = listItem.checked;
-      return acc;
-    }, {})
-  );
+  const {
+    isDropdownOpened,
+    checkedItems,
+    toggleDropdown,
+    selectAll,
+    resetSelections,
+    handleInputChange,
+    handleApplyClick
+  } = useMultiSelect({ list });
   const listItems = [];
   const keyEvents = {
     up: () => {
@@ -44,6 +47,7 @@ const MultiSelect = ({
       listItems[listItems.length - 1].focus();
     }
   };
+  const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
   useEffect(() => {
     if (isDropdownOpened) {
@@ -51,50 +55,13 @@ const MultiSelect = ({
     }
   }, [isDropdownOpened]);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpened(!isDropdownOpened);
+  useEffect(() => {
+    onOptionChanged && onOptionChanged(checkedItems);
+  }, [checkedItems]);
+
+  const handleApplyClickProxy = () => {
+    handleApplyClick(onSelectionApplied);
   };
-
-  const selectAll = () => {
-    setCheckedItems(
-      Object.keys(checkedItems).reduce((acc, listItemId) => {
-        acc[listItemId] = true;
-        return acc;
-      }, {})
-    );
-  };
-
-  const resetSelections = () => {
-    setCheckedItems(
-      Object.keys(checkedItems).reduce((acc, listItemName) => {
-        acc[listItemName] = false;
-        return acc;
-      }, {})
-    );
-  };
-
-  const handleInputChange = event => {
-    const tag = event.target.tagName;
-    const target = tag === 'LABEL' ? event.target.children[0] : event.target;
-    // If user used the keyboard to select the label, we need to programatically check the checkbox child.
-    // Also needed to work with screen readers
-    if (tag === 'LABEL') {
-      target.checked = !target.checked;
-      // preventing just after toggle checked property in order to prevent the space scroll behavior on a list
-      event.preventDefault();
-    }
-    const { id, checked } = target;
-
-    setCheckedItems({ ...checkedItems, [id]: checked });
-
-    onOptionChanged && onOptionChanged({ [id]: checked });
-  };
-
-  const handleApplyClick = () => {
-    onSelectionApplied(checkedItems);
-  };
-
-  const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
 
   return (
     <MultiSelectWrapper className="multiselect-button-dropdown-wrapper">
@@ -143,7 +110,7 @@ const MultiSelect = ({
             })}
           </MultiSelectList>
           {onSelectionApplied && (
-            <MultiSelectFooter applyButtonText={applyButtonText} handleApplyClick={handleApplyClick} />
+            <MultiSelectFooter applyButtonText={applyButtonText} handleApplyClick={handleApplyClickProxy} />
           )}
         </MultiSelectListWrapper>
       )}
