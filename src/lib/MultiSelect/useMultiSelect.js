@@ -49,18 +49,13 @@ const useMultiSelect = ({ list }) => {
     callback && callback({ [id]: checked });
   };
 
-  const handleApplyClick = callback => {
-    callback(checkedItems);
-  };
-
   return {
     isDropdownOpened,
     checkedItems,
     toggleDropdown,
     selectAll,
     resetSelections,
-    handleInputChange,
-    handleApplyClick
+    handleInputChange
   };
 };
 

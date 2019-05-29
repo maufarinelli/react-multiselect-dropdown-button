@@ -1,9 +1,22 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import MultiSelect from '../lib/MultiSelect/MultiSelect';
 
 describe('<MultiSelect />', () => {
+  let container;
+
+  beforeEach(() => {
+    container = document.createElement('div');
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    document.body.removeChild(container);
+    container = null;
+  });
+
   const multiSelectProps = {
     list: [
       {
@@ -60,117 +73,131 @@ describe('<MultiSelect />', () => {
     expect(wrapper.find('.multiselect-section-wrapper')).toBeDefined();
   });
 
-  test.only('should select the first item', () => {
-    const wrapper = mount(<MultiSelect {...multiSelectProps} />);
-
-    wrapper.find('button.multiselect-button-dropdown').simulate('click');
-
-    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstOptionCheckbox = firstOptionLabel.find('input.multiselect-list-item-checkbox');
-    const firstOptionCheckboxId = firstOptionCheckbox.prop('id');
-
+  test('should select the first item clicking on its input checkbox', () => {
     act(() => {
-      firstOptionLabel.prop('onKeyPress')({
-        target: {
-          tagName: 'LABEL',
-          children: [{ id: firstOptionCheckboxId, checked: firstOptionCheckbox.prop('checked') }]
-        },
-        preventDefault: () => {}
-      });
+      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    console.log('second : ', firstOptionCheckbox.debug());
-    // console.log('wrapper : ', wrapper.state());
-    expect(firstOptionCheckbox.prop('checked')).toBeTruthy();
+    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    act(() => {
+      buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+
+    act(() => {
+      firstOptionCheckbox.dispatchEvent(new MouseEvent('click'));
+    });
+
+    expect(firstOptionCheckbox.checked).toBeTruthy();
+  });
+
+  test('should select the first item clicking on its label', () => {
+    act(() => {
+      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
+    });
+
+    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    act(() => {
+      buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+
+    act(() => {
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+    });
+
+    expect(firstOptionCheckbox.checked).toBeTruthy();
   });
 
   test('should unselect the first item', () => {
-    const wrapper = mount(<MultiSelect {...multiSelectProps} />);
-
-    wrapper.find('button.multiselect-button-dropdown').simulate('click');
-
-    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstOptionCheckbox = firstOptionLabel.find('input.multiselect-list-item-checkbox');
-    const firstOptionCheckboxId = firstOptionCheckbox.prop('id');
-
-    firstOptionLabel.prop('onKeyPress')({
-      target: {
-        tagName: 'LABEL',
-        children: [{ id: firstOptionCheckboxId, checked: wrapper.state().checkedItems[firstOptionCheckboxId] }]
-      },
-      preventDefault: () => {}
+    act(() => {
+      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
-
-    firstOptionLabel.prop('onKeyPress')({
-      target: {
-        tagName: 'LABEL',
-        children: [{ id: firstOptionCheckboxId, checked: wrapper.state().checkedItems[firstOptionCheckboxId] }]
-      },
-      preventDefault: () => {}
+    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    act(() => {
+      buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeFalsy();
+    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+
+    act(() => {
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+    });
+
+    expect(firstOptionCheckbox.checked).toBeTruthy();
+
+    act(() => {
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+    });
+
+    expect(firstOptionCheckbox.checked).toBeFalsy();
   });
 
   test('should reset selection', () => {
-    const wrapper = mount(<MultiSelect {...multiSelectProps} />);
-
-    wrapper.find('button.multiselect-button-dropdown').simulate('click');
-
-    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstOptionCheckboxId = firstOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
-
-    firstOptionLabel.prop('onKeyPress')({
-      target: {
-        tagName: 'LABEL',
-        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      },
-      preventDefault: () => {}
+    act(() => {
+      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    const lastOptionLabel = wrapper.find('label.multiselect-list-item-label').last();
-    const lastOptionCheckboxId = lastOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const lastOptionState = wrapper.state().checkedItems[lastOptionCheckboxId];
-
-    lastOptionLabel.prop('onKeyPress')({
-      target: {
-        tagName: 'LABEL',
-        children: [{ id: lastOptionCheckboxId, checked: lastOptionState }]
-      },
-      preventDefault: () => {}
+    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    act(() => {
+      buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
-    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeTruthy();
-    expect(wrapper.state().checkedItems[lastOptionCheckboxId]).toBeTruthy();
+    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
 
-    wrapper.find('button.multiselect-reset-button').simulate('click');
+    act(() => {
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+    });
 
-    expect(wrapper.state().checkedItems[firstOptionCheckboxId]).toBeFalsy();
-    expect(wrapper.state().checkedItems[lastOptionCheckboxId]).toBeFalsy();
+    const lastOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[2];
+    const lastOptionCheckbox = lastOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+
+    act(() => {
+      lastOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+    });
+
+    expect(firstOptionCheckbox.checked).toBeTruthy();
+    expect(lastOptionCheckbox.checked).toBeTruthy();
+
+    const resetButton = container.querySelector('button.multiselect-reset-button');
+    act(() => {
+      resetButton.dispatchEvent(new KeyboardEvent('click'));
+    });
+
+    expect(firstOptionCheckbox.checked).toBeFalsy();
+    expect(lastOptionCheckbox.checked).toBeFalsy();
   });
 
   test('should apply selections', () => {
     const spyApply = jest.spyOn(multiSelectProps, 'onSelectionApplied');
-    const wrapper = mount(<MultiSelect {...multiSelectProps} />);
-
-    wrapper.find('button.multiselect-button-dropdown').simulate('click');
-
-    const firstOptionLabel = wrapper.find('label.multiselect-list-item-label').first();
-    const firstOptionCheckboxId = firstOptionLabel.find('input.multiselect-list-item-checkbox').prop('id');
-    const firstOptionState = wrapper.state().checkedItems[firstOptionCheckboxId];
-
-    firstOptionLabel.prop('onKeyPress')({
-      target: {
-        tagName: 'LABEL',
-        children: [{ id: firstOptionCheckboxId, checked: firstOptionState }]
-      },
-      preventDefault: () => {}
+    act(() => {
+      ReactDOM.render(<MultiSelect {...multiSelectProps} />, container);
     });
 
-    wrapper.find('button.multiselect-apply-button').simulate('click');
+    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    act(() => {
+      buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    // const firstOptionCheckbox = firstOptionLabel.querySelector('input.multiselect-list-item-checkbox');
+
+    act(() => {
+      firstOptionLabel.dispatchEvent(new KeyboardEvent('click'));
+    });
+
+    const applyButton = container.querySelector('button.multiselect-apply-button');
+    act(() => {
+      applyButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
     expect(spyApply).toHaveBeenCalledWith({
       'first-option-1': true,
       'second-option-2': false,
@@ -178,7 +205,7 @@ describe('<MultiSelect />', () => {
     });
   });
 
-  test('should badge have the right quantity', () => {
+  test.only('should badge have the right quantity', () => {
     const wrapper = mount(<MultiSelect {...multiSelectProps} />);
 
     wrapper.find('button.multiselect-button-dropdown').simulate('click');

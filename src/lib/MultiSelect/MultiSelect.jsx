@@ -23,8 +23,7 @@ const MultiSelect = ({
     toggleDropdown,
     selectAll,
     resetSelections,
-    handleInputChange,
-    handleApplyClick
+    handleInputChange
   } = useMultiSelect({ list });
   const listItems = [];
   const keyEvents = {
@@ -59,8 +58,8 @@ const MultiSelect = ({
     onOptionChanged && onOptionChanged(checkedItems);
   }, [checkedItems]);
 
-  const handleApplyClickProxy = () => {
-    handleApplyClick(onSelectionApplied);
+  const handleApplyClick = () => {
+    onSelectionApplied(checkedItems);
   };
 
   return (
@@ -110,7 +109,7 @@ const MultiSelect = ({
             })}
           </MultiSelectList>
           {onSelectionApplied && (
-            <MultiSelectFooter applyButtonText={applyButtonText} handleApplyClick={handleApplyClickProxy} />
+            <MultiSelectFooter applyButtonText={applyButtonText} handleApplyClick={handleApplyClick} />
           )}
         </MultiSelectListWrapper>
       )}
