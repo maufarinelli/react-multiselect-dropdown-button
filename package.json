@@ -85,7 +85,7 @@
     "start": "node scripts/start.js",
     "build": "webpack --config config/webpack.config.build.js",
     "test": "node scripts/test.js",
-    "cypress:open": "cypress open"
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
