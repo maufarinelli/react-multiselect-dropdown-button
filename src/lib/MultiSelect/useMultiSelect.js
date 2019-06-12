@@ -32,7 +32,7 @@ const useMultiSelect = ({ list }) => {
     );
   };
 
-  const handleInputChange = (event, callback) => {
+  const handleInputChange = event => {
     const tag = event.target.tagName;
     const target = tag === 'LABEL' ? event.target.children[0] : event.target;
     // If user used the keyboard to select the label, we need to programatically check the checkbox child.
@@ -45,8 +45,6 @@ const useMultiSelect = ({ list }) => {
     const { id, checked } = target;
 
     setCheckedItems({ ...checkedItems, [id]: checked });
-
-    callback && callback({ [id]: checked });
   };
 
   return {
