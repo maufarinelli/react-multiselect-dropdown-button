@@ -22,3 +22,9 @@ scripts
 config
 CHANGELOG.md
 README.md
+cypress
+.prettierrc
+cypress.config.ts
+tsconfig.json
+types.ts
+yarn.lock

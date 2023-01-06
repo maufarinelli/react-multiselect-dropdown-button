@@ -70,6 +70,9 @@ module.exports = {
   appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
+  // CRL: New paths for library
+  appLibIndexJs: resolveApp('src/lib/index'),
+  appLibSrc: resolveApp('src/lib'),
 };
 
 
