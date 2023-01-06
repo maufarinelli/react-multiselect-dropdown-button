@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CheckedItems } from '../types';
 import MultiSelect from './lib/MultiSelect/MultiSelect';
 
 class App extends Component {
@@ -9,27 +10,27 @@ class App extends Component {
           label: 'First option',
           name: 'first-option',
           id: 'first-option-1',
-          checked: true
+          checked: true,
         },
         {
           label: 'Second option',
           name: 'second-option',
           id: 'second-option-2',
-          checked: false
+          checked: false,
         },
         {
           label: 'Third option',
           name: 'third-option',
           id: 'third-option-3',
-          checked: false
-        }
+          checked: false,
+        },
       ],
-      onSelectionApplied: selection => {
-        console.log('Selected : ', selection);
+      onSelectionApplied: (selectionList: CheckedItems) => {
+        console.log('Selected : ', selectionList);
       },
       dropdownButtonText: 'Selected',
       resetButtonText: 'Reset',
-      applyButtonText: 'Apply'
+      applyButtonText: 'Apply',
     };
 
     const props2 = {
@@ -38,53 +39,59 @@ class App extends Component {
         {
           label: 'First option',
           id: 'first-option-10',
-          checked: true
+          checked: true,
         },
         {
           label: 'Second option',
           id: 'second-option-12',
-          checked: false
+          checked: false,
         },
         {
           label: 'Third option',
           id: 'third-option-13',
-          checked: false
+          checked: false,
         },
         {
           label: 'Forth option',
           id: 'forth-option-14',
-          checked: true
+          checked: true,
         },
         {
           label: 'Fifth option',
           id: 'fifth-option-15',
-          checked: false
+          checked: false,
         },
         {
           label: 'Sixth option',
           id: 'sixth-option-16',
-          checked: false
+          checked: false,
         },
         {
           label: 'Seventh option',
           id: 'seventh-option-17',
-          checked: true
+          checked: true,
         },
         {
           label: 'Eighth option',
           id: 'Eighth-option-18',
-          checked: false
+          checked: false,
         },
         {
           label: 'Nineth option',
           id: 'nineth-option-19',
-          checked: false
-        }
-      ]
+          checked: false,
+        },
+      ],
     };
 
     return (
-      <div style={{ display: 'flex', justifyContent: 'space-around', textAlign: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          textAlign: 'center',
+        }}
+      >
         <MultiSelect {...multiSelectProps} />
 
         <MultiSelect
@@ -92,22 +99,22 @@ class App extends Component {
             {
               label: 'First option',
               id: 'first-option',
-              checked: true
+              checked: true,
             },
             {
               label: 'Second option',
               id: 'second-option',
-              checked: false
+              checked: false,
             },
             {
               label: 'Third option',
               id: 'third-option',
-              checked: false
-            }
+              checked: false,
+            },
           ]}
           isRightAligned
           dropdownButtonText="Options selected"
-          onOptionChanged={optionState => console.log('optionState : ', optionState)}
+          onOptionChanged={(optionState) => console.log('optionState : ', optionState)}
         />
 
         <MultiSelect {...props2} />

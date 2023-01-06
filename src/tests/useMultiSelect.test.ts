@@ -1,4 +1,4 @@
-import { renderHook, act } from 'react-hooks-testing-library';
+import { renderHook, act } from '@testing-library/react-hooks';
 import useMultiSelect from '../lib/MultiSelect/useMultiSelect';
 
 describe('useMultiSelect', () => {
@@ -7,20 +7,20 @@ describe('useMultiSelect', () => {
       label: 'First option',
       name: 'first-option',
       id: 'first-option-1',
-      checked: false
+      checked: false,
     },
     {
       label: 'Second option',
       name: 'second-option',
       id: 'second-option-2',
-      checked: false
+      checked: false,
     },
     {
       label: 'Third option',
       name: 'third-option',
       id: 'third-option-3',
-      checked: false
-    }
+      checked: false,
+    },
   ];
 
   test('toggleDropdown', () => {
@@ -62,9 +62,9 @@ describe('useMultiSelect', () => {
       target: {
         tagName: 'INPUT',
         id: 'second-option-2',
-        checked: true
-      }
-    };
+        checked: true,
+      },
+    } as React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>;
 
     act(() => result.current.handleInputChange(event));
     expect(result.current.checkedItems['first-option-1']).toBeFalsy();
@@ -80,12 +80,12 @@ describe('useMultiSelect', () => {
         children: [
           {
             id: 'second-option-2',
-            checked: false
-          }
-        ]
+            checked: false,
+          },
+        ],
       },
-      preventDefault: () => {}
-    };
+      preventDefault: () => {},
+    } as unknown as React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>;
 
     act(() => result.current.handleInputChange(event));
     expect(result.current.checkedItems['first-option-1']).toBeFalsy();
