@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MultiSelectBadge from './MultiSelectBadge';
 
@@ -33,19 +32,21 @@ const MultiSelectButton = styled('button')`
   }
 `;
 
-const MultiSelectDropdown = ({ text, toggleDropdown, quantity, isOpened }) => (
+interface MultiSelectDropdownProps {
+  text: string;
+  toggleDropdown: () => void;
+  quantity: number;
+  isOpened: boolean;
+}
+
+const MultiSelectDropdown: React.FC<MultiSelectDropdownProps> = ({ text, toggleDropdown, quantity, isOpened }) => (
   <MultiSelectButton
     className={isOpened ? 'multiselect-button-dropdown is-opened' : 'multiselect-button-dropdown'}
     onClick={toggleDropdown}
     aria-haspopup="true"
   >
-    <MultiSelectBadge className="multiselect-badge" text={text} quantity={quantity} />
+    <MultiSelectBadge text={text} quantity={quantity} />
   </MultiSelectButton>
 );
-
-MultiSelectDropdown.propTypes = {
-  toggleDropdown: PropTypes.func.isRequired,
-  quantity: PropTypes.number.isRequired
-};
 
 export default MultiSelectDropdown;

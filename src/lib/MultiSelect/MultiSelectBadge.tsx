@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // TODO: theming for colors
@@ -15,15 +14,14 @@ const Badge = styled('span')`
   border-radius: 50%;
 `;
 
-const MultiSelectBadge = ({ text, quantity }) => (
+interface MultiSelectBadgeProps {
+  text: string;
+  quantity: number;
+}
+
+const MultiSelectBadge: React.FC<MultiSelectBadgeProps> = ({ text, quantity }) => (
   <>
     {text} <Badge className="multiselect-badge">{quantity}</Badge>
   </>
 );
-
-MultiSelectBadge.propTypes = {
-  text: PropTypes.string.isRequired,
-  quantity: PropTypes.number.isRequired
-};
-
 export default MultiSelectBadge;

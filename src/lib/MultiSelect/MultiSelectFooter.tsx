@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { buttonCSS } from './MultiSelect.styles';
 
@@ -14,17 +13,20 @@ const MultiSelectApplyButton = styled('button')`
   ${buttonCSS}
 `;
 
-const MultiSelectFooter = ({ applyButtonText = 'Apply', handleApplyClick }) => (
+interface MultiSelectFooterProps {
+  handleApplyClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  applyButtonText?: string;
+}
+
+const MultiSelectFooter: React.FC<MultiSelectFooterProps> = ({ applyButtonText = 'Apply', handleApplyClick }) => (
   <MultiSelectListFooter>
-    <MultiSelectApplyButton className="multiselect-apply-button" onClick={handleApplyClick}>
+    <MultiSelectApplyButton
+      className="multiselect-apply-button"
+      {...(handleApplyClick && { onClick: handleApplyClick })}
+    >
       {applyButtonText}
     </MultiSelectApplyButton>
   </MultiSelectListFooter>
 );
-
-MultiSelectFooter.propTypes = {
-  applyButtonText: PropTypes.string,
-  handleApplyClick: PropTypes.func
-};
 
 export default MultiSelectFooter;

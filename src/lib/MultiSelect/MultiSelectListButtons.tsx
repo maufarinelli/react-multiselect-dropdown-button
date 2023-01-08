@@ -1,8 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { MultiSelectAllButton, MultiSelectResetButton, MultiSelectListButtonsWrapper } from './MultiSelect.styles';
 
-const MultiSelectListButtons = ({ selectAll, selectAllButtonText, resetSelections, resetButtonText }) => (
+interface MultiSelectListButtonsProps {
+  selectAll: () => void;
+  selectAllButtonText?: string;
+  resetSelections: () => void;
+  resetButtonText?: string;
+}
+
+const MultiSelectListButtons: React.FC<MultiSelectListButtonsProps> = ({
+  selectAll,
+  selectAllButtonText = 'Select All',
+  resetSelections,
+  resetButtonText = 'Reset',
+}) => (
   <MultiSelectListButtonsWrapper>
     <MultiSelectAllButton className="multiselect-button-select-all" onClick={selectAll}>
       {selectAllButtonText}
@@ -12,17 +23,5 @@ const MultiSelectListButtons = ({ selectAll, selectAllButtonText, resetSelection
     </MultiSelectResetButton>
   </MultiSelectListButtonsWrapper>
 );
-
-MultiSelectListButtons.propTypes = {
-  selectAll: PropTypes.func.isRequired,
-  resetSelections: PropTypes.func.isRequired,
-  selectAllButtonText: PropTypes.string,
-  resetButtonText: PropTypes.string
-};
-
-MultiSelectListButtons.defaultProps = {
-  selectAllButtonText: 'Select All',
-  resetButtonText: 'Reset'
-};
 
 export default MultiSelectListButtons;

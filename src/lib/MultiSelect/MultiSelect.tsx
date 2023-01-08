@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useRef } from 'react';
 import { MultiSelectWrapper, MultiSelectListWrapper, MultiSelectList } from './MultiSelect.styles';
 import MultiSelectDropdown from './MultiSelectDropdown';
 import MultiSelectListButtons from './MultiSelectListButtons';
 import MultiSelectListItem from './MultiSelectListItem';
 import MultiSelectFooter from './MultiSelectFooter';
 import useMultiSelect from './useMultiSelect';
+import { MultiSelectProps } from '../../../types';
 
-const MultiSelect = ({
+const MultiSelect: React.FC<MultiSelectProps> = ({
   list,
   dropdownButtonText,
   isRightAligned,
@@ -15,57 +15,52 @@ const MultiSelect = ({
   onOptionChanged,
   onSelectionApplied,
   resetButtonText,
-  applyButtonText
+  applyButtonText,
 }) => {
-  const {
-    isDropdownOpened,
-    checkedItems,
-    toggleDropdown,
-    selectAll,
-    resetSelections,
-    handleInputChange
-  } = useMultiSelect({ list });
-  const listItems = [];
+  const { isDropdownOpened, checkedItems, toggleDropdown, selectAll, resetSelections, handleInputChange } =
+    useMultiSelect({ list });
+  const listItems: React.MutableRefObject<Array<HTMLLabelElement | undefined>> = useRef([]);
   const keyEvents = {
     up: () => {
-      const activeElementIndex = listItems.findIndex(item => {
+      const activeElementIndex = listItems.current.findIndex((item) => {
         return item === document.activeElement;
       });
-      listItems[activeElementIndex - 1] && listItems[activeElementIndex - 1].focus();
+      listItems.current[activeElementIndex - 1]?.focus();
     },
     down: () => {
-      const activeElementIndex = listItems.findIndex(item => {
+      const activeElementIndex = listItems.current.findIndex((item) => {
         return item === document.activeElement;
       });
-      listItems[activeElementIndex + 1] && listItems[activeElementIndex + 1].focus();
+      listItems.current[activeElementIndex + 1]?.focus();
     },
     home: () => {
-      listItems[0].focus();
+      listItems.current[0]?.focus();
     },
     end: () => {
-      listItems[listItems.length - 1].focus();
-    }
+      listItems.current[listItems.current.length - 1]?.focus();
+    },
   };
-  const checkedItemsQuantity = Object.keys(checkedItems).filter(itemName => checkedItems[itemName]).length;
+  const checkedItemsQuantity = Object.keys(checkedItems).filter((itemName) => checkedItems[itemName]).length;
 
   useEffect(() => {
     if (isDropdownOpened) {
-      listItems[0].focus();
+      listItems.current[0]?.focus();
     }
   }, [isDropdownOpened]);
 
   useEffect(() => {
     onOptionChanged && onOptionChanged(checkedItems);
-  }, [checkedItems]);
+  }, [onOptionChanged, checkedItems]);
 
   const handleApplyClick = () => {
-    onSelectionApplied(checkedItems);
+    if (onSelectionApplied) {
+      onSelectionApplied(checkedItems);
+    }
   };
 
   return (
     <MultiSelectWrapper className="multiselect-button-dropdown-wrapper">
       <MultiSelectDropdown
-        className="multiselect-button-dropdown"
         text={dropdownButtonText}
         quantity={checkedItemsQuantity}
         toggleDropdown={toggleDropdown}
@@ -93,15 +88,14 @@ const MultiSelect = ({
 
               return (
                 <MultiSelectListItem
-                  className="multiselect-list-item"
                   label={label}
                   key={key}
                   id={id}
                   name={name}
                   handleInputChange={handleInputChange}
                   checked={checked}
-                  ref={el => {
-                    listItems[index] = el;
+                  ref={(el: HTMLLabelElement) => {
+                    listItems.current[index] = el;
                     return el;
                   }}
                 />
@@ -115,24 +109,6 @@ const MultiSelect = ({
       )}
     </MultiSelectWrapper>
   );
-};
-
-MultiSelect.propTypes = {
-  list: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string,
-      checked: PropTypes.bool.isRequired
-    })
-  ).isRequired,
-  dropdownButtonText: PropTypes.string.isRequired,
-  isRightAligned: PropTypes.bool,
-  selectAllButtonText: PropTypes.string,
-  onOptionChanged: PropTypes.func,
-  onSelectionApplied: PropTypes.func,
-  resetButtonText: PropTypes.string,
-  applyButtonText: PropTypes.string
 };
 
 export default MultiSelect;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const MultiSelectListItemLi = styled('li')`
@@ -39,7 +38,15 @@ const MultiSelectLisItemLabel = styled('label')`
   }
 `;
 
-const MultiSelectListItem = React.forwardRef((props, ref) => {
+interface MultiSelectListItemProps {
+  label: string;
+  id: string | number;
+  handleInputChange: (event: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>) => void;
+  checked: boolean;
+  name?: string;
+}
+
+const MultiSelectListItem = React.forwardRef<HTMLLabelElement, MultiSelectListItemProps>((props, ref) => {
   const { label, name, id, handleInputChange, checked } = props;
 
   return (
@@ -47,8 +54,8 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
       <MultiSelectLisItemLabel
         role="checkbox"
         aria-checked={checked}
-        tabIndex="0"
-        htmlFor={id}
+        tabIndex={0}
+        htmlFor={id?.toString()}
         onKeyPress={handleInputChange}
         ref={ref}
         className={checked ? 'multiselect-list-item-label is-checked' : 'multiselect-list-item-label'}
@@ -58,7 +65,7 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
           className="multiselect-list-item-checkbox"
           type="checkbox"
           name={name}
-          id={id}
+          id={id?.toString()}
           onChange={handleInputChange}
           checked={checked}
         />
@@ -66,13 +73,5 @@ const MultiSelectListItem = React.forwardRef((props, ref) => {
     </MultiSelectListItemLi>
   );
 });
-
-MultiSelectListItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  handleInputChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired
-};
 
 export default MultiSelectListItem;

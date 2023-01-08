@@ -6,7 +6,7 @@ process.env.NODE_ENV = 'production';
 
 module.exports = {
     mode: 'production',
-    entry: './src/lib/index.js',
+    entry: './src/lib/index.ts',
     output: {
         path: paths.appBuild,
         filename: 'index.js',
@@ -17,7 +17,7 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
+            test: /\.(ts|tsx|js|jsx)$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
@@ -33,7 +33,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
             'react': path.resolve(__dirname, './node_modules/react'),
             'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
@@ -62,5 +62,5 @@ module.exports = {
             amd: "styled-components",
             root: "styled-components"
         }
-    }
+    },
 };

@@ -6,9 +6,9 @@ export const MultiSelectWrapper = styled('div')`
   display: inline-block;
 `;
 
-export const MultiSelectListWrapper = styled('div')`
+export const MultiSelectListWrapper = styled('div')<{ isRightAligned?: boolean }>`
   position: absolute;
-  right: ${props => (props.isRightAligned ? '0' : 'auto')};
+  right: ${(props) => (props.isRightAligned ? '0' : 'auto')};
   min-width: 140px;
   padding: 1.25rem; /* 20px if base font-size is 16px */
   border: 1px #000 solid;
@@ -19,8 +19,8 @@ const selectAllButtonHeight = '3.125rem'; /* 50px if base font-size is 16px */
 const paddingList = '2.625rem'; /* 42px if base font-size is 16px */
 const footerHeight = '3.75rem'; /* 60px if base font-size is 16px */
 
-export const MultiSelectList = styled(ListboxKeyNav)`
-  max-height: ${props =>
+export const MultiSelectList = styled(ListboxKeyNav)<{ hasFooter: boolean }>`
+  max-height: ${(props) =>
     `calc(100vh - ${buttonHeight} - ${paddingList} - ${selectAllButtonHeight} - ${
       props.hasFooter ? footerHeight : '0px'
     })`};

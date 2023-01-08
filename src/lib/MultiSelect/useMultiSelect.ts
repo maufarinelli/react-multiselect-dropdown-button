@@ -1,10 +1,24 @@
 import { useState } from 'react';
+import { CheckedItems, List } from '../../../types';
 
-const useMultiSelect = ({ list }) => {
+interface UseMultiSelectProps {
+  list: List[];
+}
+
+interface UseMultiSelectState {
+  isDropdownOpened: boolean;
+  checkedItems: CheckedItems;
+  toggleDropdown: () => void;
+  selectAll: () => void;
+  resetSelections: () => void;
+  handleInputChange: (event: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const useMultiSelect = ({ list }: UseMultiSelectProps): UseMultiSelectState => {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false);
 
   const [checkedItems, setCheckedItems] = useState(
-    list.reduce((acc, listItem) => {
+    list.reduce((acc: CheckedItems, listItem) => {
       acc[listItem.id] = listItem.checked;
       return acc;
     }, {})
@@ -16,7 +30,7 @@ const useMultiSelect = ({ list }) => {
 
   const selectAll = () => {
     setCheckedItems(
-      Object.keys(checkedItems).reduce((acc, listItemId) => {
+      Object.keys(checkedItems).reduce((acc: CheckedItems, listItemId) => {
         acc[listItemId] = true;
         return acc;
       }, {})
@@ -25,16 +39,17 @@ const useMultiSelect = ({ list }) => {
 
   const resetSelections = () => {
     setCheckedItems(
-      Object.keys(checkedItems).reduce((acc, listItemName) => {
+      Object.keys(checkedItems).reduce((acc: CheckedItems, listItemName) => {
         acc[listItemName] = false;
         return acc;
       }, {})
     );
   };
 
-  const handleInputChange = event => {
-    const tag = event.target.tagName;
-    const target = tag === 'LABEL' ? event.target.children[0] : event.target;
+  const handleInputChange = (event: React.KeyboardEvent<HTMLLabelElement> | React.ChangeEvent<HTMLInputElement>) => {
+    const eventTarget = event.target as HTMLElement;
+    const tag = eventTarget.tagName;
+    const target = (tag === 'LABEL' ? eventTarget.children[0] : event.target) as HTMLInputElement;
     // If user used the keyboard to select the label, we need to programatically check the checkbox child.
     // Also needed to work with screen readers
     if (tag === 'LABEL') {
@@ -53,7 +68,7 @@ const useMultiSelect = ({ list }) => {
     toggleDropdown,
     selectAll,
     resetSelections,
-    handleInputChange
+    handleInputChange,
   };
 };
 

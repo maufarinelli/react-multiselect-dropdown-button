@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MultiSelect /> should match snapshot - dropdown closed: dropdown closed 1`] = `
+<div
+  className="sc-bcXHqe bHDyYL multiselect-button-dropdown-wrapper"
+>
+  <button
+    aria-haspopup="true"
+    className="sc-iBYQkv kMZPkI multiselect-button-dropdown"
+    onClick={[Function]}
+  >
+    Selected
+     
+    <span
+      className="sc-gKPRtg giSAku multiselect-badge"
+    >
+      0
+    </span>
+  </button>
+</div>
+`;
+
+exports[`<MultiSelect /> should match snapshot - dropdown opened: dropdown opened 1`] = `
+<div
+  className="sc-bcXHqe bHDyYL multiselect-button-dropdown-wrapper"
+>
+  <button
+    aria-haspopup="true"
+    className="sc-iBYQkv kMZPkI multiselect-button-dropdown is-opened"
+    onClick={[Function]}
+  >
+    Selected
+     
+    <span
+      className="sc-gKPRtg giSAku multiselect-badge"
+    >
+      0
+    </span>
+  </button>
+  <div
+    className="sc-gswNZR knWTbq multiselect-section-wrapper"
+  >
+    <div
+      className="sc-jSUZER cZFivt"
+    >
+      <button
+        className="sc-hLBbgP gNDTIg multiselect-button-select-all"
+        onClick={[Function]}
+      >
+        Select All
+      </button>
+      <button
+        className="sc-eDvSVe rLMxZ multiselect-reset-button"
+        onClick={[Function]}
+      >
+        Reset
+      </button>
+    </div>
+    <ul
+      className="sc-dkrFOg kFcxkP multiselect-list"
+      onKeyDown={[Function]}
+    >
+      <li
+        className="sc-ftTHYK clYpuu multiselect-list-item"
+        role="option"
+      >
+        <label
+          aria-checked={false}
+          className="sc-jrcTuL cxAKnR multiselect-list-item-label"
+          htmlFor="first-option-1"
+          onKeyPress={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          First option
+          <input
+            checked={false}
+            className="sc-pyfCe hMyIYu multiselect-list-item-checkbox"
+            id="first-option-1"
+            name="first-option"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </label>
+      </li>
+      <li
+        className="sc-ftTHYK clYpuu multiselect-list-item"
+        role="option"
+      >
+        <label
+          aria-checked={false}
+          className="sc-jrcTuL cxAKnR multiselect-list-item-label"
+          htmlFor="second-option-2"
+          onKeyPress={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          Second option
+          <input
+            checked={false}
+            className="sc-pyfCe hMyIYu multiselect-list-item-checkbox"
+            id="second-option-2"
+            name="second-option"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </label>
+      </li>
+      <li
+        className="sc-ftTHYK clYpuu multiselect-list-item"
+        role="option"
+      >
+        <label
+          aria-checked={false}
+          className="sc-jrcTuL cxAKnR multiselect-list-item-label"
+          htmlFor="third-option-3"
+          onKeyPress={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          Third option
+          <input
+            checked={false}
+            className="sc-pyfCe hMyIYu multiselect-list-item-checkbox"
+            id="third-option-3"
+            name="third-option"
+            onChange={[Function]}
+            type="checkbox"
+          />
+        </label>
+      </li>
+    </ul>
+    <div
+      className="sc-kDvujY ewaAmn"
+    >
+      <button
+        className="sc-ipEyDJ dNOPPb multiselect-apply-button"
+        onClick={[Function]}
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+</div>
+`;
