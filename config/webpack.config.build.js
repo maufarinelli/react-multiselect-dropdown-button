@@ -1,7 +1,6 @@
 const path = require("path");
 const paths = require('./paths');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
 
 process.env.NODE_ENV = 'production';
 
@@ -64,11 +63,4 @@ module.exports = {
             root: "styled-components"
         }
     },
-    plugins: [
-        new CopyPlugin({
-            patterns: [
-              { from: "./src/lib/index.d.ts", to: "./index.d.ts" },
-            ],
-        }),
-    ],
 };
