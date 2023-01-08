@@ -345,4 +345,43 @@ describe('<MultiSelect />', () => {
       'third-option-3': true,
     });
   });
+
+  test('should close dropdown on apply', () => {
+    const spyApply = jest.spyOn(multiSelectProps, 'onSelectionApplied');
+    act(() => {
+      ReactDOM.createRoot(container).render(<MultiSelect {...multiSelectProps} closeDropdownOnApply />);
+    });
+
+    const buttonDropdown = container.querySelector('button.multiselect-button-dropdown');
+    if (!buttonDropdown) {
+      throw new Error('No buttonDropdown found');
+    }
+
+    expect(container.querySelector('multiselect-section-wrapper')).toBeDefined();
+
+    act(() => {
+      buttonDropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    const firstOptionLabel = container.querySelectorAll('label.multiselect-list-item-label')[0];
+    act(() => {
+      firstOptionLabel.dispatchEvent(new MouseEvent('click'));
+    });
+
+    const applyButton = container.querySelector('button.multiselect-apply-button');
+    if (!applyButton) {
+      throw new Error('No applyButton found');
+    }
+    act(() => {
+      applyButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
+
+    expect(spyApply).toHaveBeenCalledWith({
+      'first-option-1': true,
+      'second-option-2': false,
+      'third-option-3': false,
+    });
+
+    expect(container.querySelector('multiselect-section-wrapper')).toBeNull();
+  });
 });

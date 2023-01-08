@@ -82,7 +82,6 @@ class App extends Component {
           checked: false,
         },
       ],
-      closeDropdownOnApply: true,
     };
 
     return (
@@ -93,7 +92,7 @@ class App extends Component {
           textAlign: 'center',
         }}
       >
-        <MultiSelect {...multiSelectProps} />
+        <MultiSelect {...multiSelectProps} closeDropdownOnApply />
 
         <MultiSelect
           list={[
