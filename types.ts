@@ -18,4 +18,5 @@ export interface MultiSelectProps {
   selectAllButtonText?: string;
   resetButtonText?: string;
   applyButtonText?: string;
+  closeDropdownOnApply?: boolean;
 }

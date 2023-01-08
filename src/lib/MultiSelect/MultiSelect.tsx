@@ -16,6 +16,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
   onSelectionApplied,
   resetButtonText,
   applyButtonText,
+  closeDropdownOnApply,
 }) => {
   const { isDropdownOpened, checkedItems, toggleDropdown, selectAll, resetSelections, handleInputChange } =
     useMultiSelect({ list });
@@ -55,6 +56,10 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
   const handleApplyClick = () => {
     if (onSelectionApplied) {
       onSelectionApplied(checkedItems);
+
+      if (closeDropdownOnApply) {
+        toggleDropdown();
+      }
     }
   };
 

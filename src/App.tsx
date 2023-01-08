@@ -82,6 +82,7 @@ class App extends Component {
           checked: false,
         },
       ],
+      closeDropdownOnApply: true,
     };
 
     return (
