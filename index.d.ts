@@ -21,6 +21,7 @@ declare module 'react-multiselect-button-dropdown' {
     selectAllButtonText?: string;
     resetButtonText?: string;
     applyButtonText?: string;
+    closeDropdownOnApply?: boolean;
   }
 
   export default class MultiSelect extends Component<MultiSelectProps, {}> {}

@@ -2,6 +2,8 @@
 
 A Dropdown Button which toggle a Multiselect List. React component accessible (A11y).
 
+Finally, **Typescript** compatible
+
 - Easy use with keyboard navigation (Tab, selection with Space, Arrows Up, Down, Home and End for the list) following A11y guide of https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role
 - Callback function provided, to give selected items applied
 - Can be used multilanguage, as it receives text by props
@@ -69,6 +71,10 @@ and import in your app
   The text to the apply button
   default: "Apply"
 
+- **closeDropdownOnApply:** `boolean` (optional)
+
+Used in order to close the dropdown when user click on Apply button
+
 ## Example
 
 ```
@@ -99,6 +105,7 @@ const props = {
     dropdownButtonText: 'Selected',
     resetButtonText: 'Reset',
     applyButtonText: 'Apply'
+    closeDropdownOnApply: true
 };
 
 <MultiSelect {...props} />

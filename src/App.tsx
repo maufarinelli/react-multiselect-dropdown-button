@@ -92,7 +92,7 @@ class App extends Component {
           textAlign: 'center',
         }}
       >
-        <MultiSelect {...multiSelectProps} />
+        <MultiSelect {...multiSelectProps} closeDropdownOnApply />
 
         <MultiSelect
           list={[

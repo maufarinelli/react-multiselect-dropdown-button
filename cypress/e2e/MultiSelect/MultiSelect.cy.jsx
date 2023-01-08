@@ -121,4 +121,27 @@ describe('MultiSelect tests', () => {
 
     cy.focused().should('have.attr', 'for', 'third-option-3');
   });
+
+  it('Close Dropdown on apply', () => {
+    cy.get('.multiselect-button-dropdown')
+      .first()
+      .click();
+
+    cy.get('.multiselect-section-wrapper')
+      .get('.multiselect-list-item-label')
+      .last()
+      .click();
+
+    // Assertion
+    cy.get('.multiselect-list-item-checkbox')
+      .last()
+      .should('be.checked');
+
+    cy.get('.multiselect-apply-button')
+      .first()
+      .click();
+
+     // Assertion
+     cy.get('.multiselect-button-dropdown').should('not.have.class', 'is-opened');
+  });
 });
